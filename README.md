@@ -12,6 +12,7 @@ Jedes Thema ca. 1 Stunden
 * Options
 * Exception Handling
 * Functions, Higher Order Functions, Partial Functions und Currying.
+ - https://twitter.github.io/scala_school/pattern-matching-and-functional-composition.html
 
 #### Prefix für Themen
 a_
@@ -36,3 +37,11 @@ b_
 * scalatest
 * IDEA
 * SBT
+
+#### Resourcen
+* Scala levels: beginner to expert, application programmer to library designer
+ - http://www.scala-lang.org/old/node/8610
+* Twitter Scala School
+ - https://twitter.github.io/scala_school/
+* Twitter Effective Scala
+ - http://twitter.github.io/effectivescala/
