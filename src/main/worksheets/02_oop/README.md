@@ -13,10 +13,14 @@ overriding methods???
 * singletons
  - methods + method invocations
  - companion object
+ - factory objects
  
 * case classes
+ - implicit companion object
  - pattern matching
  - json
+ - implicit parameters
+ - implicit conversions
  
 * traits and mixins
  - simple trait
