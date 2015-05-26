@@ -72,10 +72,10 @@ class TolerantLunchDecision(choice1: String = "Pasta", choice2: String = "Pizza"
 val tolerantLunchDecision = new TolerantLunchDecision(choice2 = "Burger")
 tolerantLunchDecision.decide()
 
-// TODO: getters and setters
+// TODO: getters and setters, visibility, var, val in constructor parameters + visibility
 
 /*
- * Invariants
+ * Constructor with constraints
  */
 class NoPastaLunchDecision(choices: Seq[String]) {
   if (choices.contains("Pasta"))

@@ -3,7 +3,7 @@
  - fields
  - methods
  - constructor with parameters
- - check invariants in constructor
+ - check constraints in constructor
  - additional constructors
  - named parameters and default values
  - getters/setters
@@ -28,4 +28,7 @@ overriding methods???
  - sealed trait
  - pattern matching
  
-* Bonus: package object
+* Bonus
+ - package object
+ - Type Hierarchy
+ - Predef
