@@ -1,7 +1,7 @@
 Type less do more!
 
 #### Topics
-* 01_oo Class definitions
+* 01_classes_constructors_fields_methods.sc
  - classes
  - fields
  - methods
@@ -12,13 +12,12 @@ Type less do more!
  - private fields, getters, setters vs. val/var someSetter_=
  - check constraints in constructor
  
- 
  - inheritance
  - overriding a method
  - abstract
  - final
  
- - private[this]
+ - visibility (private[this])
  
 * singletons
  - methods + method invocations
