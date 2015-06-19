@@ -3,6 +3,7 @@ https://github.com/cryptoki/scala
 #### Themen
 Jedes Thema ca. 1 Stunden
 
+* Modus erklären -> Worksheets, Tests, Worksheets gibt es später auch noch von uns
 * Warmup - Ja / Nein - Max. 30min
   - Collection aufgreifen und dann Überleitung zu Rekursion -> tailrec
 * Rekursion
@@ -13,6 +14,8 @@ Jedes Thema ca. 1 Stunden
 * Exception Handling
 * Functions, Higher Order Functions, Partial Functions und Currying.
  - https://twitter.github.io/scala_school/pattern-matching-and-functional-composition.html
+ 
+* Feedback einsammeln?
 
 #### Prefix für Themen
 a_
