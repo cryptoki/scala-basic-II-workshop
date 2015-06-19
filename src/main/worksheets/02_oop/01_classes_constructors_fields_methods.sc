@@ -15,7 +15,7 @@ class LunchDecision {
   // syntactic sugar: remove curly braces
   def decide1(): String = choices(Random.nextInt(choices.size))
 
-  // This does not work. Without braces first expression determines return value
+  // Does not work. Without braces first expression determines return value
   //  def decide1(): String =
   //    println("Get ready for lunch")
   //    choices(Random.nextInt(choices.size))
@@ -91,13 +91,13 @@ class Reservation(budget: Int, val restaurant: String, var howMany: Int) {
 
 val lunchReservation = new Reservation(250, "Il Ritrovo", 12)
 
-// This does not work. Without val or var we just define a parameter
-// fuchs.param
+// Does not work. Without val or var we just define a parameter
+// lunchReservation.param
 lunchReservation.getBudget
 
 lunchReservation.restaurant
-// This does not work. With val no setter is generated
-// fuchs.readableField = "murks"
+// Does not work. With val no setter is generated
+// lunchReservation.readableField = "murks"
 
 // when parameter is declared as a val, the compiler generates a private field corresponding to each parameter (a different internal name is used), along with a public reader method that has the same name as the parameter.
 // if a parameter has the var keyword, a public writer method is also generated with the parameter’s name as a prefix, followed by _= .

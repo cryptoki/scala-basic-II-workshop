@@ -46,5 +46,7 @@ b_
  - http://www.scala-lang.org/old/node/8610
 * Twitter Scala School
  - https://twitter.github.io/scala_school/
-* Twitter Effective Scala
+* Twitter Effective Scala (Idiomatic Scala) 
  - http://twitter.github.io/effectivescala/
+* Idiomatic Scala Question on Stackoverflow
+ - http://stackoverflow.com/questions/11359784/good-examples-of-idiomatic-scala-code

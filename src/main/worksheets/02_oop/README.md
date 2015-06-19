@@ -11,13 +11,14 @@ Type less do more!
  - named parameters and default values
  - private fields, getters, setters vs. val/var someSetter_=
  - check constraints in constructor
- 
+
+* 02_inheritance.sc 
  - inheritance
  - overriding a method
  - abstract
  - final
  
- - visibility (private[this])
+  - visibility (private[this])
  
 * singletons
  - methods + method invocations
