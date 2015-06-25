@@ -1,6 +1,4 @@
 
-
-
 //val fibs: Stream[BigInt] =
 //  BigInt(0) #:: BigInt(1) #:: BigInt(2) #:: fibs
 
