@@ -37,7 +37,8 @@ b_
 #### Fragen
 * Tooling - Gehört das / macht das Part I?
 * REPL, SBT -> macht das Part I?
-* scalatest
+* scalatest  ->  http://scalatest.org/user_guide/selecting_a_style
+  * Könnte man überlegen, etwas Varianz in die Tests zu bringen. Ist aber nicht Inhalt des Kurses
 * IDEA
 * SBT
 
