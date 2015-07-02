@@ -6,4 +6,4 @@
  * stream.map(x -> x*2)
  */
 val simpleStream: Stream[Int] = 1 #:: simpleStream.map(x => x*2)
-simpleStream take 10 foreach println
+//simpleStream take 10 foreach println
