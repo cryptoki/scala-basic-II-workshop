@@ -28,3 +28,15 @@ factorial(4)
 // = 2
 // = 6
 // = 24
+
+
+
+def problem(n: Long): Long = {
+  if (n == 0)
+    1
+  else
+    n + problem(n - 1)
+}
+problem(3000)
+// StackOverflow
+problem(30000)
