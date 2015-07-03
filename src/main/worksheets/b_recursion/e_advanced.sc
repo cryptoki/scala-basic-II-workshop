@@ -15,8 +15,8 @@ simpleList.toStream take 30 foreach print
 
 
 // you can also define a stream definition
-val stream: Stream[Int] = 1 #:: stream.map(_+1)
-stream take 10 foreach print
+val stream: Stream[Int] = 1 #:: stream.map((x: Int) => x+1)
+stream.take(10).foreach( x => print(x))
 stream take 30 foreach print
 
 //val fibs: Stream[BigInt] =
@@ -37,7 +37,7 @@ val bla : Stream[Int]=
     println(x)
     x._1 + x._2
   })
-
+bla take 10 foreach println
 
 bla take 100 foreach println
 val fibs: Stream[Long] = 1 #:: 2 #:: fibs.zip(fibs.tail).map(x => x._1 + x._2)
