@@ -1,42 +1,19 @@
+// The imperative way - Old school
+
+val listOfNumbers = Range(1, 15, 3)
+
+// a little bit sugar
+1 to 15 by 3 // is the same!
+// to -> RichInt (see the bridge section
+// by -> Range .. it's only a method
+
+
 /**
- * Fakultät
- * das Produkt aus allen vorkommenden natürlichen Zahlen, von eins beginnend,
- * bis zu einer angegebenen Zahl.
- *
- * Vier Fakultät oder 4! = Ist das Produkt aus 1, 2, 3 und 4, also 24.
- * @param n
- * @return
+ * Simple example
+ * summarize the values in the list
  */
-def factorial(n: Int): Int = {
-  if (n == 0)
-    1
-  else
-    n * factorial(n - 1)
-}
-factorial(4)
-// In IDEA wird eine Rekursion durch das Spiegelverkehrte Symbol @ dargestellt.
-// -> Im Worksheet gut links neben dem 'def' zu erkennen.
+var result = 0
+for (i <- listOfNumbers)
+  result += i
 
-// 4 * factorial(3)
-// 3 * factorial(2)
-// 2 * factorial(1)
-// 1 * factorial(0)
-// 1
-
-// = 1
-// = 1
-// = 2
-// = 6
-// = 24
-
-
-
-def problem(n: Long): Long = {
-  if (n == 0)
-    1
-  else
-    n + problem(n - 1)
-}
-problem(3000)
-// StackOverflow
-problem(30000)
+result

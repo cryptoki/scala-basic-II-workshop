@@ -1,5 +1,9 @@
 https://github.com/cryptoki/scala
 
+#### Arbeitsstand
+##### Recursion
+* a_
+
 #### Themen
 Jedes Thema ca. 1 Stunden
 
