@@ -15,6 +15,7 @@ Jedes Thema ca. 1 Stunden
 * OO Scala Grundlagen
   - me
 * Options
+  - sth
 * Exception Handling
 * Functions, Higher Order Functions, Partial Functions und Currying.
  - https://twitter.github.io/scala_school/pattern-matching-and-functional-composition.html
