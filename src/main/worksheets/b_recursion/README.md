@@ -36,3 +36,8 @@ def factorial(n: Int): Int {
 # Theorie
 (Bedarf der Aufbereitung, was davon genutzt wird und was nicht)
 
+
+
+
+http://daily-scala.blogspot.de/2010/01/streams-2-stream-construction.html
+git clone https://github.com/fpinscala/fpinscala.git
