@@ -20,6 +20,42 @@ val conX = 1 +: x
 val y = 1
 val conY = x.+:(1)
 
+/**
+ * Infinity stream definition
+ */
+lazy val stream: Stream[Int] = 1 #:: stream.map((x: Int) => x+1)
+// it's the same
+val firstValue: Int = 1
+lazy val streamWithOutSugar: Stream[Int] = streamWithOutSugar.map(x => x+1).#::(firstValue)
+streamWithOutSugar take 4 foreach print
+// it's the same
+def streamAsFunction: Stream[Int] = 1 #:: streamAsFunction.map((x: Int) => x+1)
+streamAsFunction take 4 foreach print
+
+/**
+ * every definition means the same. the values will be evaluate if it's needed
+ * 1. - take the first = 1
+ * 2. - #:: = cons => def apply[A](hd: A, tl: => Stream[A]) = new Cons(hd, tl)
+ *      the tail will be evaluate if it's needed, so make recursive call and add one
+ * 3. - same step 2, existing evaluated values will not reevaluate - add one = 3
+ * 4. - same step 3
+ */
+
+/**
+ * The critical distinction which allows infinite lists to be infinite is the fact
+ * that this tail is lazily evaluated.  That means that the tail as a value is not
+ * available until you ask for it.
+ *
+ * One very important property of from which should immediately jump out at you is
+ * the fact that it is infinitely recursive.  It takes a number, invokes this
+ * mysterious :: operator on that value and then recursively calls back to itself.
+ * There is no conditional guard, no base case, just an endless series of calls.
+ * Intuitively, this should lead to non-termination at runtime…except that it doesn’t.
+ * Remember what I said about the lazily-evaluated tail? This is where that idea really
+ * begins to take effect. The from function is not infinitely recursive; at least, not right away.
+ */
+def blafooBlub: Stream[Int] = 8 #:: blafooBlub.map(x => 1)
+blafooBlub take 4 foreach(print)
 
 def numsFrom (n :Int): Stream[Int] = Stream.cons(n,numsFrom(n+1))
 //lazy val N = numsFrom(0)
