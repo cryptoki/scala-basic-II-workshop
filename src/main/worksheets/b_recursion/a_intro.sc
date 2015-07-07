@@ -1,5 +1,8 @@
-// The imperative way - Old school
+/**
+ * Let's start with a simple example
+ */
 
+// The imperative way - Old school
 val listOfNumbers = Range(1, 15, 3)
 
 // a little bit sugar
@@ -9,7 +12,6 @@ val listOfNumbers = Range(1, 15, 3)
 
 
 /**
- * Simple example
  * summarize the values in the list
  */
 var result = 0
@@ -17,3 +19,5 @@ for (i <- listOfNumbers)
   result += i
 
 result
+
+// you can implement it in a recursion manner as well

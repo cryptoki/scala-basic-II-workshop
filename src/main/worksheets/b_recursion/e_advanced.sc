@@ -19,4 +19,4 @@ lazy val stream: Stream[Int] = 1 #:: stream.map((x: Int) => x+1)
 stream.take(10).foreach( x => print(x))
 stream take 30 foreach print
 
-// see whats happend in the next worksheet
+// see whats happen in the next worksheet

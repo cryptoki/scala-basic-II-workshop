@@ -17,9 +17,10 @@ def factorial(n: Int): Int = {
     n * factorial(n - 1)
 }
 factorial(4)
-// in IDEA is recursion marked be a mirror inverted @ symbol, in the worksheet
+// in IDEA recursion is marked by a mirror inverted @ symbol, in the worksheet
 // left beside the method definition.
 
+// internal progress
 // 4 * factorial(3)
 // 3 * factorial(2)
 // 2 * factorial(1)
@@ -27,9 +28,10 @@ factorial(4)
 // 1
 
 // = 1
-// = 1
-// = 2
-// = 6
+// = 1 * 1 = 1
+// = 2 * 1 = 2
+// = 3 * 2 = 6
+// = 4 * 6 = 24
 // = 24
 
 /**

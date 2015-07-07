@@ -9,6 +9,10 @@ import org.scalatest.{FlatSpec}
  *
  * By considering the terms in the Fibonacci sequence whose values do not exceed four million,
  * find the sum of the even-valued terms.
+ *
+ * TODO
+ *      def fib(a: Int, b: Int): Stream[Int] = a #:: fib(b, a + b)
+ *      def fib(a: Int, b: Int): List[Int] = a :: fib(b, a + b)
  */
 class b_Fibonacci extends FlatSpec {
   def sumEvenValuedTerms(maximum: Int) : Long = {
