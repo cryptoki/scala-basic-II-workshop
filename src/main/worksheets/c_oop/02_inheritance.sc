@@ -24,6 +24,8 @@ class DMYExtended(day: Int, month: Int, year: Int, separator: String) extends DM
   // override is mandatory when overriding concrete class
   // def format = ???
   override def format = List(day, month, year).mkString(separator)
+
+  override def toString() = super.format
 }
 
 new DMYExtended(1, 3, 2015, "/").format
@@ -33,3 +35,7 @@ final class TheEnd
 
 // Does not work.
 // class NotPossible() extends TheEnd
+
+// super constructor call only possible for primary constructor
+
+//you can’t control the superclass constructor that’s called by an auxiliary constructor in the subclass.
