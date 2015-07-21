@@ -15,7 +15,7 @@ val flatten1 = optionOption match {
   case None => None
   case Some(x) => x
 }
-val flatten2 = optionOption flatten
+val flatten2 = optionOption.flatten
 
 /* map */
 val option1 = option match {
@@ -36,87 +36,67 @@ val isDefined1 = option match {
   case None => false
   case Some(_) => true
 }
-val isDefined2 = option isDefined
-/*
-isDefined
+val isDefined2 = option.isDefined
 
-option match {
-  case None => false
-  case Some(_) => true
-}
-This code is equivalent to:
-
-  option.isDefined
-isEmpty
-
-option match {
+/* isEmpty */
+val isEmpty1 = option match {
   case None => true
   case Some(_) => false
 }
-This code is equivalent to:
+val isEmpty2 = option.isEmpty
 
-  option.isEmpty
-forall
-
-option match {
-  case None => true
-  case Some(x) => foo(x)
-}
-This code is equivalent to:
-
-  option.forall(foo(_))
-exists
-
-option match {
-  case None => false
-  case Some(x) => foo(x)
-}
-This code is equivalent to:
-
-  option.exists(foo(_))
-orElse
-
-option match {
-  case None => foo
+/* orElse */
+val orElse1 = option match {
+  case None => Some(3)
   case Some(x) => Some(x)
 }
-This code is equivalent to:
 
-  option.orElse(foo)
-getOrElse
-
-option match {
-  case None => foo
-  case Some(x) => x
-}
-This code is equivalent to:
-
-  option.getOrElse(foo)
-toList
-
-option match {
-  case None => Nil
-  case Some(x) => x :: Nil
-}
-This code is equivalent to:
-
-  option.toList
-coflatMap1
-
-option match {
-  case None => None
-  case Some(_) => Some(foo(option))
-}
-This code is equivalent to:
-
-  option.coflatMap(foo(_))
-duplicate2
-
-option match {
-  case None => None
-  case Some(_) => Some(option)
-}
-This code is equivalent to:
-
-  option.duplicate
-*/
+val orElse2 = option.orElse(Some(2))
+//
+///*
+//orElse
+//
+//option match {
+//  case None => foo
+//  case Some(x) => Some(x)
+//}
+//This code is equivalent to:
+//
+//  option.orElse(foo)
+//getOrElse
+//
+//option match {
+//  case None => foo
+//  case Some(x) => x
+//}
+//This code is equivalent to:
+//
+//  option.getOrElse(foo)
+//toList
+//
+//option match {
+//  case None => Nil
+//  case Some(x) => x :: Nil
+//}
+//This code is equivalent to:
+//
+//  option.toList
+//coflatMap1
+//
+//option match {
+//  case None => None
+//  case Some(_) => Some(foo(option))
+//}
+//This code is equivalent to:
+//
+//  option.coflatMap(foo(_))
+//duplicate2
+//
+//option match {
+//  case None => None
+//  case Some(_) => Some(option)
+//}
+//This code is equivalent to:
+//
+//  option.duplicate
+//*/
