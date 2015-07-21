@@ -52,14 +52,22 @@ val conY = x.+:(1)
  * begins to take effect. The from function is not infinitely recursive; at least, not right away.
  */
 lazy val stream: Stream[Int] = 1 #:: stream.map((x: Int) => {
-  println(s" map $x => " + (x+1l))
+  println(s" map $x + 1 = " + (x+1l))
   x+1
 })
-stream take 4 foreach print
-// it's the same
+stream take 4 foreach(x => println(s"found next: $x"))
+
+// Is it the same?
 val firstValue: Int = 1
-lazy val streamLeftAssociative: Stream[Int] = streamLeftAssociative.map(x => x+1).#::(firstValue)
-streamLeftAssociative take 4 foreach print
-// it's the same
-def streamAsFunction: Stream[Int] = 1 #:: streamAsFunction.map((x: Int) => x+1)
-streamAsFunction take 4 foreach print
+lazy val streamLeftAssociative: Stream[Int] = streamLeftAssociative.map(x => {
+//  println(s" map $x + 1 = " + (x+1l))
+  x+1
+}).#::(firstValue)
+streamLeftAssociative take 4 // foreach(x => println(s"found next: $x"))
+
+// Is it the same?
+def streamAsFunction: Stream[Int] = 1 #:: streamAsFunction.map((x: Int) => {
+//  println(s" map $x + 1 = " + (x+1l))
+  x+1
+})
+streamAsFunction take 4 // foreach(x => println(s"found next: $x"))
