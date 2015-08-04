@@ -15,7 +15,7 @@ str2.eq(str)
 l.toList
 var oneTwo = List(1,2)
 val threeFour = List(3,4)
-val oneTwoThreeFour = oneTwo ++ threeFour;
+val oneTwoThreeFour = oneTwo ++ threeFour
 oneTwo
 
 val l1 = List(1,2)
@@ -25,7 +25,7 @@ val l3 = l1 :+ 2
 val l4 = l1 ++ l2
 
 
-val oneTwoThree = 1 :: 2 :: 3 :: Nil
+val oneTwoThree1 = 1 :: 2 :: 3 :: Nil
 val oneTwoThree2 = Nil.::(3).::(2).::(1)
 
 
