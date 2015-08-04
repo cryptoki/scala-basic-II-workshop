@@ -1,11 +1,14 @@
-/**
- * Operatoren welche mit einem ':' Enden, sind die Ausdrücke von recht nach links zu lesen!
- */
+// Operators ends with ':',
+// expressions have to read from RIGHT to LEFT
 val list1 = List()
 val list2 = List()
-"a" :: "b" :: list1 // => :: case class extends List, fügt ein Element zur Liste hinzu
-"sdb" +: "c" +: list2 // => copy der Liste mit angefügten Element
+
+// operator '::' defined in List
+// use case case '::' which extends List
+// add left operand as first element to the new list and return it
+"a" :: "b" :: list1
+
+// everything is a copy
+"sdb" +: "c" +: list2
 
 // => http://www.scala-lang.org/api/2.11.5/index.html#scala.collection.immutable.List
-
-val bla = "a" :+ "b"
