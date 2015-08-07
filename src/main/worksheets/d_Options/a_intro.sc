@@ -1,17 +1,10 @@
-// Option is a ..
-// .. datatype to represent optional values
+import scala.runtime.RichInt
 
-// Some
-val some = Option.apply(2)
-// None
-val none = Option.empty
-
-// two implementations of abstract class 'Option'
-
-// 1  case class Some
-// represents existing values of type
-val some1 = Some(1234)
-
-// 2  case object None
-// represents non-existent values
-val none1 = None
+// how could you write a method which delivers
+// 3 if parameter 'isSet' is true or a Java like 'NULL'
+// if the parameter is false?
+def someMethod(isSet: Boolean): RichInt = {
+  // Anybody an idea?
+  case _ => 3
+}
+val a = someMethod(true).abs
