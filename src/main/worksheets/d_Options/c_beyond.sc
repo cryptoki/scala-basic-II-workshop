@@ -1,7 +1,3 @@
-// Options helpful to represent value that could
-// be exists or not.
-// solve the NULL check hell in Java
-
 // which data type has 'a'?
 val a= null
 

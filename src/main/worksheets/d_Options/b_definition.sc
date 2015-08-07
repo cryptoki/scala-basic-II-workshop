@@ -1,5 +1,7 @@
 // Option is a ..
 // .. datatype to represent optional values
+// .. value that could be exists or not.
+// solve the NULL check hell in Java
 
 // Some
 val some = Option.apply(2)
