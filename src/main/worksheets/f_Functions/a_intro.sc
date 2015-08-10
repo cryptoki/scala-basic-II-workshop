@@ -1,4 +1,7 @@
-import scala.annotation.tailrec
+// functions are values
+val f = (x: Int) => x * 2
+val f2 = (x: Int, y: Int) => x*y
+
 
 // it could be very useful to write a function that accepts
 // other functions as arguments, this is called
