@@ -12,9 +12,15 @@ a == b
 // there exist no instances of this type
 val c: Nothing
 
-
 // and if u see 'Nil' it is an object which extends List
 // it represents an empty list
 val l = Nil
-
 // not to confuse with null
+
+
+// Unit is a subtype of AnyVal
+// There is only one value of type Unit, (), and it is not
+// represented by any object in the underlying runtime system.
+// analogous to Java void
+val unit = ()
+val unitExample = List(2,3,4,5).copyToArray(new Array[Int](4))
