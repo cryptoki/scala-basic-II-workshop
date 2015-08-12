@@ -14,3 +14,5 @@ def findFirst[A](as: Array[A], p: A => Boolean): Int = {
       loop(n + 1)
   loop(0)
 }
+
+// Seite 24

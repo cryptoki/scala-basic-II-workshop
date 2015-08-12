@@ -1,7 +1,7 @@
 case class MyException(message: String) extends Exception(message)
 
 // macht es für Java eine Checked Exception
-@throws(classOf[MyException])
+@throws[MyException]("bla bla bla")
 def dangerousCall(test: Int): Int = {
   test match {
     case -1 => throw new Exception("do not use -1")
@@ -9,6 +9,8 @@ def dangerousCall(test: Int): Int = {
     case v => v
   }
 }
+
+dangerousCall(-1)
 
 val exceptionHandling: PartialFunction[Throwable, Int] = {
   case m: MyException => {
