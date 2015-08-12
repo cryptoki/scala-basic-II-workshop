@@ -4,7 +4,7 @@ import org.scalatest.FlatSpec
 
 import scala.annotation.tailrec
 
-class IntroWithLogging extends FlatSpec {
+class a_IntroWithLogging extends FlatSpec {
   val msg = "The %s of %d is %d."
 
   def formatResult(name: String, n: Int, f: Int => Int): String = {
