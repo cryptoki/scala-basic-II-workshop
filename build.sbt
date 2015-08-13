@@ -12,7 +12,8 @@ scalacOptions ++= Seq("-Xmax-classfile-name", "128", "-deprecation","-unchecked"
 //updateOptions := updateOptions.value.withCachedResolution(true)
 
 libraryDependencies ++= Seq(
-  "joda-time" % "joda-time" % "2.7"
+  "joda-time" % "joda-time" % "2.7",
+  "com.typesafe.play" %% "play-json" % "2.4.2"
 )
 
 libraryDependencies ++= Seq(
