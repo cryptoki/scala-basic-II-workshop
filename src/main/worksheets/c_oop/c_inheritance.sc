@@ -25,7 +25,7 @@ class DMYExtended(day: Int, month: Int, year: Int, separator: String) extends DM
   // def format = ???
   override def format = List(day, month, year).mkString(separator)
 
-  override def toString() = super.format
+  override def toString = super.format
 }
 
 new DMYExtended(1, 3, 2015, "/").format
