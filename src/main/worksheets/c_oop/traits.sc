@@ -1,4 +1,9 @@
+// traits like interfaces
+trait InterfaceLikeTrait {
+  def someAbstractMethod
+}
 
+// decorator pattern
 
 class StringThing(myString: String) {
   override def toString = myString
@@ -20,8 +25,10 @@ trait LFilter extends StringThing {
 }
 
 class SomeStringThing(s: String) extends StringThing(s: String) with LFilter with Postfix with Prefix
+
 new SomeStringThing("Hello World").toString
 new StringThing("Fool") with Prefix with Postfix with LFilter
+
 trait BracketFilter extends StringThing {
   override def toString = super.toString.filterNot {
     case '<' | '>' => true
