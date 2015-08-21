@@ -51,3 +51,7 @@ playerLevelPacman(hulk)
 
 
 // only drawback is size
+
+// case classes and pattern matching
+// sealed class: restrict inheritance to classes in the same file
+// => help compiler to detect missing combinations in pattern matching
