@@ -1,60 +1,32 @@
 import scala.util.Random
 
-
 /**
- * Class with field and methods
- */
-class LunchDecision {
-  private val choices: Seq[String] = Seq("Pizza", "Sushi", "Burger")
-
-  // last statement in a block defines the return statement
-  def decide0(): String = {
-    choices(Random.nextInt(choices.size))
-  }
-
-  // syntactic sugar: remove curly braces
-  def decide1(): String = choices(Random.nextInt(choices.size))
-
-  // Does not work. Without braces first expression determines return value
-  //  def decide1(): String =
-  //    println("Get ready for lunch")
-  //    choices(Random.nextInt(choices.size))
-
-  // Type inference: remove return type
-  def decide2() = choices(Random.nextInt(choices.size))
-}
-
-val decision = new LunchDecision()
-decision.decide0()
-decision.decide1()
-decision.decide2()
-
-/**
- * Constructor with parameter
+ * Constructor with parameter aka class parameters
  */
 class ConfigurableLunchDecision(choices: Seq[String]) {
   def decide() = choices(Random.nextInt(choices.size))
 }
 
-val confDecision = new ConfigurableLunchDecision(Seq("Pasta", "Curry Wurst", "Sandwich"))
-confDecision.decide()
+val configured = new ConfigurableLunchDecision(
+  Seq(
+    "Pasta",
+    "Curry Wurst",
+    "Sandwich"
+  )
+).decide()
 
 /**
- * Auxiliary constructors
+ * Inheritance and Auxiliary constructors
  */
-class LimitedChoicesLunchDecision(choices: Seq[String]) {
+class LimitedChoicesLunchDecision(choices: Seq[String]) extends ConfigurableLunchDecision(choices) {
   //  Restriction:
   //    The primary constructor must be called from every other constructor
-  def this(choice1: String, choice2: String, choice3: String) = {
-    this(Seq(choice1, choice2, choice3))
+  def this(choice1: String, choice2: String) = {
+    this(Seq(choice1, choice2))
   }
-
-  def decide() = choices(Random.nextInt(choices.size))
-
 }
 
-val limitedChoicesLunchDecision = new LimitedChoicesLunchDecision("Pasta", "Pizza", "Burger")
-limitedChoicesLunchDecision.decide()
+val limited = new LimitedChoicesLunchDecision("Pasta", "Pizza").decide()
 
 /**
  * Named parameter and default value
@@ -63,8 +35,7 @@ class TolerantLunchDecision(choice1: String = "Pasta", choice2: String = "Pizza"
   def decide() = Seq(choice1, choice2)(Random.nextInt(2))
 }
 
-val tolerantLunchDecision = new TolerantLunchDecision(choice2 = "Burger")
-tolerantLunchDecision.decide()
+val tolerant = new TolerantLunchDecision(choice2 = "Burger").decide()
 
 /**
  * Constructor with constraints
@@ -75,15 +46,17 @@ class NoPastaLunchDecision(val choice: String) {
 }
 
 val noPasta = try {
-  new NoPastaLunchDecision("Pasta")
+  new NoPastaLunchDecision("Pasta").choice
 } catch {
-  case e: IllegalArgumentException => new NoPastaLunchDecision("Pizza")
+  case e: IllegalArgumentException => new NoPastaLunchDecision("Pizza").choice
 }
-
-noPasta.choice
 
 /**
  * Getters and setters
+ *
+ * @param budget Is just a parameter
+ * @param restaurant Compiler generates a readable field
+ * @param howMany Compiler generates a readable field and a setter
  */
 class Reservation(budget: Int, val restaurant: String, var howMany: Int) {
   def getBudget = budget
@@ -98,7 +71,6 @@ lunchReservation.getBudget
 lunchReservation.restaurant
 // Does not work. With val no setter is generated
 // lunchReservation.readableField = "murks"
-
 // when parameter is declared as a val, the compiler generates a private field corresponding to each parameter (a different internal name is used), along with a public reader method that has the same name as the parameter.
 // if a parameter has the var keyword, a public writer method is also generated with the parameter’s name as a prefix, followed by _= .
 
@@ -106,7 +78,7 @@ lunchReservation.howMany
 lunchReservation.howMany = 14
 lunchReservation.howMany_=(16)
 
-
+// TODO: define an operator
 /*
  * Optional part begins
  */
