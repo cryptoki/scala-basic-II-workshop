@@ -1,4 +1,4 @@
-// there is no static in Scala, Scala is object oriented and thus has singleton objects
+// there is no static in Scala, Scala is object-oriented and thus has singleton objects
 
 object AStandaloneObject {
   def apply() = {

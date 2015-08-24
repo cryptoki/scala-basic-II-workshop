@@ -1,16 +1,18 @@
 import scala.util.Random
 
 /**
- * Scala is always like...write less do more :)
+ * Scala is object-oriented and it's always like...write less do more :)
  */
 class DumpClass
 
 val d = new DumpClass
 
+val isAny = d.isInstanceOf[Any]
+
 class AnotherDumpClass extends DumpClass
 
 val isDump = new AnotherDumpClass().isInstanceOf[DumpClass]
-val anotherDump = new AnotherDumpClass().isInstanceOf[AnotherDumpClass]
+val isAnotherDump = new AnotherDumpClass().isInstanceOf[AnotherDumpClass]
 
 /**
  * Class with field and methods

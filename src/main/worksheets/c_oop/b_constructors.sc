@@ -1,7 +1,9 @@
 import scala.util.Random
 
 /**
- * Constructor with parameter aka class parameters
+ * Constructor with parameter aka class parameter
+ *
+ * @see [[scala.collection.Seq]]
  */
 class ConfigurableLunchDecision(choices: Seq[String]) {
   def decide() = choices(Random.nextInt(choices.size))
@@ -65,25 +67,23 @@ class Reservation(budget: Int, val restaurant: String, var howMany: Int) {
 val lunchReservation = new Reservation(250, "Il Ritrovo", 12)
 
 // Does not work. Without val or var we just define a parameter
-// lunchReservation.param
+// lunchReservation.budget
 lunchReservation.getBudget
 
 lunchReservation.restaurant
 // Does not work. With val no setter is generated
-// lunchReservation.readableField = "murks"
+// lunchReservation.restaurant = "murks"
 // when parameter is declared as a val, the compiler generates a private field corresponding to each parameter (a different internal name is used), along with a public reader method that has the same name as the parameter.
 // if a parameter has the var keyword, a public writer method is also generated with the parameter’s name as a prefix, followed by _= .
 
 lunchReservation.howMany
 lunchReservation.howMany = 14
 lunchReservation.howMany_=(16)
+lunchReservation.howMany
 
 // TODO: define an operator
-/*
- * Optional part begins
- */
 
-// This is what the compiler generates
+// FYI: This is what the compiler generates
 class Reservation2(budget: Int, val restaurant: String) {
   def getBudget = budget
 
@@ -94,8 +94,4 @@ class Reservation2(budget: Int, val restaurant: String) {
   def howMany_=(newBudget: Int) = _howMany = newBudget
 
 }
-
-/*
- * Optional part ends
- */
 
