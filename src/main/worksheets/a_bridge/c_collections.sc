@@ -1,5 +1,3 @@
-// Operators ends with ':',
-// expressions have to read from RIGHT to LEFT
 val list1 = List()
 val list2 = List()
 
@@ -8,6 +6,8 @@ val list2 = List()
 // add left operand as first element to the new list and return it
 "a" :: "b" :: list1
 
+// Operators ends with ':',
+// expressions have to read from RIGHT to LEFT
 // everything is a copy
 "sdb" +: "c" +: list2
 
