@@ -12,19 +12,6 @@ def dangerousCall(test: Int): Int = {
 
 dangerousCall(-1)
 
-val exceptionHandling: PartialFunction[Throwable, Int] = {
-  case m: MyException => {
-    println("I catch u")
-    -4
-  }
-}
-
-val globalExceptionHandling: PartialFunction[Throwable, Int] = {
-  case e:Exception => {
-    println(s"do not use message '$e'")
-    -10
-  }
-}
 
 exceptionHandling.isDefinedAt(new MyException("do not use!!!"))
 // ruft die partial function auf
