@@ -1,5 +1,7 @@
+import scala.language.implicitConversions
+
 /**
- * Scala doesn't support static members but supports definition of singleton objects.
+ * Scala doesn't know static members but supports definition of singleton objects.
  *
  */
 object AStandaloneObject {
@@ -16,29 +18,33 @@ AStandaloneObject()
 AStandaloneObject.aMethod()
 AStandaloneObject.isInstanceOf[AnyRef]
 
-
 /**
  * Companion objects are created in the same file like a class with the same name.
  *
  * A companion object can access private fields of its companion class and is often used
  * to define "implicits".
  */
-class Foo {
+class Foo(fooString: String) {
   private val secret = "I am a secret"
+
+  val foo = fooString
 }
 
 object Foo {
-  def revealSecret() = {
-    new Foo().secret
-  }
+  // A companion object can access private fields of its companion class
+  def revealSecret() = new Foo("").secret
+
+  // Companion objects are often used as factories
+  def apply() = new Foo("Greetings from companion object")
+
+  // or to define implicit conversions and other implicit stuff
+  implicit def str(f: Foo): String = s"This is my foo:  ${f.foo}"
 }
 
 Foo.revealSecret()
 
-// Type of a companion object is its companion class
+// syntactic sugar: no new required
+val newFoo = Foo().foo
 
-
-// object can extend and mixin
-trait Mixin
-
-object Bar extends Foo with Mixin
+// Implicit type conversion in action
+val newFooString: String = new Foo("Implicit conversion")

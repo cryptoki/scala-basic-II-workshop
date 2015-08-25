@@ -66,15 +66,20 @@ class Reservation(budget: Int, val restaurant: String, var howMany: Int) {
 
 val lunchReservation = new Reservation(250, "Il Ritrovo", 12)
 
-// Does not work. Without val or var we just define a parameter
+// Without "val" or "var" we just define a parameter. Accessing a parameter does not work.
 // lunchReservation.budget
 lunchReservation.getBudget
 
 lunchReservation.restaurant
-// Does not work. With val no setter is generated
+
+// When "val" no setter is generated. Re-assigning a val is not allowed.
 // lunchReservation.restaurant = "murks"
-// when parameter is declared as a val, the compiler generates a private field corresponding to each parameter (a different internal name is used), along with a public reader method that has the same name as the parameter.
-// if a parameter has the var keyword, a public writer method is also generated with the parameter’s name as a prefix, followed by _= .
+
+// When parameter is declared as a val, the compiler generates
+// a private field corresponding to each parameter (a different internal name is used),
+// along with a public reader method that has the same name as the parameter.
+// If a parameter has the var keyword, a public writer method is also generated with
+// the parameter’s name as a prefix, followed by _= .
 
 lunchReservation.howMany
 lunchReservation.howMany = 14
