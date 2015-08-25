@@ -1,49 +1,12 @@
 Type less do more!
 
-#### Topics
-* 01_classes_constructors_fields_methods.sc
- - classes
- - fields
- - methods
- - instance creation
- - constructor with parameters
- - auxiliary constructors
- - named parameters and default values
- - private fields, getters, setters vs. val/var someSetter_=
- - check constraints in constructor
-
-* 02_inheritance.sc 
- - inheritance
- - overriding a method
- - abstract
- - final
- 
-  - visibility (private[this])
- 
-* singletons
- - methods + method invocations
- - companion object
- - factory objects
- 
-* case classes
- - implicit companion object
- - pattern matching
- - json
- - implicit parameters
- - implicit conversions
- 
-* traits and mixins
- - simple trait
- - multiple inheritance
- - sealed trait
- - pattern matching
- - traits can inherit classes
- - trait vs. abstract
+#### Open Topics
  
 * Bonus
  - package object
  - Type Hierarchy
  - Predef
+ - visibility (private[this])
  
  
 ### Notes
