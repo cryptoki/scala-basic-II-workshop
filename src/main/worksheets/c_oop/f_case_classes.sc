@@ -1,57 +1,46 @@
-// allow pattern matching without the unapply boilerplate
-// easy construction of tree structures
-
-//Case classes can be seen as plain and immutable data-holding objects that should exclusively depend on their constructor arguments.
-
-// easy json handling???
-
-case class Player(name: String, score: Score)
-
+/**
+ * Case classes prevent a lot of boilerplate code because the compiler implicitly generates a lot.
+ *
+ * They're often used as data-holding objects without behavior.
+ */
+case class Player(name: String, score: Score = null)
 case class Score(game: String, score: Int)
+// An implicit companion object is created so that "new" is obsolete
+val hulk = Player("Hulk")
 
-case class Attachment(filename: String)
+// Constructor parameters are exported
+val hulksName = hulk.name
+// default implementation for toString
+val hulkToString = hulk.toString
+// default implementations for structurally comparison via equals
+val isIronman = Player("Ironman", null) == Player("Ironman", null)
 
-// Scala compiler adds syntactic convenience
-// factory method with classname (TODO: due to implicit companion object?)
-// instance creation without new=> compact initialization syntax
-val hulk = Player("Hulk", null)
-// all parameters implicitly get val => maintained as fields
-
-// defaults for toString, equals, hashCode
-// == delegates to equals -> == on case classes compares structurally
-Player("Ironman", null) == Player("Ironman", null)
-
-hulk.toString
-
-// objects are immutable
-// use copy method to get a copy with changed value
+// Objects are immutable. To get new instances based on each other
+// use copy method to get a copy with changed values
 val hulkWithScore = hulk.copy(score = Score("Pacman", 3560))
-
+// For case classes extractors for pattern matching are generated
 def sendPromotionMail(player: Player): Boolean = player match {
-  case Player(_, null) =>
-    print(s"Send EMail to ${player.name} ")
-    true
+  case Player(_, null) => true
   case _ => false
 }
+val shouldSendMailToHulk = sendPromotionMail(hulk)
+val shouldSendMailToHulkWithScore = sendPromotionMail(hulkWithScore)
+def playerLevelPacman(someGame: String, player: Player) = player match {
+  case Player(name, Score(game, score)) if game == someGame && score > 6000 => "Super Hero"
+  case Player(name, Score(game, score)) if game == someGame && score > 3000 => "Intermediate"
+  case Player(name, Score(game, _)) => "Beginner"
+}
+val hulkPacmanLevel = playerLevelPacman("Pacman", hulkWithScore)
 
-sendPromotionMail(hulk)
-sendPromotionMail(hulkWithScore)
-
-def playerLevelPacman(player: Player) = player match {
-  case Player(name, Score("Pacman", score)) if score > 3000 => print(s"$name: Super hero")
-  case Player(name, Score("Pacman", score)) if score > 6000 => print(s"$name: Intermediate")
-  case Player(name, Score("Pacman", _)) => print(s"$name: Beginner")
+/**
+ * FYI: Example of a simple extractor which must be implemented for non- case classes
+ */
+class StringThing(val s: String)
+object StringThingExtractor {
+  def unapply(st: StringThing): Option[String] = Some(st.s)
 }
 
-
-playerLevelPacman(hulkWithScore)
-// Question: what happens with Player("One",null) or Player("One",Score("Two", "Pong")
-//playerLevelPacman()
-playerLevelPacman(hulk)
-
-
-// only drawback is size
-
-// case classes and pattern matching
-// sealed class: restrict inheritance to classes in the same file
-// => help compiler to detect missing combinations in pattern matching
+new StringThing("foo") match {
+  case StringThingExtractor("foo") => "call me foo"
+  case _ => "no foo"
+}
