@@ -1,5 +1,5 @@
 {
-  "gitlog": [
+  "logEntries": [
     {
       "commit": "ee291bdce9be7d5bfcb779156b40e80c5653d099",
       "author": "Lukas Rytz <lukas.rytz@typesafe.com>",
