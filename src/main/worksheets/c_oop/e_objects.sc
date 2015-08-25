@@ -1,12 +1,14 @@
-// there is no static in Scala, Scala is object-oriented and thus has singleton objects
-
+/**
+ * Scala doesn't support static members but supports definition of singleton objects.
+ *
+ */
 object AStandaloneObject {
   def apply() = {
     "Syntactic sugar: apply() is called"
   }
 
   def aMethod() = {
-    "I am static"
+    "Hi there"
   }
 }
 
@@ -15,7 +17,12 @@ AStandaloneObject.aMethod()
 AStandaloneObject.isInstanceOf[AnyRef]
 
 
-// companion object: object created in the same file like a class with the same name
+/**
+ * Companion objects are created in the same file like a class with the same name.
+ *
+ * A companion object can access private fields of its companion class and is often used
+ * to define "implicits".
+ */
 class Foo {
   private val secret = "I am a secret"
 }
