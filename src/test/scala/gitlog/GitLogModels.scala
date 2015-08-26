@@ -1,6 +1,6 @@
 package gitlog
 
-import gitlog.GitLogJsonModel.GitLog
+import gitlog.GitLogJsonModel.{GitLog, LogEntry}
 import play.api.libs.json.Json
 
 object GitLogJsonModel {
@@ -36,6 +36,17 @@ object GitLogJsonModel {
 
 }
 
+object FrontEndJsonModel {
+
+  abstract class User {
+    def createFrom(logEntry: LogEntry): User
+  }
+
+  case class Author(name: String) extends User {
+    override def createFrom(logEntry: LogEntry) = ???
+  }
+
+}
 
 object GitLogService {
   def countCommitsOfUser(log: GitLog, author: String): Int = log.logEntries.count(_.author == author)
