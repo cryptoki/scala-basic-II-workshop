@@ -1,35 +1,35 @@
-https://github.com/cryptoki/scala
+scala-Workshop: Basics - II
+===========================
 
-#### Arbeitsstand
-##### Recursion
-* a_
+Inspired by [https://github.com/yanns/scala-workshop](https://github.com/yanns/scala-workshop)
 
-#### Themen
-Jedes Thema ca. 1 Stunden
+# Source package
+Scala worksheets as supported by [IntelliJ IDEA](https://www.jetbrains.com/idea/) contain all explanatory material. 
 
-* Modus erklären -> Worksheets, Tests, Worksheets gibt es später auch noch von uns
-* Warmup - Ja / Nein - Max. 30min
-  - Collection aufgreifen und dann Überleitung zu Rekursion -> tailrec
-* Rekursion
-  - sth
-* OO Scala Grundlagen
-  - me
-* Options
-  - sth
-* Exception Handling
-* Functions, Higher Order Functions, Partial Functions und Currying.
- - https://twitter.github.io/scala_school/pattern-matching-and-functional-composition.html
- 
-* Feedback einsammeln?
+# Test package
+Contains small exercises in form of [Scala Test](http://www.scalatest.org/) tests.  
+
+## Content
+ * The package [/src/test/gitlog](/src/test/gitlog) contains all files of the example app. Parts of these files must be changed during the
+ workshop to fix failing tests
+ * [/src/test/gitlog/scala-gitlog.json](/src/test/gitlog/scala-gitlog.json) Example Json data. *Must not be changed to fix tests.*
+ * [/gitlog/GitLogReader](/src/test/src/test/gitlog/GitLogReader) Reads example content and converts it to a JsValue. *Must not be changed to fix tests.*
+ * [/src/test/gitlog/GitLogModels](/src/test/gitlog/GitLogModels) DTOs and transformation logic.
+ * Other packages contain test code 
+
+### Gitlog Example App
+This example simulates backend parts of a web application which is used to visualize information from Git logs.
+
+The simulated backend gets Git logs from a source in Json format. For optimal performance the backend should send as few
+data as possible. Data conversions in the frontend shouldn't be necessary.
+  
+
+
+TODO: remove following parts
 
 #### Prefix für Themen
 a_
 b_
-
-
-#### Notizen
-* package Objects
-* Zusatztag für Use in own code
 
 #### Aufgaben
 * Sub Themen finden

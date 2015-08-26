@@ -1,21 +1,22 @@
-package c_oop
+package gitlog
 
-import c_oop.GitLogJsonModel.GitLog
+import gitlog.GitLogJsonModel.GitLog
 import play.api.libs.json.Json
 
 object GitLogJsonModel {
 
   /**
-   * When working with play applications, case classes are used
+   * When working with play applications, case classes are often used
    * to define Data Transfer Objects which hold deserialized Json values.
    *
-   * The Json properties are represented by case class members,i.e.
+   * The Json properties are represented by case class members, i.e.
    *
    * {
    * "commit": "16bc9b75cec01eccff8448b6a11e968f1a35e7a7"...
    * }
    *
-   * is mapped to property "commit"
+   * is mapped to property "commit". The case class property must have same type for automatic mapping.
+   * Otherwise custom deserializer can be implemented.
    */
   case class LogEntry(commit: String, author: String)
 
@@ -35,7 +36,8 @@ object GitLogJsonModel {
 
 }
 
+
 object GitLogService {
-  def commitsByUser(log: GitLog) = log.logEntries.groupBy(_.author)
+  def countCommitsOfUser(log: GitLog, author: String): Int = log.logEntries.count(_.author == author)
 }
 

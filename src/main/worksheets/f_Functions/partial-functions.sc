@@ -1,3 +1,6 @@
+// https://twitter.github.io/scala_school/pattern-matching-and-functional-composition.html
+
+
 def process[A](status: Int, pf: PartialFunction[Int, A]): A = {
   println( "blafoo")
 //  pf.applyOrElse(status, throw new Exception())
