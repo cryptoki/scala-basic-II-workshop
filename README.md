@@ -3,13 +3,13 @@ scala-Workshop: Basics - II
 
 Inspired by [https://github.com/yanns/scala-workshop](https://github.com/yanns/scala-workshop)
 
-# Source package
+## Source package
 Scala worksheets as supported by [IntelliJ IDEA](https://www.jetbrains.com/idea/) contain all explanatory material. 
 
-# Test package
+## Test package
 Contains small exercises in form of [Scala Test](http://www.scalatest.org/) tests.  
 
-## Content
+### Content
  * The package [/src/test/scala/gitlog](/src/test/scala/gitlog) contains all files of the example app. Parts of these files must be changed during the
  workshop to fix failing tests
  * [/src/test/scala/gitlog/scala-gitlog.json](/src/test/scala/gitlog/scala-gitlog.json) Example Json data. *Must not be changed to fix tests.*
