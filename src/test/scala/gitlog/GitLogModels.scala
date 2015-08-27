@@ -1,5 +1,6 @@
 package gitlog
 
+import gitlog.FrontEndJsonModel.Author
 import gitlog.GitLogJsonModel.{GitLog, LogEntry}
 import play.api.libs.json.Json
 
@@ -20,6 +21,8 @@ object GitLogJsonModel {
    */
   case class LogEntry(commit: String, author: String)
 
+  // TODO: leave out property
+
   /**
    * Companion objects can be used
    * to define implicit Json deserializer.
@@ -38,17 +41,43 @@ object GitLogJsonModel {
 
 object FrontEndJsonModel {
 
-  abstract class User {
-    def createFrom(logEntry: LogEntry): User
-  }
+  abstract class User
 
-  case class Author(name: String) extends User {
-    override def createFrom(logEntry: LogEntry) = ???
+  // TODO: leave out property
+  case class Author(name: String, email: String)
+
+  object Author {
+    implicit val jsonWrites = Json.writes[Author]
   }
 
 }
 
 object GitLogService {
+  // TODO: do not implement
   def countCommitsOfUser(log: GitLog, author: String): Int = log.logEntries.count(_.author == author)
+
+
+  /**
+   * Hints:
+   * - you may use split method of [[String]]
+   * - arrays support a takeWhile and dropWhile method
+   * - arrays support mkString to join ll elements to a string
+   *
+   */
+  // TODO: do not implement
+  def userFrom(logEntry: LogEntry): Author = {
+    val splitted = logEntry.author.split(" ")
+    val nameParts = splitted.takeWhile(!_.startsWith("<"))
+    val email = splitted.dropWhile(!_.startsWith("<"))
+    new Author(nameParts.mkString(" "), email(0))
+  }
+
+  // TODO: do not implement
+  def usersFromLogEntries(logEntries: Seq[LogEntry]): Seq[Author] = logEntries.map(userFrom)
+
+  // TODO: do not implement?
+  def user(authors: Seq[Author], name: String): Author = authors.find(_.name == name).get
+
+
 }
 
