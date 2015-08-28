@@ -1,5 +1,12 @@
 /**
  * Function value objects can be passed as arguments to build Higher Order Functions
+ *
+ * Higher Order Functions do at least one of the following:
+ *  - take one or more functions as an input
+ *  - output a function
+ *  - do both
+ *
+ *  https://en.wikipedia.org/wiki/Higher-order_function
  */
 def acceptString(s: String, pred: String => Boolean): Boolean = pred(s)
 

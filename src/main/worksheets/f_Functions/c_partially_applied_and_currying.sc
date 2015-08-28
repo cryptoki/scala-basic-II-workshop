@@ -37,6 +37,8 @@ val minMax = acceptString(_: String, any(min(1), max(5)))
 
 minMax("Hello")
 minMax("Hello World")
+val hellos = List("", "H", "He", "Hel", "Hell", "Hello", "Hello ", "Hello W", "Hello Wo", "Hello Wor", "Hello Worl", "Hello World")
+hellos.filter(minMax)
 
 /**
  * FYI: Functions defined with def, methods and local functions can't be used as arguments
