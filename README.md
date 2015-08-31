@@ -56,3 +56,30 @@ b_
  - http://twitter.github.io/effectivescala/
 * Idiomatic Scala Question on Stackoverflow
  - http://stackoverflow.com/questions/11359784/good-examples-of-idiomatic-scala-code
+
+
+#### Zeit Management
+##### Intro
+* 30min
+09 - 09:30 Uhr
+##### Rekursion
+* 45min (1h 15)
+09:30 - 10:30 Uhr
+Pause 10:45 UHr
+##### OOP
+* 2 Stunden
+10:45 - 12:45 Uhr
+Pause 13:45 Uhr
+##### Options
+* __ (2h)
+(14:30 Uhr)
+##### Exception
+* __ (2h 45)
+(15:15 Uhr)
+Pause 15:30 Uhr
+##### Functions
+* __ (2h 45)
+16:15 Uhr
+##### Beispiel
+* __ 45min
+=> Finish 17:00 Uhr
