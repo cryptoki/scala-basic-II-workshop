@@ -1,4 +1,4 @@
-case class MyException(message: String) extends Exception(message)
+case class MyException(val message: String) extends Exception
 
 val exceptionHandling: PartialFunction[Throwable, Int] = {
   case m: MyException => {
@@ -13,3 +13,8 @@ val globalExceptionHandling: PartialFunction[Throwable, Int] = {
     -10
   }
 }
+
+try {
+  throw new MyException("blafoo")
+}
+catch globalExceptionHandling
