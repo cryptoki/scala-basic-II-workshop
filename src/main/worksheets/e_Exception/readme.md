@@ -20,4 +20,6 @@ Typ Try ist entweder Success oder Failure.
 - enthält den Fehler (Throwable, Exception, ..)
 
 ## Verwendung
-Der Nutzen dieser Variante ist vor allem in ihrer monadischen Verwertbarkeit zu finden – ein Try kann nämlich, ähnlich wie ein Option, unter anderem per map, filter, flatMap oder transform verarbeitet und auch per getOrElse mit Default-Werten abgebgraben werden. Die wirkliche Verarbeitung erfolgt hier entsprechend nur, falls ein Success vorliegt, andernfalls wird das existierende Failure weitergereicht. Weiterhin ist es auch möglich, ähnlich wie bei PartialFunction, ein orElse zur Verkettung anzugeben, oder wie bei Futures ein recover bzw. ein recoverWith. In begrenzter Form ist auch eine Nutzung in for-comprehensions möglich.
+- Verarbeitung mittels map, flatMap, transform usw. möglich (Monaden)
+- getOrElse => Default Werte
+- orElse Verkettung möglich 

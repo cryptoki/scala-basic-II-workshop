@@ -5,14 +5,8 @@ import org.scalatest.FlatSpec
 
 class b_SumNumbersTest extends FlatSpec {
 
-  def readFile(name: String): String = {
-    val file = Source.fromFile(name)
-    try
-      file.mkString
-    finally
-      file.close()
-  }
-
+  // TODO -1- implement a algorithm which split the string by whitespace and sum up
+  // TODO     every number in the string
   def sumNumbers(input: String): Int = ???
 
   "simple text with 1 and 2" should "be 3 as sum" in {
@@ -29,5 +23,14 @@ class b_SumNumbersTest extends FlatSpec {
     val input = readFile("src/test/scala/d_options/crazy.txt")
     val sum = sumNumbers(input)
     assert(sum == 85)
+  }
+
+
+  def readFile(name: String): String = {
+    val file = Source.fromFile(name)
+    try
+      file.mkString
+    finally
+      file.close()
   }
 }
