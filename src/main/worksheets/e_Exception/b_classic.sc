@@ -1,26 +1,33 @@
+import scala.util.Random
 
-try {
+// let's finish the intro with few more details
+@throws[NumberFormatException]("oh. converting failed")
+@throws[NullPointerException]("welcome to the null hell")
+def doSomethingDangerous(): Int = {
+  Random.nextInt(3) match {
+    case 0 => throw new NumberFormatException
+    case 1 => throw new NullPointerException
+    case _ => throw new RuntimeException
+  }
+}
+
+
+// everything has a value
+val result = try {
   // execution code
+  doSomethingDangerous()
+  42
 }
 catch {
-  case e: IllegalArgumentException => // everything has a value
-  case e: IllegalStateException    =>
-  /* ... */
-  case _: Throwable =>
+  case e: NumberFormatException =>
+    // everything has a value
+    1
+  case e: NullPointerException => 2
+  /* .. more pattern matching stuff .. */
+  case _: Throwable => 3
 }
 finally {
   // execution every time
+  println("hello :)")
 }
 
-
-val a = try {
-  throw new Exception()
-  "cvb".toInt
-}
-catch {
-  case e: NumberFormatException => 3
-  case _:Throwable => 4
-}
-finally {
-  println("Blafoo")
-}
