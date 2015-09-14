@@ -14,6 +14,7 @@ def onlyNumbers(list: Seq[Try[Int]]): Seq[Int] = ???
 // TODO -4- number * 2 + 1 for every failure
 // TODO     3*2 + 1 + 4*2 + 1 + 1 + 12*2
 def sumNumber2AndAddFailure(list: Seq[Try[Int]]): Int = ???
+
 // Test
 // ====
 val resultConvert = convert(list)
