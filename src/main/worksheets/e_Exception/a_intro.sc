@@ -1,25 +1,32 @@
 // there is a common way like in java
 
 // okay, lets write a method to convert a string into an int value
-def intConverter(input: String): Int = {
+// ONLY values greater 0 are allowed
+def convertToInt(input: String): Int = {
+  val i:Int = input.toInt
+
+  if (i < 0) {
+    throw new IllegalArgumentException("only values greater 0 are allowed")
+  }
+  i
+}
+
+def convertFailsafeToInt(input: String): Int = {
   try {
-    val i: Int = input.toInt
-
-    if (i < 0)
-      throw new IllegalArgumentException("only values greater 0 are allowed")
-
-    i
+    convertToInt(input)
   }
   catch {
+    // NumberFormatException is a sub class of IllegalArgumentException
     case e: NumberFormatException => -1
-    case _ => 0
+    case e: IllegalArgumentException => 0
   }
 }
 
+
 // modify converter to
 // => -1
-intConverter("34a")
+convertFailsafeToInt("dsf")
 // => 3
-intConverter("3")
-// => 0 - throw another exception if it's 0 and catch it
-intConverter("-1")
+convertFailsafeToInt("3")
+// => 0
+convertFailsafeToInt("-1")

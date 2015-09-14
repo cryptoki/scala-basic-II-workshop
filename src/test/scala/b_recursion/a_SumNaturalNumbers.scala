@@ -12,7 +12,7 @@ import scala.annotation.tailrec
 class a_SumNaturalNumbers extends FlatSpec {
   def sumNaturalNumbers(maximum: Int) : Long = sumNaturalNumbersTailRecursive(maximum)
 
-  def sumNaturalNumbersImperativ(maximum: Int) : Long = {
+  def sumNaturalNumbersImperative(maximum: Int) : Long = {
     var result: Long = 0
     for ( i <- 1 to maximum) {
       result += i
@@ -20,11 +20,11 @@ class a_SumNaturalNumbers extends FlatSpec {
     result
   }
 
-  def sumNaturalNumbersRecurive(maximum: Int) : Long = {
+  def sumNaturalNumbersRecursive(maximum: Int) : Long = {
     if (maximum == 0)
       0l
     else
-      maximum + sumNaturalNumbersRecurive(maximum - 1)
+      maximum + sumNaturalNumbersRecursive(maximum - 1)
   }
 
   def sumNaturalNumbersTailRecursive(maximum: Int) : Long = {
