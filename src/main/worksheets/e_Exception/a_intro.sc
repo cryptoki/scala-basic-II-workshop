@@ -1,12 +1,12 @@
 // there is a common way like in java
 
-// okay, lets write a method to convert a string into an int
-// value, if it's not possible it should deliver 0 als default
+// okay, lets write a method to convert a string into an int value
 def intConverter(input: String): Int = {
   try {
     val i: Int = input.toInt
-    if (i == -1)
-      throw new RuntimeException
+
+    if (i < 0)
+      throw new IllegalArgumentException("only values greater 0 are allowed")
 
     i
   }
