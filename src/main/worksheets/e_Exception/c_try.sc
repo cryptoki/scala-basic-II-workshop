@@ -1,24 +1,54 @@
 import scala.util.{Try, Success, Failure}
-import scala.util.control.Exception._
 
 // the old known Int converter
-val convert: Try[Int] = Try {
-  "abc".toInt
-}
+val convert: Try[Int] = Try { "abc".toInt }
 
-// Failure and Success
+// try is am abstract class, a sealed abstract class
+// with two sub final case classes
+//  1 - Success - contains the result
+//  2 - Failure - contains the exception
 convert match {
   case Success(result) => println(s"Yipee $result")
   case Failure(exc) => println(s"Buhh $exc")
 }
 
-val a1 = convert.flatMap(x => Try(3))
-val a2 = convert.transform(x => Try(x+1), e => Try(2))
-
-val catchy = catching(classOf[NumberFormatException]).withApply(e => 3)
-val bla = catchy {
-  "42".toInt
-}
+// use of map/flatMap/transform/getOrElse
+val a1 = convert.flatMap(x => Success(3))
+val a2 = convert.transform(x => Success(x+1), e => Success(2))
+val a3 = convert.map(x => x+1)
+val a4 = convert.getOrElse(42)
 
 
 
+
+// work with monad functions
+// =========================
+
+val list = Seq("3", "mal", "4", "is", "gleich", "12")
+
+// TODO -1- convert Strings into Int with Try
+def convert(list: Seq[String]): Seq[Try[Int]] = list.map(x => Try(x.toInt))
+
+// TODO -2- sum up every number
+def sum(list: Seq[Try[Int]]): Int = list.map(x => x.getOrElse(0)).sum
+
+// TODO -3- return a Int Sequence only with the natural numbers
+def onlyNumbers(list: Seq[Try[Int]]): Seq[Int] = list.filter(x => x.isSuccess).map(x => x.get)
+
+// TODO -4- number * 2 + 1 for every failure
+// TODO     3*2 + 1 + 4*2 + 1 + 1 + 12*2
+def sumNumber2AndAddFailure(list: Seq[Try[Int]]): Int =
+  sum(list.map(x => x.transform(x => Success(x*2), e => Success(1))))
+
+// Test
+// ====
+val resultConvert = convert(list)
+
+val resultSum = sum(resultConvert)
+assert(resultSum==19)
+
+val resultOnlyNumbers = onlyNumbers(resultConvert)
+assert(resultOnlyNumbers == Seq(3,4,12))
+
+val resultSumNumber2AndAddFailure = sumNumber2AndAddFailure(resultConvert)
+assert(resultSumNumber2AndAddFailure == 41)
