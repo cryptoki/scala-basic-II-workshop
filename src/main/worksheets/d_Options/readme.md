@@ -18,3 +18,6 @@
 * Vorteile
   * Behandlung wird explizit erzwungen Some/None -> Pattern Matching / else / ..
   * Option bietet zahlreiche Methoden mit denen man das Ergebnis auswerten kann
+
+#### Methoden
+* getOrElse

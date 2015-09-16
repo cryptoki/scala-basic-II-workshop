@@ -1,11 +1,8 @@
-/**
- *
- */
-
 val option : Option[Int] = Some(1)
 val optionOption: Option[Option[Int]] = Some(Some(1))
 def func(x: Int) = Some(x+1)
 def func2(x: Int) = x*3
+
 
 /* flatMap */
 val flatMap1 = option match {
@@ -62,42 +59,3 @@ val orElse1 = option match {
 }
 
 val orElse2 = option.orElse(Some(2))
-//
-///*
-//getOrElse
-//
-//option match {
-//  case None => foo
-//  case Some(x) => x
-//}
-//This code is equivalent to:
-//
-//  option.getOrElse(foo)
-//toList
-//
-//option match {
-//  case None => Nil
-//  case Some(x) => x :: Nil
-//}
-//This code is equivalent to:
-//
-//  option.toList
-//coflatMap1
-//
-//option match {
-//  case None => None
-//  case Some(_) => Some(foo(option))
-//}
-//This code is equivalent to:
-//
-//  option.coflatMap(foo(_))
-//duplicate2
-//
-//option match {
-//  case None => None
-//  case Some(_) => Some(option)
-//}
-//This code is equivalent to:
-//
-//  option.duplicate
-//*/

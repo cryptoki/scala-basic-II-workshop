@@ -12,5 +12,3 @@ q
 // TODO -2-  write a similar code with scala immutable ListSet
 // operator .-("")  => remove
 val l = ListSet("Patricia")
-l.-("Patricia").-("jkdhsf")
-l.find(x => x == "Patricia")
