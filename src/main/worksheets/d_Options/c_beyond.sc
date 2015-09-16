@@ -2,8 +2,8 @@
 val a= null
 
 // Scala has Null reference type,
-// it's only instance is the null reference
-val b = null
+// the only instance is the null reference
+val b: Null = null
 
 a eq b
 a == b
@@ -22,5 +22,6 @@ val l = Nil
 // There is only one value of type Unit, (), and it is not
 // represented by any object in the underlying runtime system.
 // analogous to Java void
-val unit = ()
-val unitExample = List(2,3,4,5).copyToArray(new Array[Int](4))
+val simpleUnitVal = ()
+val unitExampleByList = List(2,3,4,5).copyToArray(new Array[Int](4))
+def unitMethod = {}
