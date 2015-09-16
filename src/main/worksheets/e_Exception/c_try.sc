@@ -1,5 +1,7 @@
 import scala.util.{Try, Success, Failure}
 
+// Intro
+// =====
 // the old known Int converter
 val convert: Try[Int] = Try { "abc".toInt }
 
@@ -52,3 +54,22 @@ assert(resultOnlyNumbers == Seq(3,4,12))
 
 val resultSumNumber2AndAddFailure = sumNumber2AndAddFailure(resultConvert)
 assert(resultSumNumber2AndAddFailure == 41)
+
+
+// Recover
+// =======
+import scala.util.Try
+
+def divideBy(input: Int, divisor: Int) : Try[Int] = {
+  Try(input / divisor)
+}
+
+val result1 = divideBy(10, 0)
+
+
+divideBy(3,0).recover({
+  case e: ArithmeticException => -1
+})
+divideBy(3,0).recoverWith({
+  case e: ArithmeticException => divideBy(3,1)
+})
