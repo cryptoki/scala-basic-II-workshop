@@ -4,7 +4,7 @@
  * you can define a building description for streams.
  */
 
-// okay, simple List of Integer from 1 to 20, remember to = inclusive, until is exclusive
+// okay, simple List of Int from 1 to 20, remember to = inclusive, until is exclusive
 val simpleList = 1 to 20
 // simple way to sum up
 simpleList.toStream.sum
