@@ -23,3 +23,5 @@ class Date(val day: Int, val month: Int, val year: Int) extends JsonAble {
      """.stripMargin
   // @formatter:on
 }
+
+val dateJson = new Date(1, 1, 2015).toJson
