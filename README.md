@@ -61,7 +61,7 @@ b_
 #### Zeit Management
 ##### Intro
 * 30min
-09 - 09:30 Uhr
+09:00 - 09:30 Uhr
 
 ##### Rekursion
 * 45min (1h 15)
@@ -70,22 +70,22 @@ Pause 10:45 UHr
 
 ##### OOP
 * 2 Stunden
-10:45 - 12:45 Uhr
-Pause 13:45 Uhr
+11:00 - 13:00 Uhr
+Pause 14:00 Uhr
 
 ##### Options
-* __ (2h)
-(14:30 Uhr)
+* 45min (2h)
+(14:45 Uhr)
 
 ##### Exception
-* __ (2h 45)
-(15:15 Uhr)
-Pause 15:30 Uhr
+* 45min (2h 45)
+(15:30 Uhr)
+Pause 15:45 Uhr
 
 ##### Functions
-* __ (2h 45)
-16:15 Uhr
+* 45min (2h 45)
+16:30 Uhr
 
 ##### Beispiel
-* __ 45min
+* 30min
 => Finish 17:00 Uhr
