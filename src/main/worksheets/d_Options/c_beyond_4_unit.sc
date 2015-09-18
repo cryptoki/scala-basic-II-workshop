@@ -1,6 +1,9 @@
 // There is only one value of type Unit, (). Analogous to Java void
 
-val simpleUnitVal = ???
-val unitExampleByList = ???
+val simpleUnitVal: Unit = ()
 
-// TODO -1-  method which delivers unit
+// TODO -me-  println something
+val unitExample = ???
+
+// TODO -1-  write a method which delivers unit
+def bla() = ???
