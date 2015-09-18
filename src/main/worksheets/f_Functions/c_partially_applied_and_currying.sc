@@ -27,6 +27,7 @@ class SumPartially extends Function1[Int, Int] {
  * Usage: Improve the higher order functions example
  */
 def acceptString(s: String, pred: String => Boolean): Boolean = pred(s)
+
 def min(minimum: Int): String => Boolean = (s: String) => s.length >= minimum
 def max(maximum: Int): String => Boolean = (s: String) => s.length <= maximum
 

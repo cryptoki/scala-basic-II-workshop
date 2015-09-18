@@ -2,11 +2,11 @@
  * Function value objects can be passed as arguments to build Higher Order Functions
  *
  * Higher Order Functions do at least one of the following:
- *  - take one or more functions as an input
- *  - output a function
- *  - do both
+ * - take one or more functions as an input
+ * - output a function
+ * - do both
  *
- *  https://en.wikipedia.org/wiki/Higher-order_function
+ * https://en.wikipedia.org/wiki/Higher-order_function
  */
 def acceptString(s: String, pred: String => Boolean): Boolean = pred(s)
 
@@ -28,17 +28,3 @@ val minLiteral: Int => String => Boolean = minimum => s => s.length >= minimum
 val maxLiteral: Int => String => Boolean = maximum => s => s.length <= maximum
 
 acceptString("Foo", minLiteral(1))
-
-
-/**
- * Write less do more!
- */
-0 to 10 filter ((x: Int) => x > 2)
-0 to 10 filter ((x) => x > 2)
-0 to 10 filter (x => x > 2)
-0 to 10 filter (_ > 2)
-
-// you can help the compiler if necessary
-val f = (_: Int) + (_: Double) + (_: String)
-f(1, 1.2, " wow")
-
