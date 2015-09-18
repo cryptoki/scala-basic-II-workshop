@@ -2,25 +2,31 @@ import java.util
 
 import scala.collection.immutable.{ListSet}
 
+// ====================================
 // Elvis Team
-// ==========
-val elvis = Seq("Patricia", "Rainer", "Heiner", "Jan", "Ingo", "Romain", "Steffen")
+// ====================================
+val elvis = Seq("Patricia", "Rainer", "Heiner",
+  "Jan", "Ingo", "Romain", "Steffen")
 
-def desk(name: String): Option[Int] = {
+// TODO -1- how can u return a Java like 'NULL'
+// TODO     for non elvis team member
+def deskNumber(name: String): Option[Int] = {
   // any idea?
   elvis.indexOf(name) match {
     case i: Int if i < 0 => None
     case i: Int => Some(i)
   }
 }
+// TODO -1 me-  implement explain the deskNumber method
 
-val a = desk("Patricia")
+val a = deskNumber("Patricia")
 // what is the meaning of  -1
-val b = desk("Björn")
+val b = deskNumber("Björn")
 
 
+// ====================================
 // Map
-// ===
+// ====================================
 val notebookMapOfElvis = Map("Patricia" -> "Dell",
   "Rainer" -> "Dell",
   "Ingo" -> "Apple")
@@ -31,8 +37,8 @@ println(s"Ingo has a ${ingo.get}")
 // TODO -2-  Print Björn's notebook model
 val bjoern = notebookMapOfElvis.get("Björn")
 // ups .. NoSuchElementException
-// println(s"Ingo has a ${bjoern.get}")
-println(s"Ingo has a ${bjoern.getOrElse("n/a")}")
+// println(s"Björn has a ${bjoern.get}")
+println(s"Björn has a ${bjoern.getOrElse("n/a")}")
 
 
 // Java
