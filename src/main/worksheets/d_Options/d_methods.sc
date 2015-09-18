@@ -1,3 +1,7 @@
+// ====================================
+// Into
+// ====================================
+
 // get, getOrElse
 val europeCapitals = Map(
   ("Germany" -> "Berlin"),
@@ -7,22 +11,35 @@ val europeCapitals = Map(
 )
 
 // get
+// TODO -1 a-  use get to get the capital of Poland
 val poland = europeCapitals.get("Poland")
+// TODO -1 b-  handle option with match / case
 val result = poland match {
   case None => "oh no"
   case _ => "yeah found"
 }
 
 // getOrElse
+// TODO -2-  use getOrElse to get capital of Poland
 val getOrElse = europeCapitals.getOrElse("Poland", "Warsaw")
 
 // orElse
-val orElse = europeCapitals.get("Danemark")
+// TODO -3-  chaining Options with orElse
+//           -> use the capital map
+//           -> use simple options
+val orElseCapital = europeCapitals.get("Danemark")
   .orElse(europeCapitals.get("Italy")).getOrElse("n/a")
+val orElseExample = None.orElse(Some(3).orElse(Some(4)))
+
 
 // exception if not exists
+// TODO -4-  what happend if u DONT check of Some/None?
 val nseExc = europeCapitals.get("Danemark")
-nseExc.get
+// nseExc.get
+
+// ====================================
+// More
+// ====================================
 
 // explicit documentation of Option[xyz] as return value
 // point that something can missed.

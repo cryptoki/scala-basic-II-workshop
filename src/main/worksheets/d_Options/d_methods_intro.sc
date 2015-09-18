@@ -6,16 +6,22 @@ val europeCapitals = Map(
   ("France" -> "Paris")
 )
 
-// TODO -1-  use get
+// TODO -1 a-  use get to get the capital of Poland
 val get = ???
+// TODO -1 b-  handle option with match / case
 
-// TODO -2-  use getOrElse
+
+// TODO -2-  use getOrElse to get capital of Poland
 val getOrElse = ???
 
-// TODO -3-  chaining with orElse
-val orElse = ???
+// TODO -3-  chaining Options with orElse
+//           -> use the capital map
+//           -> use simple options
+val orElseCapital = ???
+val orElseExample = ???
 
-val nseExc = europeCapitals.get("Danemark")
 // TODO -4-  what happend if u DONT check of Some/None?
+val result: Option[String] = europeCapitals.get("Danemark")
+// => call get
 
 
