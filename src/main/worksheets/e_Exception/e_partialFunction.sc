@@ -1,71 +1,48 @@
-// simple case class to handle my own exception
-case class MyException(val message: String) extends Exception(message)
+/**
+ * PartialFunction
+ *  - Sub Trait von Function1
+ *    - isDefindedAt
+ *    - lift
+ *  - Erklärung erfolgt im nächsten Kapital
+ */
 
-val exceptionHandling: PartialFunction[Throwable, Int] = {
-  case m: MyException => {
+// ====================================
+// Intro
+// ====================================
+
+val handler: PartialFunction[Throwable, Int] = {
+  case m: NumberFormatException => {
     println("I catch u")
-    -4
+    -1
   }
 }
 
-val globalExceptionHandling: PartialFunction[Throwable, Int] = {
-  case e:Exception => {
-    println(s"do not use message '${e.getMessage}'")
-    -10
+// TODO -me- isDefinedAt
+//           IllegalArgumentException
+//           NumberFormatException
+handler.isDefinedAt(new IllegalArgumentException)
+handler.isDefinedAt(new NumberFormatException)
+
+
+// TODO -me- apply NumberFormatException
+val result1 = handler.apply(new NumberFormatException("do not use!!!"))
+// TODO -me- lift IllegalArgumentException
+val result2 = handler.lift(new IllegalArgumentException("do not use!!!"))
+
+
+// ====================================
+// try / Catch
+// ====================================
+
+val globalHandler: PartialFunction[Throwable, Int] = {
+  case e:Throwable => {
+    println(s"danger! '${e.getMessage}'")
+    Int.MinValue
   }
 }
 
-
-exceptionHandling.isDefinedAt(new MyException("do not use!!!"))
-exceptionHandling.isDefinedAt(new NumberFormatException)
-
-val result1 = exceptionHandling.apply(new MyException("do not use!!!"))
-val result2 = globalExceptionHandling(new MyException("do not use!!!"))
 try {
-  throw new MyException("cool stuff")
-}
-catch exceptionHandling
-
-try {
+//  throw new NoSuchElementException("do not use! :)")
   "abc".toInt
-} catch exceptionHandling.orElse(globalExceptionHandling)
-
-
-// macht es für Java eine Checked Exception
-@throws[MyException]("bla bla bla")
-def dangerousCall(test: Int): Int = {
-  test match {
-    case -1 => throw new Exception("do not use -1")
-    case 0 => throw MyException("do not zero")
-    case v => v
-  }
 }
-dangerousCall(-1)
-
-dangerousCall(2)
-try {
-  dangerousCall(-1)
-}
-catch {
-  case m: MyException => {
-    println("I catch u")
-    -4
-  }
-  case e:Exception => {
-    println(s"do not use message '$e'")
-    -10
-  }
-}
-
-try {
-  dangerousCall(-1)
-}
-catch (exceptionHandling.orElse(globalExceptionHandling))
-
-
-
-
-try {
-  throw new MyException("blafoo")
-}
-catch globalExceptionHandling
+catch handler.orElse(globalHandler)
