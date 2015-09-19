@@ -24,5 +24,3 @@ def multipleSum(multiple: Int, x: Int, y: Int) = {
 }
 
 multipleSum(3, 2, 2)
-
-FunctionWrapper.square _ andThen double
