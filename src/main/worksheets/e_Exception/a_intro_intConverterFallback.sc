@@ -1,5 +1,4 @@
-// method to convert string into an Int
-// ONLY values greater 0 are allowed
+/** reuse convert method from worksheet before */
 def convertToInt(input: String): Int = {
   val i:Int = input.toInt
 
@@ -9,11 +8,18 @@ def convertToInt(input: String): Int = {
   i
 }
 
+/**
+ * a fallback method which use the convertToInt
+ */
 def convertFailsafeToInt(input: String): Int = {
-  // TODO -1- use try and catch .. it's similar to Java, expect the catch
-  // TODO -2- catch the IllegalArgumentException and return 0
-  // TODO -3- all other exception, return -1
+  // TODO -1-  use try and catch ..
+  // it's similar to Java, expect the catch
+
   convertToInt(input)
+
+  // TODO -2-  catch NumberFormatException and return -1
+
+  // TODO -3-  catch IllegalArgumentException and return 0
 }
 
 
