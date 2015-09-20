@@ -2,9 +2,13 @@ import scala.util.{Try, Success, Failure}
 
 // Intro
 // =====
+// TODO -1-  implement an exception handling without
+//           try/catch clause use the Try class
+// TODO -me-  call by name
 // the old known Int converter
 val convert: Try[Int] = Try { "abc".toInt }
 
+// TODO -2-  implement match clause
 // try is am abstract class, a sealed abstract class
 // with two sub final case classes
 //  1 - Success - contains the result
@@ -14,6 +18,7 @@ convert match {
   case Failure(exc) => println(s"Buhh $exc")
 }
 
+// TODO -me-  show few methods
 // use of map/flatMap/transform/getOrElse
 val a1 = convert.flatMap(x => Success(3))
 val a2 = convert.transform(x => Success(x+1), e => Success(2))
@@ -22,6 +27,9 @@ val a4 = convert.getOrElse(42)
 
 
 
+// ====================================
+// optional
+// ====================================
 
 // work with monad functions
 // =========================
