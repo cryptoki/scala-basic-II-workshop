@@ -48,15 +48,25 @@ val nseExc = europeCapitals.get("Danemark")
 // NO null check java hell
 
 
+// TODO -me-  List of Option with Some and None
 val listOfOptions = List(Some(2), None, Some(4), Some(6), None)
+// TODO -me-  concat Some and None of INT
 val concatOptions = Some(2) ++ None ++ Some(4) ++ Some(6) ++ None
 
 val option = Some(3)
+// TODO -1-  how to evaluate if 3 is the result?
+option.exists(x => x == 3)
 option.exists(_ == 3)
-option.exists _ == 3
 
+// TODO -2-  use map functions for 'option'
+//           multiple of 2
 option.map(x => x*2)
-listOfOptions.filter(x => x.isDefined).map(x => x.get)
+
+// TODO -3-  convert 'listOfOptions' to a List[Int]
+listOfOptions.filter(o => o.isDefined).map(o => o.get)
+listOfOptions.flatMap(o => o.map(x => x))
+listOfOptions.flatMap(o => o)
 listOfOptions.flatten
 
+// TODO -4-  accept only value '3' for option
 option.filter(x => x==3)
