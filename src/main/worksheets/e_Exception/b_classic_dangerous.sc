@@ -2,15 +2,16 @@ import scala.util.Random
 
 // classic format
 
+// TODO -me-  explain very short the 3 parts
 val result = try {
   // execution code
   doSomeDangerous()
 }
 catch {
   /* .. pattern matching stuff .. */
+  // TODO -me-  generic catch
+  // TODO       and explicit Typ declaration
   case _: Throwable => 42
-  // TODO -1- implement the case pattern matching for all 3 Exceptions
-  // TODO     return 1, 2 and 3
 }
 finally {
   // execution every time

@@ -1,5 +1,9 @@
 import scala.util.Random
 
+// ====================================
+// Dangerous
+// ====================================
+
 // let's finish the intro with few more details
 @throws[NumberFormatException]("oh. converting failed")
 @throws[NullPointerException]("welcome to the null hell")
