@@ -1,41 +1,41 @@
 /**
- * Function defined via def
+ * Named Function
  */
-def double(x: Int) = x * 2
+def double(x: Int): Int = x * 2
 double(3)
 
 /**
  * A method is a function
  */
-object FunctionWrapper {
-  def square(x: Int) = x * x
+object Math {
+  def square(x: Int): Int = x * x
 }
 
-FunctionWrapper.square(3)
+Math.square(3)
 
 /**
  * Local function
  */
-def multipleSum(multiple: Int, x: Int, y: Int) = {
+def multipleSum(m: Int, x: Int, y: Int) = {
   def sum() = {
     x + y
   }
-  multiple * sum()
+  m * sum()
 }
 
 multipleSum(3, 2, 2)
-
 
 /**
  * First-class functions: A function literal
  *
  * aka anonymous function, lambda expression
  */
-val sumFunctionLiteral = (x: Int, y: Int) => x + y
-sumFunctionLiteral(2, 3)
+val sum = (x: Int, y: Int) => x + y
+sum(2, 3)
 
 /**
- * The compiler generates a class for a function literal
+ * The compiler generates a class for a function literal which extends
+ * one of the [[Function1]] traits
  */
 class SumClass extends Function2[Int, Int, Int] {
   override def apply(x: Int, y: Int) = x + y
@@ -44,14 +44,14 @@ class SumClass extends Function2[Int, Int, Int] {
 /**
  * Instances of the generated classes are function value objects
  */
-val sumFunctionValueObject = new SumClass
-sumFunctionValueObject(2, 3)
+val sumInstance = new SumClass
+sumInstance(2, 3)
 
 /**
- * Why not creating function value objects...
+ * Why not creating function value objects using...
  */
-object objectSum extends Function3[Int, Int, Int, Int] {
+object sumOfThree extends Function3[Int, Int, Int, Int] {
   override def apply(x: Int, y: Int, z: Int): Int = x + y + z
 }
 
-objectSum(1, 2, 3)
+sumOfThree(1, 2, 3)
