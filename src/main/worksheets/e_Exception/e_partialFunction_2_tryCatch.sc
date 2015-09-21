@@ -1,3 +1,4 @@
+// ===> IT'S GIVEN
 val handler: PartialFunction[Throwable, Int] = {
   case m: NumberFormatException => {
     println("I catch u")
@@ -10,9 +11,10 @@ val globalHandler: PartialFunction[Throwable, Int] = {
     Int.MinValue
   }
 }
-
+// <=== END
 
 // TODO -1- use try and catch and both handler to
 //          a ) convert "abc".toInt
 //          b ) throw new NoSuchElementException("do not use! :)")
+//               use the globalHandler after the 'handler'
 

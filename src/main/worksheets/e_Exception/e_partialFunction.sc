@@ -10,6 +10,8 @@
 // Intro
 // ====================================
 
+// TODO -me-  write a partial function to handle
+//            NumberFormatException and return -1
 val handler: PartialFunction[Throwable, Int] = {
   case m: NumberFormatException => {
     println("I catch u")
@@ -17,16 +19,16 @@ val handler: PartialFunction[Throwable, Int] = {
   }
 }
 
-// TODO -me- isDefinedAt
-//           IllegalArgumentException
-//           NumberFormatException
+// TODO -me-  isDefinedAt
+//            IllegalArgumentException
+//            NumberFormatException
 handler.isDefinedAt(new IllegalArgumentException)
 handler.isDefinedAt(new NumberFormatException)
 
 
-// TODO -me- apply NumberFormatException
+// TODO -me-  apply NumberFormatException
 val result1 = handler.apply(new NumberFormatException("do not use!!!"))
-// TODO -me- lift IllegalArgumentException
+// TODO -me-  lift IllegalArgumentException
 val result2 = handler.lift(new IllegalArgumentException("do not use!!!"))
 
 
@@ -41,6 +43,10 @@ val globalHandler: PartialFunction[Throwable, Int] = {
   }
 }
 
+// TODO -1-  use try and catch and both handler to
+//           a ) convert "abc".toInt
+//           b ) throw new NoSuchElementException("do not use! :)")
+//               use the globalHandler after the 'handler'
 try {
 //  throw new NoSuchElementException("do not use! :)")
   "abc".toInt
