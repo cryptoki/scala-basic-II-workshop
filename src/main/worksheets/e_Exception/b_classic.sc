@@ -1,3 +1,5 @@
+import java.io.IOException
+
 import scala.util.Random
 
 // ====================================
@@ -5,8 +7,6 @@ import scala.util.Random
 // ====================================
 
 // let's finish the intro with few more details
-@throws[NumberFormatException]("oh. converting failed")
-@throws[NullPointerException]("welcome to the null hell")
 def doSomethingDangerous(): Int = {
   Random.nextInt(3) match {
     case 0 => throw new NumberFormatException
@@ -35,3 +35,16 @@ finally {
   println("hello :)")
 }
 
+// ====================================
+// Java
+// ====================================
+
+// TODO -1-  is it a checked or unchecked exception in scala?
+// TODO -me-  write an explicit throws for Java
+// TODO -me-  show the java <=> scala example
+@throws[IOException]("oh. reading failed")
+def doAnotherDangerous() = {
+  throw new IOException
+}
+
+doAnotherDangerous()
