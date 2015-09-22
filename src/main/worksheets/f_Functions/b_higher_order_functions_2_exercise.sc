@@ -12,3 +12,12 @@ val maxLiteral: Int => String => Boolean = maximum => s => s.length <= maximum
 
 acceptString("Foo", minLiteral(1))
 acceptString("Foo", maxLiteral(2))
+
+
+// Lost in parameter type lists? Type alias to the rescue!
+type Predicate = String => String => Boolean
+
+val is: Predicate = oneString => otherString => oneString == otherString
+
+acceptString("FooBar", is("FooBar"))
+

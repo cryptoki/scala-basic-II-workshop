@@ -3,7 +3,12 @@ import java.util.Scanner
 
 import scala.util.Try
 
-// loan pattern - loan a resource to a function
+
+/**
+ * Loan pattern: Loan a resource to a function
+ *
+ * Here without currying
+ */
 def withFile[T](f: File, handler: Scanner => T): Option[T] = {
   val scanner = Try(new Scanner(f))
   try {
@@ -18,5 +23,5 @@ def withFile[T](f: File, handler: Scanner => T): Option[T] = {
   }
 }
 
-withFile(new File("idea.properties"), scanner =>
+val properties = withFile(new File("idea.properties"), scanner =>
   scanner.useDelimiter("\\Z").next())

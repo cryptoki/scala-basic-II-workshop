@@ -7,8 +7,12 @@ import scala.util.Try
 // or a by name parameter. This has two advantages. First, the function argument
 // can then look like a code block enclosed in braces. E.g.
 
-
-def withFileCurried[T](f: File)(handler: Scanner => T): Option[T] = {
+/**
+ * Loan pattern: Loan a resource to a function
+ *
+ * Here with currying
+ */
+def withFile[T](f: File)(handler: Scanner => T): Option[T] = {
   val scanner = Try(new Scanner(f))
   try {
     scanner.map(scanner =>
@@ -22,7 +26,6 @@ def withFileCurried[T](f: File)(handler: Scanner => T): Option[T] = {
   }
 }
 
-// curried version of a function looks like built in control structure
-withFileCurried(new File("idea.properties")) { scanner =>
+val properties = withFile(new File("idea.properties")) { scanner =>
   scanner.useDelimiter("\\Z").next()
 }
