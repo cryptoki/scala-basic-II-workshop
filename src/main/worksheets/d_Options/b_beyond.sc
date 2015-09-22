@@ -52,9 +52,11 @@ val nilTest2 = nil eq list
 // Unit
 // ====================================
 // Unit is a subtype of AnyVal
-// There is only one value of type Unit, (), and it is not
-// represented by any object in the underlying runtime system.
-// analogous to Java void
+// -> There is only one value of type Unit, (), and
+// -> it is not represented by any object in the
+//    underlying runtime system.
+// -> analogous to Java void
+// TODO -me-  which is a valid value for simpleUnitVal?
 val simpleUnitVal = ()
 
 // TODO -me-  println something

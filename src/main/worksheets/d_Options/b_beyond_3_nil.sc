@@ -7,6 +7,7 @@ val nil = ???
 
 // TODO -2-  what is the result of nil == list?
 val test1 = ???
+
 // TODO -3-  what is the result of nil eq list?
 val test2 = ???
 
