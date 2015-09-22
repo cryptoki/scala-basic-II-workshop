@@ -21,3 +21,11 @@
 
 #### Methoden
 * getOrElse
+
+# @me
+* flüssiger durch die Sachen durch, noch vorher in mein Kopf klären
+
+# Feedback
+* wann benutze ich was?
+* intro => elvis Beispiel weg werfen und gleich mit Map anfangen
+* roten Pfaden noch prüfen und etwas klarer von der Struktur warum ich wohin gehe
