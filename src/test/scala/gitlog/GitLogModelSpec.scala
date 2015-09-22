@@ -1,8 +1,7 @@
-package c_oop
+package gitlog
 
 import gitlog.FrontEndJsonModel.Author
 import gitlog.GitLogJsonModel.GitLog
-import gitlog.{GitLogReader, GitLogService}
 import org.scalatest._
 import play.api.libs.json.{JsError, JsSuccess, Json}
 
