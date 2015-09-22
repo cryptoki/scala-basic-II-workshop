@@ -4,9 +4,10 @@
 
 // TODO -1-  which data type has 'a' for
 //           val a = null ?
-// TODO -1 me-  write explizit type val a:...
-//              a:... = ...
-val a = null
+// TODO -me-  write explizit type val a:...
+//            a:... = ...
+val a: Null = null
+// => won't work! => val a2:Int = null
 
 // Scala has Null reference type,
 // the only instance is the null reference
@@ -50,7 +51,6 @@ val nilTest2 = nil eq list
 // ====================================
 // Unit
 // ====================================
-
 // Unit is a subtype of AnyVal
 // There is only one value of type Unit, (), and it is not
 // represented by any object in the underlying runtime system.
