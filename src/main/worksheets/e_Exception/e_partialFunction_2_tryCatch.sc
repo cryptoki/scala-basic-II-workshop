@@ -17,4 +17,3 @@ val globalHandler: PartialFunction[Throwable, Int] = {
 //          a ) convert "abc".toInt
 //          b ) throw new NoSuchElementException("do not use! :)")
 //               use the globalHandler after the 'handler'
-
