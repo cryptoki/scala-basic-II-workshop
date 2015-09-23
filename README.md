@@ -1,6 +1,13 @@
 Scala-Workshop: Basics - II
 ===========================
 
+## Content
+* the package [/src/main/worksheets] contains all worksheets
+* the package [/src/test/worksheets] the corresponding tests to the worksheets
+
+
+
+
 Inspired by [https://github.com/yanns/scala-workshop](https://github.com/yanns/scala-workshop)
 
 ## Source Package
@@ -43,33 +50,36 @@ data as possible. Data conversions in the frontend shouldn't be necessary.
 09:00 - 09:30
 
 ##### Recursion
-* 45min (1h 15)
-09:30 - 10:30
+* 45min (1h 15min)
+09:30 - 10:15
 
 #### Break
-10:45 - 11:00
+10:15 - 10:30
 
 ##### OOP
-* 90min
-11:00 - 12:30
+* 1h 45min (1h 45min)
+10:30 - 12:15
 
-#### Break
-12:30 - 13:30
+#### Lunch Break
+12:15 - 13:15
 
 ##### Options
-* 45min (2h)
-13:30 - 14:15
+* 45min (1h 45min)
+13:15 - 14:00
 
 ##### Exception
-* 45min (2h 45)
-14:15 - 15:00
+* 45min (2h 45min)
+14:00 - 14:45
 
 ##### Break
-15:00 - 15:15
+14:45 - 15:00
 
 ##### Functions
-* 45min (2h 45)
-15:15 - 16:20
+* 60min (2h 45)
+15:00 - 16:00
+
+##### Abschluss + Break
+16:00 - 16:15
 
 ##### Example App
-16:20 - 17:00
+16:15 - 17:00
