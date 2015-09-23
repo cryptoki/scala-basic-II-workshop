@@ -15,7 +15,7 @@ acceptString("Hello World", seq => seq.length > 1)
 acceptString("Hello World", seq => seq.length < 100)
 
 /**
- * Enables definition of functions which look more like built-in language constructs
+ * Currying enables definition of functions which look more like built-in language constructs
  */
 def acceptStringCurried(s: String)(pred: String => Boolean): Boolean = pred(s)
 
@@ -27,3 +27,5 @@ acceptStringCurried("Hello World") {
   seq => seq.length < 100
 }
 
+// Play framework example:
+// https://www.playframework.com/documentation/2.4.3/ScalaBodyParsers#Specifying-a-body-parser

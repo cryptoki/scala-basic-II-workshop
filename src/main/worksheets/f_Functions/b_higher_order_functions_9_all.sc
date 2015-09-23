@@ -7,6 +7,8 @@
  * - do both
  *
  * https://en.wikipedia.org/wiki/Higher-order_function
+ *
+ * Examples: map, filter, reduce ...
  */
 def acceptString(s: String, pred: String => Boolean): Boolean = pred(s)
 
@@ -14,7 +16,7 @@ acceptString("Hello World", seq => seq.length > 1)
 acceptString("Hello World", seq => seq.length < 5)
 
 /**
- * Want to be more flexible? Functions can be return values.
+ * Functions can be return values.
  */
 def minLength(min: Int): String => Boolean = (s: String) => s.length >= min
 def maxLength(max: Int): String => Boolean = (s: String) => s.length <= max
@@ -22,15 +24,17 @@ def maxLength(max: Int): String => Boolean = (s: String) => s.length <= max
 acceptString("Foo", minLength(1))
 acceptString("Bar", maxLength(2))
 
-// TODO Audience: How to write minLength and maxLength as function literals?
-// hint: look at different implementations of sum to have examples
-val sum1 = (x: Int, y: Int) => x + y
-val sum2: (Int, Int) => Int = (x, y) => x + y
-
-val minLiteral: Int => String => Boolean = minimum => s => s.length >= minimum
+// TODO Audience: Write a function literal which does the same as minLength
+val minLiteral: (Int) => (String => Boolean) = (minimum) => (s => s.length >= minimum)
+// val minLiteral2 = (minimum: Int) => ((s: String) => s.length >= minimum)
 // variant: val minLiteral = (minimum: Int) => (s: String) => s.length >= minimum
-val maxLiteral: Int => String => Boolean = maximum => s => s.length <= maximum
-// variant: val maxLiteral = (max: Int) => (s: String) => s.length <= max
 
 acceptString("Foo", minLiteral(1))
-acceptString("Foo", maxLiteral(2))
+
+// Lost in parameter type lists? Type aliases to the rescue!
+type Predicate = String => Boolean
+
+val hasLength: Int => Predicate = i => s => s.length == i
+
+acceptString("FooBar", hasLength(6))
+

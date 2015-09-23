@@ -1,23 +1,16 @@
 def acceptString(s: String, pred: String => Boolean): Boolean = pred(s)
+def minLength(min: Int): String => Boolean = (s: String) => s.length >= min
 
-// TODO Audience: How to write minLength and maxLength as function literals?
-// hint: look at different implementations of sum to have examples
-val sum1 = (x: Int, y: Int) => x + y
-val sum2: (Int, Int) => Int = (x, y) => x + y
-
-val minLiteral: Int => String => Boolean = minimum => s => s.length >= minimum
-// variant: val minLiteral = (minimum: Int) => (s: String) => s.length >= minimum
-val maxLiteral: Int => String => Boolean = maximum => s => s.length <= maximum
-// variant: val maxLiteral = (max: Int) => (s: String) => s.length <= max
+// TODO Audience: Write a function literal which does the same as minLength
+val minLiteral: (Int) => (String => Boolean) = (minimum) => (s => s.length >= minimum)
+// val minLiteralVariant = (minimum: Int) => ((s: String) => s.length >= minimum)
 
 acceptString("Foo", minLiteral(1))
-acceptString("Foo", maxLiteral(2))
 
+// Lost in parameter type lists? Type aliases to the rescue!
+type Predicate = String => Boolean
 
-// Lost in parameter type lists? Type alias to the rescue!
-type Predicate = String => String => Boolean
+val hasLength: Int => Predicate = i => s => s.length == i
 
-val is: Predicate = oneString => otherString => oneString == otherString
-
-acceptString("FooBar", is("FooBar"))
+acceptString("FooBar", hasLength(6))
 

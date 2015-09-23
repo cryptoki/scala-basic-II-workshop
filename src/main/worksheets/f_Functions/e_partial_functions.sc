@@ -22,27 +22,23 @@ object Routes extends PartialFunction[String, String] {
 Routes("/hello")
 Routes.isDefinedAt("/status")
 Routes.isDefinedAt("/alive")
-
 // Audience: What happens...
 // Routes("/alive")
 
 
 // syntactic sugar
-val dump: PartialFunction[Int, Int] = {
-  case i if i % 2 == 0 => i + 1
+val routes: PartialFunction[String, String] = {
+  case "/hello" => "Hello World"
+  case "/status" => "Alive"
 }
 
 /**
  * Partial functions can be used everywhere a function is expected
  */
 // Audience what would you expect?
-// 0 to 10 map dump
+//List("/alive", "/status", "/hello", "/search") map routes
 
 // Audience what would you expect?
-// 0 to 10 collect dump
-
-
-
-
+//List("/alive", "/status", "/hello", "/search") collect routes
 
 
