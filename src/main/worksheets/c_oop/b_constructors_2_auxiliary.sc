@@ -1,5 +1,7 @@
 import scala.util.Random
 
+val food = ("Pasta", "Pizza")
+
 /**
  * Inheritance and Auxiliary constructors
  */
@@ -8,9 +10,10 @@ class Lunch(choices: Seq[String]) {
 
   //  Restriction:
   //    The primary constructor must be called from every other constructor
-  def this(choice1: String, choice2: String) = {
-    this(Seq(choice1, choice2))
+  def this(choices: (String, String)) = {
+    this(Seq(choices._1, choices._2))
   }
+
 }
 
-new Lunch("Pasta", "Pizza").decide()
+new Lunch(food).decide()

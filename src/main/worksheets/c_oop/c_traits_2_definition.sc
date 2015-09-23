@@ -1,4 +1,3 @@
-
 /**
  * Traits encapsulate fields and methods.
  *
@@ -11,17 +10,8 @@ trait JsonAble {
 /**
  * Trait mix-in can be done on class definition or object creation
  */
-class Date(val day: Int, val month: Int, val year: Int) extends JsonAble {
-  // @formatter:off
-  def toJson:String =
-    s"""
-       |{
-       |"year": "$year",
-       |"month": "$month",
-       |"day": "$day"
-       |}
-     """.stripMargin
-  // @formatter:on
+class Date(day: Int, month: Int, year: Int) extends JsonAble {
+  def toJson = s"""{"day":$day,"month":$month,"year":$year}"""
 }
 
-val dateJson = new Date(1, 1, 2015).toJson
+new Date(1, 1, 2015).toJson

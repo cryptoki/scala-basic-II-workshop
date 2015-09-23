@@ -1,6 +1,5 @@
 /**
  * Scala doesn't know static members but supports definition of singleton objects.
- *
  */
 object AStandaloneObject {
   def apply() = {
@@ -8,7 +7,7 @@ object AStandaloneObject {
   }
 
   def aMethod() = {
-    "Hi there"
+    "Hi"
   }
 }
 

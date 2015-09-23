@@ -1,18 +1,4 @@
 /**
- * FYI: Example of a simple extractor which must be implemented for non- case classes
- */
-class StringThing(val s: String)
-
-object StringThingExtractor {
-  def unapply(st: StringThing): Option[String] = Some(st.s)
-}
-
-new StringThing("foo") match {
-  case StringThingExtractor("foo") => "call me foo"
-  case _ => "no foo"
-}
-
-/**
  * For case classes extractors for pattern matching are generated
  */
 case class Player(name: String, score: Score = null)

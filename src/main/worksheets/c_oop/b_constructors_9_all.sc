@@ -1,57 +1,48 @@
 import scala.util.Random
 
+val food: Seq[String] = Seq(
+  "Pasta",
+  "Curry Wurst",
+  "Sandwich"
+)
+
 /**
  * Constructor with parameter aka class parameter
  *
  * @see [[scala.collection.Seq]]
  */
-class ConfigurableLunchDecision(choices: Seq[String]) {
-  def decide() = choices(Random.nextInt(choices.size))
+class Lunch(choices: Seq[String]) {
+  def decide(): String = choices(Random.nextInt(choices.size))
 }
 
-val configured = new ConfigurableLunchDecision(
-  Seq(
-    "Pasta",
-    "Curry Wurst",
-    "Sandwich"
-  )
-).decide()
+new Lunch(food).decide()
 
 /**
  * Inheritance and Auxiliary constructors
  */
-class LimitedChoicesLunchDecision(choices: Seq[String]) extends ConfigurableLunchDecision(choices) {
+class LunchRestricted(choices: Seq[String]) {
+  def decide(): String = choices(Random.nextInt(choices.size))
+
   //  Restriction:
   //    The primary constructor must be called from every other constructor
-  def this(choice1: String, choice2: String) = {
-    this(Seq(choice1, choice2))
+  def this(choices: (String, String)) = {
+    this(Seq(choices._1, choices._2))
   }
+
 }
 
-val limited = new LimitedChoicesLunchDecision("Pasta", "Pizza").decide()
+new LunchRestricted(food).decide()
 
 /**
  * Named parameter and default value
  */
-class TolerantLunchDecision(choice1: String = "Pasta", choice2: String = "Pizza") {
+class LunchDefault(choice1: String = "Pasta", choice2: String = "Pizza") {
   def decide() = Seq(choice1, choice2)(Random.nextInt(2))
 }
 
-val tolerant = new TolerantLunchDecision(choice2 = "Burger").decide()
+// Audience: I want Burger instead of Pizza
+new LunchDefault(choice2 = "Burger").decide()
 
-/**
- * Constructor with constraints
- */
-class NoPastaLunchDecision(val choice: String) {
-  if (choice == "Pasta")
-    throw new IllegalArgumentException("Oh no ... Pasta again!!!")
-}
-
-val noPasta = try {
-  new NoPastaLunchDecision("Pasta").choice
-} catch {
-  case e: IllegalArgumentException => new NoPastaLunchDecision("Pizza").choice
-}
 
 /**
  * Getters and setters
@@ -60,43 +51,36 @@ val noPasta = try {
  * @param restaurant Compiler generates a readable field
  * @param howMany Compiler generates a readable field and a setter
  */
-class Reservation(budget: Int, val restaurant: String, var howMany: Int) {
-  def getBudget = budget
-}
+class Reservation(budget: Int, val restaurant: String, var howMany: Int)
+val res = new Reservation(250, "Il Ritrovo", 12)
+// Audience: what is the result?
+// res.budget
 
-val lunchReservation = new Reservation(250, "Il Ritrovo", 12)
+// Audience: what is the result?
+//res.restaurant
 
-// Without "val" or "var" we just define a parameter. Accessing a parameter does not work.
-// lunchReservation.budget
-lunchReservation.getBudget
+// Audience: what is the result?
+// res.restaurant = "Curry 36"
 
-lunchReservation.restaurant
+// Audience: what is the result?
+//res.howMany
+//res.howMany = 14
 
-// When "val" no setter is generated. Re-assigning a val is not allowed.
-// lunchReservation.restaurant = "murks"
-
-// When parameter is declared as a val, the compiler generates
-// a private field corresponding to each parameter (a different internal name is used),
-// along with a public reader method that has the same name as the parameter.
 // If a parameter has the var keyword, a public writer method is also generated with
 // the parameter’s name as a prefix, followed by _= .
+res.howMany
+res.howMany = 14
+res.howMany_=(16)
+res.howMany
 
-lunchReservation.howMany
-lunchReservation.howMany = 14
-lunchReservation.howMany_=(16)
-lunchReservation.howMany
 
-// TODO: define an operator
-
-// FYI: This is what the compiler generates
-class Reservation2(budget: Int, val restaurant: String) {
-  def getBudget = budget
-
-  private var _howMany = 12
-
-  def howMany = _howMany
-
-  def howMany_=(newBudget: Int) = _howMany = newBudget
-
+/**
+ * Constructor with constraints
+ */
+class NoPasta(val choice: String) {
+  if (choice == "Pasta")
+    throw new IllegalArgumentException("Oh no ... Pasta again!!!")
 }
 
+new NoPasta("Pizza")
+new NoPasta("Pasta")

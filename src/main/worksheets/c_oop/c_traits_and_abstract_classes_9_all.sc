@@ -1,10 +1,7 @@
-
 /**
  * Abstract class with field and methods
- *
- * [[https://en.wikipedia.org/wiki/Date_format_by_country]]
  */
-abstract class Date(val day: Int, val month: Int, val year: Int) {
+abstract class Date(day: Int, month: Int, year: Int) {
   def format: String
 }
 
@@ -13,7 +10,8 @@ class DMY(day: Int, month: Int, year: Int) extends Date(day, month, year) {
   override def format: String = s"$day-$month-$year"
 }
 
-val dmy = new DMY(1, 1, 1978).format
+new DMY(1, 1, 1978).format
+
 
 /**
  * Traits encapsulate fields and methods.
@@ -27,19 +25,11 @@ trait JsonAble {
 /**
  * Trait mix-in can be done on class definition or object creation
  */
-new DMY(1, 1, 1978) with JsonAble {
-  // @formatter:off
-  def toJson =
-    s"""
-       |{
-       |"year": "$year",
-       |"month": "$month",
-       |"day": "$day"
-       |}
-     """.stripMargin
-  // @formatter:on
+class JsonDate(day: Int, month: Int, year: Int) extends JsonAble {
+  def toJson = s"""{"day":$day,"month":$month,"year":$year}"""
 }
 
+new JsonDate(1, 1, 2015).toJson
 
 /**
  * How to handle multiple traits defining methods with same signature?
@@ -52,11 +42,13 @@ trait B {
   def foo = "B"
 }
 
-class C extends A with B {
+class C
+
+// Audience: What happens?
+val c = new C() with A with B {
   override def foo = super[A].foo
 }
-
-val c = new C().foo
+c.foo
 
 /**
  * Sealed traits can only be extended in the same file as its declaration.

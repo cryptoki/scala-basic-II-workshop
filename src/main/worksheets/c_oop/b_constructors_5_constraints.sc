@@ -1,4 +1,3 @@
-
 /**
  * Constructor with constraints
  */
