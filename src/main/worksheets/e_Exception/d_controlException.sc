@@ -2,6 +2,7 @@ import java.util.NoSuchElementException
 
 import scala.util.Try
 import scala.util.control.Exception._
+import scala.util.control.NonFatal
 
 // ====================================
 // -1- INTRO
@@ -15,23 +16,30 @@ import scala.util.control.Exception._
  * This class differs from `scala.util.Try` in that it focuses on
  * composing exception handlers rather than composing behavior.
  */
-// allCatch
-// TODO -me-  use allCatch and nonFatalCatch with opt
-//            use "42".toInt and "abc".toInt
-val opt1:Option[Int] = allCatch.opt("42".toInt)
-val opt2:Option[Int] = nonFatalCatch.opt("abc".toInt)
+// TODO -me-  usage of NonFatal
+val nonFatal: Int = try {
+  "abc".toInt
+} catch {
+  case NonFatal(e) => -1
+}
 
 
-// TODO -me-  use allCatch with withTry
+// TODO -me-  use allCatch and nonFatalCatch with
+//            1) opt  and  2) withTry
 //            use "42".toInt and "abc".toInt
-val try1:Try[Int] = allCatch.withTry("abc".toInt)
-val try2:Try[Int] = allCatch.withTry("42".toInt)
-//
+val opt1:Option[Int] = allCatch[Int].opt("42".toInt)
+val opt2:Try[Int] = nonFatalCatch[Int].withTry("abc".toInt)
+
+
+// ==> PUI legalInformation
+
+
 //
 // ====================================
 // -2- Generator
 // ====================================
-//
+
+// Creates a `Catch` object which will catch any of the supplied exceptions.
 // TODO -me-  lt's write an handler which catch the
 //            - NumberFormatException -> return 0
 //              and
@@ -52,13 +60,10 @@ val handleIntConverting = catching[Int](
 })
 
 
-// TODO -me-  "42".toInt and use handleIntConverting
-val test1: Int = handleIntConverting {"42".toInt}
+// TODO -me-  "42" / "abc42def".toInt and use handleIntConverting
+val test1: Int = handleIntConverting.apply("42".toInt)
+val test2: Int = handleIntConverting("abc42def".toInt)
 assert(test1 == 42)
-
-
-// TODO -1-  "abc42def".toInt and use handleIntConverting
-val test2: Int = handleIntConverting {"abc42def".toInt}
 assert(test2 == 0)
 
 //
@@ -67,13 +72,6 @@ assert(test2 == 0)
 val test3: Int = handleIntConverting {throw new IllegalArgumentException}
 assert(test3 == -1)
 
-//
-// TODO -3-  what should happend if you throw an
-//           IndexOutOfBoundsException in withApply?
-val test4: Int = handleIntConverting {
-  "42".toInt
-//  throw new IndexOutOfBoundsException
-}
 
 //
 //

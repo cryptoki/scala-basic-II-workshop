@@ -1,6 +1,7 @@
 import scala.util.control.Exception._
 
 
+// Creates a `Catch` object which will catch any of the supplied exceptions.
 // TODO -me-  lt's write an handler which catch the
 //            - NumberFormatException -> return 0
 //              and
@@ -8,22 +9,15 @@ import scala.util.control.Exception._
 val handleIntConverting:Catch[Int] = ???
 
 
-// TODO -me-  "42".toInt and use handleIntConverting
-val test1: Int = ???
+// TODO -me-  "42" / "abc42def".toInt and use handleIntConverting
+val test1: Int = handleIntConverting.apply("42".toInt)
+val test2: Int = handleIntConverting("abc42def".toInt)
 assert(test1 == 42)
-
-
-// TODO -1-  "abc42def".toInt and use handleIntConverting
-val test2: Int = ???
 assert(test2 == 0)
 
 
-// TODO -2-  use handleIntConverting and throw an IllegalArgumentException
+
+// TODO -1-  use handleIntConverting and throw an IllegalArgumentException
 //           write the assert statement before you implement
 
 
-// TODO -3-  what should happend if you throw an
-//           IndexOutOfBoundsException in withApply?
-
-
-// TODO -me-  short analogy to try/catch
