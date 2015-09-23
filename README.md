@@ -1,12 +1,12 @@
-scala-Workshop: Basics - II
+Scala-Workshop: Basics - II
 ===========================
 
 Inspired by [https://github.com/yanns/scala-workshop](https://github.com/yanns/scala-workshop)
 
-## Source package
+## Source Package
 Scala worksheets as supported by [IntelliJ IDEA](https://www.jetbrains.com/idea/) contain all explanatory material. 
 
-## Test package
+## Test Package
 Contains small exercises in form of [Scala Test](http://www.scalatest.org/) tests.  
 
 ### Content
@@ -24,30 +24,8 @@ The simulated backend gets Git logs from a source in Json format. For optimal pe
 data as possible. Data conversions in the frontend shouldn't be necessary.
   
 
-
-TODO: remove following parts
-
-#### Prefix für Themen
-a_
-b_
-
-#### Aufgaben
-* Sub Themen finden
-* Zeitschätzung für einzelne Bereiche
-* Worksheets vorbereiten
-* Eine Übungsaufgabe mit fertigen Tests
-* Markdown in jedem Bereich
-
-
-#### Fragen
-* Tooling - Gehört das / macht das Part I?
-* REPL, SBT -> macht das Part I?
-* scalatest  ->  http://scalatest.org/user_guide/selecting_a_style
-  * Könnte man überlegen, etwas Varianz in die Tests zu bringen. Ist aber nicht Inhalt des Kurses
-* IDEA
-* SBT
-
-#### Resourcen
+#### Resources
+* Daniel Westheide: The Neophyte's Guide to Scala (https://leanpub.com/theneophytesguidetoscala)
 * Scala levels: beginner to expert, application programmer to library designer
  - http://www.scala-lang.org/old/node/8610
 * Twitter Scala School
@@ -58,34 +36,40 @@ b_
  - http://stackoverflow.com/questions/11359784/good-examples-of-idiomatic-scala-code
 
 
-#### Zeit Management
+#### Agenda
+
 ##### Intro
 * 30min
-09:00 - 09:30 Uhr
+09:00 - 09:30
 
-##### Rekursion
+##### Recursion
 * 45min (1h 15)
-09:30 - 10:30 Uhr
-Pause 10:45 UHr
+09:30 - 10:30
+
+#### Break
+10:45 - 11:00
 
 ##### OOP
-* 2 Stunden
-11:00 - 13:00 Uhr
-Pause 14:00 Uhr
+* 90min
+11:00 - 12:30
+
+#### Break
+12:30 - 13:30
 
 ##### Options
 * 45min (2h)
-(14:45 Uhr)
+13:30 - 14:15
 
 ##### Exception
 * 45min (2h 45)
-(15:30 Uhr)
-Pause 15:45 Uhr
+14:15 - 15:00
+
+##### Break
+15:00 - 15:15
 
 ##### Functions
 * 45min (2h 45)
-16:30 Uhr
+15:15 - 16:20
 
-##### Beispiel
-* 30min
-=> Finish 17:00 Uhr
+##### Example App
+16:20 - 17:00
