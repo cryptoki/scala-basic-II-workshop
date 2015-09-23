@@ -14,19 +14,19 @@ class Foo(s: String) {
 
 object Foo {
   // A companion object can access private fields of its companion class
-  def revealSecret() = new Foo("").secret
+  def revealSecret() = ???
 
   // Companion objects are often used as factories
-  def apply(s: String) = new Foo(s)
+  def apply(s: String) = ???
 
   // or to define implicit conversions and other implicit stuff
-  implicit def str(f: Foo): String = s"This is my foo:  ${f.foo}"
+  // TODO: implicit conversion
 }
 
 Foo.revealSecret()
 
 // syntactic sugar: no new required
-val newFoo = Foo("Bar").foo
+// TODO: instance via factory
 
 // Implicit type conversion in action
-val newFooString: String = new Foo("Implicit conversion")
+// TODO: implicit conversion

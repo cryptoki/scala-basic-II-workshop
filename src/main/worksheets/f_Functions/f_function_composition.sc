@@ -5,11 +5,11 @@ val times2: Int => Int = _ * 2
 val plus3: Int => Int = _ + 3
 
 
-(times2 andThen plus3)(3) == plus3(times2(3))
+// TODO: andThen
 
-Function.chain(Seq(times2, plus3))(3) == plus3(times2(3))
+// TODO: chain
 
-(times2 compose plus3)(3) == times2(plus3(3))
+// TODO: compose
 
 /**
  * In addition, PartialFunctions can be composed via [[PartialFunction.orElse]]
@@ -36,9 +36,7 @@ val unknownHandler: PartialFunction[Int, String] = {
 
 def processResponse(status: Int, handler: Int => String): String = handler(status)
 
-processResponse(200, okHandler orElse errorHandler)
-processResponse(500, okHandler orElse errorHandler)
-processResponse(5, okHandler orElse errorHandler orElse unknownHandler)
+// TODO: orElse
 
 // Audience: What would you expect
-//processResponse(5, okHandler orElse errorHandler )
+// TODO: processResponse(5, okHandler orElse errorHandler )

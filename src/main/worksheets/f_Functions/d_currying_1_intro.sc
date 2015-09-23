@@ -7,8 +7,9 @@
  */
 
 def sum(x: Int, y: Int) = x + y
-def sumCurried(x: Int)(y: Int) = x + y
+// TODO: sumCurried
 
+// without currying
 def acceptString(s: String, pred: String => Boolean): Boolean = pred(s)
 
 acceptString("Hello World", seq => seq.length > 1)
@@ -17,15 +18,7 @@ acceptString("Hello World", seq => seq.length < 100)
 /**
  * Currying enables definition of functions which look more like built-in language constructs
  */
-def acceptStringCurried(s: String)(pred: String => Boolean): Boolean = pred(s)
-
-acceptStringCurried("Hello World") {
-  seq => seq.length > 1
-}
-
-acceptStringCurried("Hello World") {
-  seq => seq.length < 100
-}
+// TODO: acceptStringCurried
 
 // Play framework example:
 // https://www.playframework.com/documentation/2.4.3/ScalaBodyParsers#Specifying-a-body-parser

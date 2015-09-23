@@ -11,13 +11,12 @@ def max(maximum: Int): String => Boolean = s => s.length <= maximum
 /**
  * A function which returns a function which returns true if all predicates return true
  */
-def all(predicates: (String => Boolean)*): String => Boolean =
-  s => predicates.forall(pred => pred(s))
+// TODO: all for predicates
 
 /**
  * Define a (partial applied function) allMin1Max5 which can be used to filter the hellos list
  * and only leave strings in that list for which  1 <= s.length <= 5
  */
-val allMin1Max5: (String) => Boolean = acceptString(_: String, all(min(1), max(5)))
+// TODO: allMin1Max5
 
-hellos.filter(allMin1Max5) == List("H", "He", "Hel", "Hell", "Hello")
+// TODO: hellos.filter(allMin1Max5) == List("H", "He", "Hel", "Hell", "Hello")

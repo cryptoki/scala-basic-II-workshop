@@ -6,4 +6,4 @@ val hulk = Player("Hulk")
 
 // Objects are immutable. To get new instances based on each other
 // use copy method to get a copy with changed values
-val hulkWithScore = hulk.copy(score = Score("Pacman", 3560))
+val hulkWithScore = ???

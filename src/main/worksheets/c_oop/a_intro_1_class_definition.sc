@@ -1,13 +1,13 @@
 /**
  * Scala is object-oriented and it's always like...write less do more :)
  */
-class AClass
+// TODO simple class
 
-val d = new AClass
+val a = ???
 
-val isAny = d.isInstanceOf[Any]
+// TODO instanceof
 
-class BClass extends AClass
+// TODO class inheritance
 
-val isA = new BClass().isInstanceOf[AClass]
-val isB = new BClass().isInstanceOf[BClass]
+val isA = ???
+val isB = ???

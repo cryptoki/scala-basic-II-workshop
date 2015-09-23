@@ -12,7 +12,5 @@ trait B {
 class C
 
 // Audience: What happens?
-val c = new C() with A with B {
-  override def foo = super[A].foo
-}
-c.foo
+// TODO: val c = new C() with A with B
+//c.foo

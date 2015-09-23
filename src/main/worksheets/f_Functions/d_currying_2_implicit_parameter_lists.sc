@@ -3,11 +3,10 @@
  *
  * Implicit parameter lists are frequently used to inject dependencies into functions.
  */
-def accept(s: String)(implicit pred: String => Boolean): Boolean = pred(s)
+// TODO: accept with implicit parameter list
 
-implicit val isOink: String => Boolean = s => s == "Oink"
+val isOink: String => Boolean = s => s == "Oink"
 
-accept("Yeeha")
-accept("Oink")
+// TODO: use accept
 
 // Show Example code from Play framework project with implicit request

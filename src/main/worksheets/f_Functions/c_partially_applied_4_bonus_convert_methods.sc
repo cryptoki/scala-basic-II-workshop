@@ -12,4 +12,4 @@ val sumRef = Math.sum
 
 
 // Audience: This does not work. How to fix?
-//val squareRef = Math.square
+// TODO: val squareRef = Math.square

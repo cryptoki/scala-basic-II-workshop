@@ -1,26 +1,18 @@
 /**
  * Named Function
  */
-def double(x: Int): Int = x * 2
-double(3)
+// TODO: named function
 
 /**
  * A method is a function
  */
 object Math {
-  def square(x: Int): Int = x * x
+  // TODO: method
 }
-
-Math.square(3)
 
 /**
  * Local function
  */
-def multipleSum(m: Int, x: Int, y: Int) = {
-  def sum() = {
-    x + y
-  }
-  m * sum()
-}
+def multipleSum(m: Int, x: Int, y: Int) = ???
 
-multipleSum(3, 2, 2)
+multipleSum(3, 2, 2) == 12

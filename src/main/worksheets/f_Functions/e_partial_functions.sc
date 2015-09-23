@@ -4,41 +4,32 @@
  *
  * https://en.wikipedia.org/wiki/Partial_function
  */
-def fraction(d: Int) = 42 / d
+// TODO: fraction
 
 /**
  * Scala supports definition of partial functions by a special type [[PartialFunction]]
  */
 object Routes extends PartialFunction[String, String] {
-  override def isDefinedAt(route: String): Boolean = Seq("/hello", "/status") contains route
+  override def isDefinedAt(route: String): Boolean = ???
 
-  override def apply(route: String): String = route match {
-    case "/hello" => "Hello World"
-    case "/status" => "Alive"
-    case _ => "404"
-  }
+  override def apply(route: String): String = ???
 }
 
-Routes("/hello")
-Routes.isDefinedAt("/status")
-Routes.isDefinedAt("/alive")
-// Audience: What happens...
+// TODO: application of Routes
+// TODO: Audience: What happens...
 // Routes("/alive")
 
 
 // syntactic sugar
-val routes: PartialFunction[String, String] = {
-  case "/hello" => "Hello World"
-  case "/status" => "Alive"
-}
+val routes: PartialFunction[String, String] = ???
 
 /**
  * Partial functions can be used everywhere a function is expected
  */
-// Audience what would you expect?
+// TODO: Audience what would you expect?
 //List("/alive", "/status", "/hello", "/search") map routes
 
-// Audience what would you expect?
+// TODO: Audience what would you expect?
 //List("/alive", "/status", "/hello", "/search") collect routes
 
 

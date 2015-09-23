@@ -11,15 +11,13 @@
  * Examples: map, filter, reduce ...
  */
 def acceptString(s: String, pred: String => Boolean): Boolean = pred(s)
-
-acceptString("Hello World", seq => seq.length > 1)
-acceptString("Hello World", seq => seq.length < 5)
+// TODO: 2 variants of acceptString with predicates
 
 /**
  * Functions can be return values.
  */
-def minLength(min: Int): String => Boolean = (s: String) => s.length >= min
-def maxLength(max: Int): String => Boolean = (s: String) => s.length <= max
+def minLength(min: Int): String => Boolean = ???
+def maxLength(max: Int): String => Boolean = ???
 
 acceptString("Foo", minLength(1))
 acceptString("Bar", maxLength(2))

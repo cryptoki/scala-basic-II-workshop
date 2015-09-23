@@ -11,8 +11,4 @@ val food: Seq[String] = Seq(
  *
  * @see [[scala.collection.Seq]]
  */
-class Lunch(choices: Seq[String]) {
-  def decide(): String = choices(Random.nextInt(choices.size))
-}
-
-new Lunch(food).decide()
+// TODO class with class parameters
