@@ -1,7 +1,3 @@
-// corresponding test
-// ==================
-// b_recursion/a_SumNaturalNumbers
-
 // ====================================
 // factorial
 // ====================================
@@ -23,26 +19,17 @@ factorial(4)
 // in IDEA recursion is marked by a mirror inverted @ symbol, in the worksheet
 // left beside the method definition.
 
-// internal progress
-// 4 * factorial(3)
-// 3 * factorial(2)
-// 2 * factorial(1)
-// 1 * factorial(0)
-// 1
-
-// = 1
-// = 1 * 1 = 1
-// = 2 * 1 = 2
-// = 3 * 2 = 6
-// = 4 * 6 = 24
-// = 24
+// ====================================
+// problem
+// ====================================
 
 /**
  * simple recursive way, but there is a problem.
- *
- * the result of every recursion step needs to saved. if the depth is to high, a
- * StackOverflowError occurs. The program will terminate.
+ * the result of every recursion step needs to saved.
+ * if the depth is to high, a StackOverflowError
+ * occurs. The program will terminate.
  */
+// TODO -me-  write a simple sum example
 def problem(n: Long): Long = {
   if (n == 0)
     0
@@ -53,8 +40,6 @@ problem(300)
 // StackOverflow
 problem(30000)
 
-// In the factorial example you can see every step, at the end the result will be
+// In the factorial example you can see every step,
+// at the end the result will be
 // recursively calculate from every saved step
-
-
-// Please implement the a_SumNaturalNumbersTest in a recursive manner

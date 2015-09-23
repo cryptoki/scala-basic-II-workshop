@@ -28,18 +28,20 @@
  *
  * tail recursion
  * --------------
- * Mathmatics: n! = n * (n-1)!
- *
  * factorial(1, 4)
  * factorial(1*4, 3)
  * factorial(4*3, 2)
  * factorial(12*2, 1)
  * 24
- *
- * The last method call is the last step of the calculation. That is the different between
+ */
+
+// TODO -me-  explain
+/* The last method call is the last step of the
+ * calculation. That is the different between
  * a normal and tail recursion.
  *
- * The Scala compile will be convert a tail recursion into a normal imperative loop manner
+ * The Scala compile will be convert a tail recursion
+ * into a normal imperative loop manner
  */
 
 
@@ -66,6 +68,7 @@ def factorialRecursion(n: Long): Long =
     n * factorialRecursion(n - 1)
 factorialRecursion(4)
 
+// TODO -1-  implement a tail recursion for factorial
 // tail recursion
 def factorialTailRecursion(n: Long, acc: Long): Long =
   if (n == 0)
@@ -74,6 +77,7 @@ def factorialTailRecursion(n: Long, acc: Long): Long =
     factorialTailRecursion(n - 1, acc * n)
 factorialTailRecursion(4, 1)
 
+// TODO -2-  implement a tail recursion with only one parameter
 // tail recursion with inner method and annotation
 def factorialTailRecursion(n: Long): Long = {
   // to use the tailrec annotation you have to import scala.annotation.tailrec
