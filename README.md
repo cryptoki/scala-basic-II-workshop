@@ -45,7 +45,7 @@ data as possible. Data conversions in the frontend shouldn't be necessary.
 
 #### Agenda
 
-##### Intro
+###### Intro
 * 30min
 09:00 - 09:30
 
@@ -53,14 +53,14 @@ data as possible. Data conversions in the frontend shouldn't be necessary.
 * 45min (1h 15min)
 09:30 - 10:15
 
-#### Break
+##### Break
 10:15 - 10:30
 
 ##### OOP
 * 1h 45min (1h 45min)
 10:30 - 12:15
 
-#### Lunch Break
+##### Lunch Break
 12:15 - 13:15
 
 ##### Options
