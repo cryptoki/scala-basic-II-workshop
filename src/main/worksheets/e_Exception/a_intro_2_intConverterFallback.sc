@@ -26,6 +26,7 @@ def convertFailsafeToInt(input: String): Int = {
 // call it :)
 assert(convertFailsafeToInt("42") == 42)
 
-assert(convertFailsafeToInt("42a") == 0)
+assert(convertFailsafeToInt("42a") == -1)
 
-assert(convertFailsafeToInt("-1234234") == -1)
+assert(convertFailsafeToInt("-1234234") == 0)
+

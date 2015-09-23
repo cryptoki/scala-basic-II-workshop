@@ -7,19 +7,18 @@ def convert(list: Seq[String]): Seq[Try[Int]] = ???
 // what should be the result of the convert method?
 val resultConvert = convert(list)
 
-
-// TODO -2-  sum up every number in 'resultConvert'
-def sum(list: Seq[Try[Int]]): Int = ???
-
-val resultSum = sum(resultConvert)
-assert(resultSum==19)
-
-
-// TODO -3-  return a Int Sequence only with the natural numbers
+// TODO -2-  return a Int Sequence only with the natural numbers
 def onlyNumbers(list: Seq[Try[Int]]): Seq[Int] = ???
 
 val resultOnlyNumbers = onlyNumbers(resultConvert)
 assert(resultOnlyNumbers == Seq(3,4,12))
+
+
+// TODO -3-  sum up every number in 'resultConvert'
+def sum(list: Seq[Try[Int]]): Int = ???
+
+val resultSum = sum(resultConvert)
+assert(resultSum==19)
 
 
 // TODO -4-  result of number * 2 + 1 for every failure?

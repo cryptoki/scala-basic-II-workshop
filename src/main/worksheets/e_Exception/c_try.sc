@@ -7,24 +7,28 @@ import scala.util.{Try, Success, Failure}
 // TODO -me-  show method signature call by name
 // the old known Int converter
 val convert: Try[Int] = Try { "abc".toInt }
+Try.apply("abc".toInt)
 
-// TODO -2-  implement match clause
+// TODO -2-  implement match clause for 'convert'
 // try is am abstract class, a sealed abstract class
 // with two sub final case classes
 //  1 - Success - contains the result
 //  2 - Failure - contains the exception
-convert match {
+val convertResult = convert match {
   case Success(result) => println(s"Yipee $result")
   case Failure(exc) => println(s"Buhh $exc")
 }
 
 // TODO -me-  show few methods
 // use of map/flatMap/transform/getOrElse
-val a1 = convert.flatMap(x => Success(3))
-val a2 = convert.transform(x => Success(x+1), e => Success(2))
-val a3 = convert.map(x => x+1)
-val a4 = convert.getOrElse(42)
+// => value *2 OR failure = -1
+val a1 = convert.flatMap(x => Success(x*2))
+val a2 = convert.transform(x => Success(x*1), e => Success(-1))
+val a3 = convert.map(x => x*2)
+val a4 = convert.getOrElse(-1)
 
+
+// ==> PUI (gateways PaymentApiClient, SemanticApiClient...)
 
 
 // ====================================
@@ -42,20 +46,20 @@ def convert(list: Seq[String]): Seq[Try[Int]] = list.map(x => Try(x.toInt))
 val resultConvert = convert(list)
 
 
-// TODO -2-  sum up every number in 'resultConvert'
-def sum(list: Seq[Try[Int]]): Int =
-  list.map(x => x.getOrElse(0)).sum
-
-val resultSum = sum(resultConvert)
-assert(resultSum==19)
-
-
-// TODO -3-  return a Int Sequence only with the natural numbers
+// TODO -2-  return a Int Sequence only with the natural numbers
 def onlyNumbers(list: Seq[Try[Int]]): Seq[Int] =
   list.filter(x => x.isSuccess).map(x => x.get)
 
 val resultOnlyNumbers = onlyNumbers(resultConvert)
 assert(resultOnlyNumbers == Seq(3,4,12))
+
+
+// TODO -3-  sum up every number in 'resultConvert'
+def sum(list: Seq[Try[Int]]): Int =
+  list.map(x => x.getOrElse(0)).sum
+
+val resultSum = sum(resultConvert)
+assert(resultSum==19)
 
 
 // TODO -4-  result of number * 2 + 1 for every failure?
@@ -92,3 +96,5 @@ divideBy(3,0).recover({
 divideBy(3,0).recoverWith({
   case e: ArithmeticException => divideBy(3,1)
 })
+
+// ==> PUI (DownloadFromBlobRocket...)
