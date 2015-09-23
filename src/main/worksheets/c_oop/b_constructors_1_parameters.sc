@@ -5,11 +5,11 @@ import scala.util.Random
  *
  * @see [[scala.collection.Seq]]
  */
-class ConfigurableLunchDecision(choices: Seq[String]) {
-  def decide() = choices(Random.nextInt(choices.size))
+class Lunch(where: Seq[String]) {
+  def decide(): String = where(Random.nextInt(where.size))
 }
 
-val configured = new ConfigurableLunchDecision(
+new Lunch(
   Seq(
     "Pasta",
     "Curry Wurst",

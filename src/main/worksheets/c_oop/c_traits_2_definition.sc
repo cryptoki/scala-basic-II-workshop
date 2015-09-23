@@ -13,7 +13,7 @@ trait JsonAble {
  */
 class Date(val day: Int, val month: Int, val year: Int) extends JsonAble {
   // @formatter:off
-  def toJson =
+  def toJson:String =
     s"""
        |{
        |"year": "$year",

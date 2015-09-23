@@ -3,13 +3,12 @@ import scala.util.Random
 /**
  * Class with field and methods
  */
-class LunchDecision {
-  // a private member
-  private val choices: Seq[String] = Seq("Pizza", "Sushi", "Burger")
+class Lunch {
+  private val where = Seq("Pizza", "Sushi", "Burger")
 
-  // Type inference: remove return type
-  // syntactic sugar: remove curly braces
-  def decide() = choices(Random.nextInt(choices.size))
+  // Public API should have return type
+  def decide(): String = where(Random.nextInt(where.size))
+
 }
 
-val lunch: String = new LunchDecision().decide()
+val lunch = new Lunch().decide()

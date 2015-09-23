@@ -12,6 +12,7 @@ class Reservation(budget: Int, val restaurant: String, var howMany: Int) {
 
 val lunchReservation = new Reservation(250, "Il Ritrovo", 12)
 
+// TODO: think about audience interaction instead of documenting
 // TODO: add parameter with override
 
 // Without "val" or "var" we just define a parameter. Accessing a parameter does not work.

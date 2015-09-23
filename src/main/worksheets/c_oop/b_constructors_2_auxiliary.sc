@@ -3,8 +3,8 @@ import scala.util.Random
 /**
  * Inheritance and Auxiliary constructors
  */
-class LimitedChoicesLunchDecision(choices: Seq[String]) {
-  def decide() = choices(Random.nextInt(choices.size))
+class Lunch(choices: Seq[String]) {
+  def decide(): String = choices(Random.nextInt(choices.size))
 
   //  Restriction:
   //    The primary constructor must be called from every other constructor
@@ -13,4 +13,4 @@ class LimitedChoicesLunchDecision(choices: Seq[String]) {
   }
 }
 
-val limited = new LimitedChoicesLunchDecision("Pasta", "Pizza").decide()
+new Lunch("Pasta", "Pizza").decide()

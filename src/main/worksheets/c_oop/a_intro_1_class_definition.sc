@@ -1,13 +1,13 @@
 /**
  * Scala is object-oriented and it's always like...write less do more :)
  */
-class DumpClass
+class AClass
 
-val d = new DumpClass
+val d = new AClass
 
 val isAny = d.isInstanceOf[Any]
 
-class AnotherDumpClass extends DumpClass
+class BClass extends AClass
 
-val isDump = new AnotherDumpClass().isInstanceOf[DumpClass]
-val isAnotherDump = new AnotherDumpClass().isInstanceOf[AnotherDumpClass]
+val isA = new BClass().isInstanceOf[AClass]
+val isB = new BClass().isInstanceOf[BClass]

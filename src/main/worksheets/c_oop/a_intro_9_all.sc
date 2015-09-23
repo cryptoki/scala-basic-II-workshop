@@ -1,29 +1,28 @@
-import scala.util.Random
-
 /**
  * Scala is object-oriented and it's always like...write less do more :)
  */
-class DumpClass
+class AClass
 
-val d = new DumpClass
+val d = new AClass
 
 val isAny = d.isInstanceOf[Any]
 
-class AnotherDumpClass extends DumpClass
+class BClass extends AClass
 
-val isDump = new AnotherDumpClass().isInstanceOf[DumpClass]
-val isAnotherDump = new AnotherDumpClass().isInstanceOf[AnotherDumpClass]
+val isA = new BClass().isInstanceOf[AClass]
+val isB = new BClass().isInstanceOf[BClass]
+
+import scala.util.Random
 
 /**
  * Class with field and methods
  */
-class LunchDecision {
-  // a private member
-  private val choices: Seq[String] = Seq("Pizza", "Sushi", "Burger")
+class Lunch {
+  private val where = Seq("Pizza", "Sushi", "Burger")
 
-  // Type inference: remove return type
-  // syntactic sugar: remove curly braces
-  def decide() = choices(Random.nextInt(choices.size))
+  // Public API should have return type
+  def decide(): String = where(Random.nextInt(where.size))
+
 }
 
-val lunch: String = new LunchDecision().decide()
+val lunch = new Lunch().decide()
