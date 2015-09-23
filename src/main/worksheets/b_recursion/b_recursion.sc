@@ -2,9 +2,11 @@
 // ==================
 // b_recursion/a_SumNaturalNumbers
 
+// ====================================
+// factorial
+// ====================================
+
 /**
- * Factorial
- * =========
  * The product from all natural positive numbers, beginning from one to the
  * given maximum number.
  *
@@ -17,6 +19,7 @@ def factorial(n: Int): Int = {
     n * factorial(n - 1)
 }
 factorial(4)
+
 // in IDEA recursion is marked by a mirror inverted @ symbol, in the worksheet
 // left beside the method definition.
 

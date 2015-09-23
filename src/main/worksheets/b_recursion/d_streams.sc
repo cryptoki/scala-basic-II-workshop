@@ -1,4 +1,28 @@
-import scala.collection.immutable.Stream
+// ====================================
+// Intro
+// ====================================
+
+/**
+ * more ways to implement a recursion
+ *
+ * you can define a building description for streams.
+ */
+
+// simple Seq of Int from 1 to 20
+val simpleList: List[Int] = 1 to 20 by 2 toList
+
+
+// take first 10 from the stream and print it
+simpleList.toStream take 10 foreach print
+
+
+// you can also define a stream definition
+lazy val streamStep2: Stream[Int] = 1 #:: streamStep2.map((x: Int) => x+2)
+val resultStep2: List[Int] = streamStep2.take(10).toList
+assert(simpleList == resultStep2)
+
+
+// see whats happen in the next worksheet
 
 /**
  * operators ending by : are right associative
@@ -51,23 +75,27 @@ val conY = x.+:(1)
  * Remember what I said about the lazily-evaluated tail? This is where that idea really
  * begins to take effect. The from function is not infinitely recursive; at least, not right away.
  */
+
+// TODO -me-  use the stream example and print it out
 lazy val stream: Stream[Int] = 1 #:: stream.map((x: Int) => {
-  println(s" map $x + 1 = " + (x+1l))
-  x+1
+  println(s" map $x + 1 = " + (x+2l))
+  x+2
 })
 stream take 4 foreach(x => println(s"found next: $x"))
 
-// Is it the same?
+
+// TODO -1-  Is it the same?
 val firstValue: Int = 1
-lazy val streamLeftAssociative: Stream[Int] = streamLeftAssociative.map(x => {
-//  println(s" map $x + 1 = " + (x+1l))
-  x+1
-}).#::(firstValue)
+lazy val streamLeftAssociative: Stream[Int] =
+  streamLeftAssociative.map(x => {
+    //  println(s" map $x + 1 = " + (x+1l))
+    x+1
+  }).#::(firstValue)
 streamLeftAssociative take 4 // foreach(x => println(s"found next: $x"))
 
-// Is it the same?
+// TODO -2-  Is it the same?
 def streamAsFunction: Stream[Int] = 1 #:: streamAsFunction.map((x: Int) => {
-//  println(s" map $x + 1 = " + (x+1l))
+  //  println(s" map $x + 1 = " + (x+1l))
   x+1
 })
 streamAsFunction take 4 // foreach(x => println(s"found next: $x"))

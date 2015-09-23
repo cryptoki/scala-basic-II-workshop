@@ -20,5 +20,9 @@ def value(): Int = {
 def callByValue(x: Int) = println(s"x1=$x - x2=$x")
 def callByName(x: => Int) = println(s"x1=$x - x2=$x")
 
+val f = (x:Int) => x*x
+f(2)
+callByName(f(2))
+
 callByValue(value())
 callByName(value())

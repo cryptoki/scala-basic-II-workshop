@@ -7,9 +7,7 @@ val listOfNumbers = Range(1, 15, 3)
 
 // TODO -1-  summarize the values in the list
 //           use for loop
-var result = 0
-for (i <- listOfNumbers)
-  result += i
+var result: Int = ???
 
 assert(result == 35)
 
