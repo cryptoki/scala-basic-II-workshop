@@ -1,3 +1,5 @@
+# Example App Ideas
+
 # Option Teil
 * stats mit auslesen
 * case classes erweitern mit Options
