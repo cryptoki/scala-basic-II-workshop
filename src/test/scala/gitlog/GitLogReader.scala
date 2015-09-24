@@ -4,11 +4,14 @@ import play.api.libs.json.{JsValue, Json}
 
 import scala.io.Source
 
-/**
- * Read Json example file and provide content as Json AST in form of a [[JsValue]]
- */
 object GitLogReader {
-  def readLog(): JsValue = {
-    Json.parse(Source.fromFile("src/test/scala/gitlog/scala-gitlog.json").mkString)
+  /**
+   * Read Git log in Json format from file.
+   *
+   * @param filePath Path to the Json file
+   * @return `Some[JsValue]` if json file could be successfully read and transformed, otherwise None
+   */
+  def readLog(filePath: String): Option[JsValue] = {
+    Some(Json.parse(Source.fromFile(filePath).mkString))
   }
 }

@@ -65,7 +65,7 @@ object GitLogService {
    *
    */
   // TODO: do not implement
-  def userFrom(logEntry: LogEntry): Author = {
+  def userFromLogEntry(logEntry: LogEntry): Author = {
     val splitted = logEntry.author.split(" ")
     val nameParts = splitted.takeWhile(!_.startsWith("<"))
     val email = splitted.dropWhile(!_.startsWith("<"))
@@ -73,7 +73,7 @@ object GitLogService {
   }
 
   // TODO: do not implement
-  def usersFromLogEntries(logEntries: Seq[LogEntry]): Seq[Author] = logEntries.map(userFrom)
+  def usersFromLogEntries(logEntries: Seq[LogEntry]): Seq[Author] = logEntries.map(userFromLogEntry)
 
   // TODO: do not implement?
   def user(authors: Seq[Author], name: String): Author = authors.find(_.name == name).get

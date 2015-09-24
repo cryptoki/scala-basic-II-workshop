@@ -3,29 +3,29 @@ package gitlog
 import gitlog.FrontEndJsonModel.Author
 import gitlog.GitLogJsonModel.GitLog
 import org.scalatest._
-import play.api.libs.json.{JsError, JsSuccess, Json}
+import play.api.libs.json.{JsError, JsNull, JsSuccess, Json}
 
 
 class GitLogModelSpec extends FlatSpec with Matchers {
 
   class GitLogFixture {
-
     // read gitlog json AST and try to convert into a GitLog instance
-    val maybeGitLog: Option[GitLog] = GitLogReader.readLog().validate[GitLog] match {
-      case error: JsError =>
-        println("Errors during Json deserialization " + error.errors)
-        None
-      case success: JsSuccess[GitLog] => success.asOpt
-    }
-  }
+    val maybeGitLog: Option[GitLog] =
+      GitLogReader.readLog("src/test/scala/gitlog/scala-gitlog.json")
+        .getOrElse(JsNull)
+        .validate[GitLog] match {
+        case error: JsError =>
+          println("Errors during Json deserialization " + error.errors)
+          None
+        case success: JsSuccess[GitLog] => success.asOpt
+      }
 
-  "(Sanity check) Deserialization of gitlog Json file" should "produce a GitLog instance" in new GitLogFixture {
     maybeGitLog shouldBe defined
-
+    val gitLog: GitLog = maybeGitLog.get
   }
+
 
   "Adriaan Moors" should "have made 40 commits" in new GitLogFixture {
-    val gitLog: GitLog = maybeGitLog.get
     GitLogService.countCommitsOfUser(gitLog, "Adriaan Moors <adriaan.moors@typesafe.com>") shouldBe 40
   }
 
@@ -38,14 +38,14 @@ class GitLogModelSpec extends FlatSpec with Matchers {
         |}
       """.stripMargin
 
-    val authorJson = Json.toJson(Author(name = "John Doe", email = "<john.doe@email.com>"))
+    val author: Author = Author(name = "John Doe", email = "<john.doe@email.com>")
+
+    val authorJson = Json.toJson(author)
     authorJson shouldBe Json.parse(expectedJson)
   }
 
   "Adriaan Moors email" should "be <adriaan.moors@typesafe.com>" in new GitLogFixture {
-    println("GitLogService.usersFromLogEntries(maybeGitLog.get.logEntries).groupBy(_.name) = " + GitLogService.usersFromLogEntries(maybeGitLog.get.logEntries).groupBy(_.name))
-
-    val users = GitLogService.usersFromLogEntries(maybeGitLog.get.logEntries)
+    val users = GitLogService.usersFromLogEntries(gitLog.logEntries)
     GitLogService.user(users, "Adriaan Moors").email shouldBe "<adriaan.moors@typesafe.com>"
   }
 
