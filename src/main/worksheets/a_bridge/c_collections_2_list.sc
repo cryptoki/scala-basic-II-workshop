@@ -25,9 +25,9 @@ assert(list4(2) == "a")
 // TODO -me-  addon
 // additional
 val list5 = List(1,2)
-// concat two lists
-list5 ++ List(3,4)
+// concat two lists ++
+val list6 = ???
 // add right
-list5 :+ 3
+val list7 = ???
 // add left
-list5.+:(3)
+val list8 = ???
