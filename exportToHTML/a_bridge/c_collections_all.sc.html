@@ -98,26 +98,34 @@ c_collections_all.sc</FONT>
 <a name="l75"><span class="ln">75   </span></a>seq1 map(_*</span><span class="s3">2</span><span class="s1">) sum 
 <a name="l76"><span class="ln">76   </span></a> 
 <a name="l77"><span class="ln">77   </span></a></span><span class="s0">// TODO -me-  what is (x: Int) =&gt; x*2?</span><span class="s1"> 
-<a name="l78"><span class="ln">78   </span></a></span><span class="s2">val </span><span class="s1">f = (x: Int) =&gt; x*</span><span class="s3">2</span><span class="s1"> 
-<a name="l79"><span class="ln">79   </span></a>seq1.map(f).sum 
-<a name="l80"><span class="ln">80   </span></a>seq1 map f sum 
-<a name="l81"><span class="ln">81   </span></a> 
+<a name="l78"><span class="ln">78   </span></a></span><span class="s0">// sugar function - anonymous function</span><span class="s1"> 
+<a name="l79"><span class="ln">79   </span></a></span><span class="s2">val </span><span class="s1">funcMultiple2 = (x: Int) =&gt; x*</span><span class="s3">2</span><span class="s1"> 
+<a name="l80"><span class="ln">80   </span></a></span><span class="s2">val </span><span class="s1">funcMultiple2Sugar1: Int =&gt; Int = x =&gt; x*</span><span class="s3">2</span><span class="s1"> 
+<a name="l81"><span class="ln">81   </span></a></span><span class="s2">val </span><span class="s1">funcMultiple2Sugar2: Int =&gt; Int = _*</span><span class="s3">2</span><span class="s1"> 
 <a name="l82"><span class="ln">82   </span></a> 
-<a name="l83"><span class="ln">83   </span></a></span><span class="s0">// +---------------------------------------------</span><span class="s1"> 
-<a name="l84"><span class="ln">84   </span></a></span><span class="s0">// | TODO -me-  addon =&gt; only as reference</span><span class="s1"> 
-<a name="l85"><span class="ln">85   </span></a></span><span class="s0">// | additional - reference</span><span class="s1"> 
-<a name="l86"><span class="ln">86   </span></a></span><span class="s0">// +---------------------------------------------</span><span class="s1"> 
-<a name="l87"><span class="ln">87   </span></a></span><span class="s0">// head / tail</span><span class="s1"> 
-<a name="l88"><span class="ln">88   </span></a>seq1.head 
-<a name="l89"><span class="ln">89   </span></a>seq1.tail 
-<a name="l90"><span class="ln">90   </span></a></span><span class="s0">// some methods</span><span class="s1"> 
-<a name="l91"><span class="ln">91   </span></a>seq1.filter(_ % </span><span class="s3">2 </span><span class="s1">== </span><span class="s3">0</span><span class="s1">) 
-<a name="l92"><span class="ln">92   </span></a>seq1.groupBy(x =&gt; x%</span><span class="s3">2</span><span class="s1">) 
-<a name="l93"><span class="ln">93   </span></a>seq1.reduce((x</span><span class="s4">,</span><span class="s1">y) =&gt; x+y) 
-<a name="l94"><span class="ln">94   </span></a>seq1.partition(_ % </span><span class="s3">2 </span><span class="s1">== </span><span class="s3">0</span><span class="s1">) 
-<a name="l95"><span class="ln">95   </span></a></span><span class="s0">// zip and map</span><span class="s1"> 
-<a name="l96"><span class="ln">96   </span></a></span><span class="s2">val </span><span class="s1">seq2: Seq[Int] = seq1.reverse 
-<a name="l97"><span class="ln">97   </span></a>seq1.zip(seq2).map(x =&gt; x._1+x._2) 
-<a name="l98"><span class="ln">98   </span></a></span></pre>
+<a name="l83"><span class="ln">83   </span></a></span><span class="s0">// sum with function</span><span class="s1"> 
+<a name="l84"><span class="ln">84   </span></a></span><span class="s0">// sum with sugar function</span><span class="s1"> 
+<a name="l85"><span class="ln">85   </span></a>seq1.map(funcMultiple2).sum 
+<a name="l86"><span class="ln">86   </span></a>seq1 map funcMultiple2 sum 
+<a name="l87"><span class="ln">87   </span></a> 
+<a name="l88"><span class="ln">88   </span></a> 
+<a name="l89"><span class="ln">89   </span></a></span><span class="s0">// +---------------------------------------------</span><span class="s1"> 
+<a name="l90"><span class="ln">90   </span></a></span><span class="s0">// | TODO -me-  addon =&gt; only as reference</span><span class="s1"> 
+<a name="l91"><span class="ln">91   </span></a></span><span class="s0">// | additional - reference</span><span class="s1"> 
+<a name="l92"><span class="ln">92   </span></a></span><span class="s0">// +---------------------------------------------</span><span class="s1"> 
+<a name="l93"><span class="ln">93   </span></a></span><span class="s0">// head / tail</span><span class="s1"> 
+<a name="l94"><span class="ln">94   </span></a></span><span class="s2">val </span><span class="s1">head: Int = seq1.head 
+<a name="l95"><span class="ln">95   </span></a></span><span class="s2">val </span><span class="s1">tail: Seq[Int] = seq1.tail 
+<a name="l96"><span class="ln">96   </span></a> 
+<a name="l97"><span class="ln">97   </span></a></span><span class="s0">// some methods</span><span class="s1"> 
+<a name="l98"><span class="ln">98   </span></a>seq1.filter(_ % </span><span class="s3">2 </span><span class="s1">== </span><span class="s3">0</span><span class="s1">) 
+<a name="l99"><span class="ln">99   </span></a>seq1.groupBy(x =&gt; x%</span><span class="s3">2</span><span class="s1">) 
+<a name="l100"><span class="ln">100  </span></a>seq1.reduce((x</span><span class="s4">,</span><span class="s1">y) =&gt; x+y) 
+<a name="l101"><span class="ln">101  </span></a>seq1.partition(_ % </span><span class="s3">2 </span><span class="s1">== </span><span class="s3">0</span><span class="s1">) 
+<a name="l102"><span class="ln">102  </span></a> 
+<a name="l103"><span class="ln">103  </span></a></span><span class="s0">// zip and map</span><span class="s1"> 
+<a name="l104"><span class="ln">104  </span></a></span><span class="s2">val </span><span class="s1">seq2: Seq[Int] = seq1.reverse 
+<a name="l105"><span class="ln">105  </span></a>seq1.zip(seq2).map(x =&gt; x._1+x._2) 
+<a name="l106"><span class="ln">106  </span></a></span></pre>
 </body>
 </html>

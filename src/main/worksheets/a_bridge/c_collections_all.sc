@@ -75,9 +75,15 @@ seq1.map((x: Int) => x*2).sum
 seq1 map(_*2) sum
 
 // TODO -me-  what is (x: Int) => x*2?
-val f = (x: Int) => x*2
-seq1.map(f).sum
-seq1 map f sum
+// sugar function - anonymous function
+val funcMultiple2 = (x: Int) => x*2
+val funcMultiple2Sugar1: Int => Int = x => x*2
+val funcMultiple2Sugar2: Int => Int = _*2
+
+// sum with function
+// sum with sugar function
+seq1.map(funcMultiple2).sum
+seq1 map funcMultiple2 sum
 
 
 // +---------------------------------------------
@@ -85,13 +91,15 @@ seq1 map f sum
 // | additional - reference
 // +---------------------------------------------
 // head / tail
-seq1.head
-seq1.tail
+val head: Int = seq1.head
+val tail: Seq[Int] = seq1.tail
+
 // some methods
 seq1.filter(_ % 2 == 0)
 seq1.groupBy(x => x%2)
 seq1.reduce((x,y) => x+y)
 seq1.partition(_ % 2 == 0)
+
 // zip and map
 val seq2: Seq[Int] = seq1.reverse
 seq1.zip(seq2).map(x => x._1+x._2)
