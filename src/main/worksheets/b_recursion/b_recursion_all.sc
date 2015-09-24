@@ -30,15 +30,15 @@ factorial(4)
  * occurs. The program will terminate.
  */
 // TODO -me-  write a simple sum example
-def problem(n: Long): Long = {
+def overflowingSum(n: Long): Long = {
   if (n == 0)
     0
   else
-    n + (problem(n - 1) - (n/2))
+    n + (overflowingSum(n - 1) - (n/2))
 }
-problem(300)
+overflowingSum(300)
 // StackOverflow
-problem(30000)
+overflowingSum(30000)
 
 // In the factorial example you can see every step,
 // at the end the result will be

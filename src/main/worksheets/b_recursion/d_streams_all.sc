@@ -2,24 +2,33 @@
 // Beyond
 // ====================================
 
-/**
- * more ways to implement a recursion
- *
- * you can define a building description for streams.
- */
+// more ways to implement a recursion
+// you can define a building description for streams.
 
-// simple Seq of Int from 1 to 20
-val simpleList: List[Int] = 1 to 20 by 2 toList
+// use a simple List of odd Int from 1 to 20
+val simpleListOfOddNumber: List[Int] = 1 to 20 by 2 toList
+val streamOfLimitedOddNumber: Stream[Int] = simpleListOfOddNumber.toStream
 
 
-// take first 10 from the stream and print it
-simpleList.toStream take 10 foreach print
+// TODO -1-  take first 10 from the stream and print it
+streamOfLimitedOddNumber take 10 foreach(x => print(s"$x, "))
 
 
-// you can also define a stream definition
-lazy val streamStep2: Stream[Int] = 1 #:: streamStep2.map((x: Int) => x+2)
-val resultStep2: List[Int] = streamStep2.take(10).toList
-assert(simpleList == resultStep2)
+// TODO -2-  implement a stream definition for odd numbers
+//           we want to implement the same of odd numbers
+val streamOfOddNumbers: Stream[Int] =
+      1 #:: streamOfOddNumbers.map((x: Int) => x+2)
+// TODO -me-  take a look into the scala documentation #:: / cons
+val streamOfOddNumbersCons: Stream[Int] =
+      Stream.cons(1, streamOfOddNumbersCons map (_+2))
+
+// ==> Test cases
+val resultStreamOffOddNumbers: List[Int] =
+      streamOfOddNumbers.take(10).toList
+val resultStreamOffOddNumbersCons: List[Int] =
+      streamOfOddNumbersCons.take(10).toList
+assert(simpleListOfOddNumber == resultStreamOffOddNumbers)
+assert(simpleListOfOddNumber == resultStreamOffOddNumbersCons)
 
 
 // see whats happen in the next worksheet
@@ -50,11 +59,16 @@ val conY = x.+:(1)
 
 // TODO -1-  write a stream for the factorial problem
 lazy val streamFactorial: Stream[(Long, Long)] =
-  (1l,1l) #:: streamFactorial.map(x => (x._1+1l, x._2*(x._1+1l)))
+  (1,1) #:: streamFactorial.map(x => (x._1+1l, x._2*(x._1+1l)))
 streamFactorial take 4 print
 
 assert(streamFactorial.drop(3).head._2 == 24)
 
+
+
+// ====================================
+// Exercise
+// ====================================
 
 /**
  * Infinity stream definition
@@ -112,3 +126,20 @@ def streamAsFunction: Stream[Int] = 1 #:: streamAsFunction.map((x: Int) => {
   x+1
 })
 streamAsFunction take 4 // foreach(x => println(s"found next: $x"))
+
+
+
+
+// val test: Stream[Int] = 1 #:: 2 => Compiler Error => #:: is an operator from Stream
+// #:: ConsWrapper => Cons.apply => fügt dem Stream ein Head Element hinzu
+// => Initial Stream ist empty => 2+Empty Stream => 1 + Stream(2) => danach zuweisen des Ergebnis
+//    an test
+// => Stream ist gefüllt mit 1, 2 Elemente
+// => Bauvorschrift führt jetzt den vorhergehenden Schritt wieder aus
+// => 1 + 2 + Stream(1,2)
+
+// Definition eines Streams welcher sich selbst rekursiv erstellt
+// => Bauvorschrift
+// #:: rechts assoziativer Operator cons
+// 0 + 1 + stream
+// tupel und hinzufügen durch tupel Addition
