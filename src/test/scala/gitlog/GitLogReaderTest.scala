@@ -1,6 +1,7 @@
 package gitlog
 
 import org.scalatest.{FunSuite, Matchers}
+import play.api.libs.json.JsValue
 
 
 class GitLogReaderTest extends FunSuite with Matchers {
@@ -12,5 +13,15 @@ class GitLogReaderTest extends FunSuite with Matchers {
   test("Returns None for non-existing file path") {
     val log = GitLogReader.readLog("/non/existing/path")
     assert(log.isEmpty)
+  }
+
+  test("converting json to GitLog") {
+    val maybeJsValue: Option[JsValue] = GitLogReader.readLog("src/test/scala/gitlog/scala-gitlog.json")
+    val gitLog = for {
+      jsValue <- maybeJsValue
+      gitLog <- GitLogReader.jsonToObj(jsValue)
+    } yield gitLog
+
+    assert(gitLog.isDefined)
   }
 }

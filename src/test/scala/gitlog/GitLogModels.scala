@@ -19,20 +19,29 @@ object GitLogJsonModel {
    * is mapped to property "commit". The case class property must have same type for automatic mapping.
    * Otherwise custom deserializer can be implemented.
    */
+  // TODO -IMPLEMENT- => write complete LogEntry case class
   case class LogEntry(commit: String, author: String)
 
-  // TODO: leave out property
+  // TODO -IMPLEMENT- => write case class for stat entry in JSON
+  case class Statistic(insertions: String)
+
+  object Statistic {
+    implicit val jsonReads = Json.reads[Statistic]
+  }
 
   /**
    * Companion objects can be used
    * to define implicit Json deserializer.
    */
+  // DO NOT MODIFY
   object LogEntry {
     implicit val jsonReads = Json.reads[LogEntry]
   }
 
+  // DO NOT MODIFY
   case class GitLog(logEntries: Seq[LogEntry])
 
+  // DO NOT MODIFY
   object GitLog {
     implicit val jsonReads = Json.reads[GitLog]
   }
