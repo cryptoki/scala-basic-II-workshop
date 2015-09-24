@@ -10,12 +10,24 @@ import org.joda.time.format.{DateTimeFormat, DateTimeFormatter}
 object GitLogService {
 
 
+  /**
+   * Count total number of commits
+   */
   def countCommits(log: GitLog): Int = log.logEntries.size
 
-  // TODO: do not implement
+  /**
+   * Count commits of a specific author. Author is defined like "Matthias Erch <matthias.erche@epost-dev.de"
+   */
   def countCommitsOfUser(log: GitLog, author: String): Int = log.logEntries.count(_.author == author)
 
-  def countOfContributer(log: GitLog): Int = log.logEntries.groupBy(x => x.author).keys.size
+  /**
+   * Count number of contributers.
+   *
+   * Duplicates caused by multiple mail addresses for the same contributer are allowed.
+   */
+  def countOfContributer(log: GitLog): Int = {
+    log.logEntries.groupBy(x => x.author).keys.size
+  }
 
   val inputFormatter: DateTimeFormatter = DateTimeFormat.forPattern("EEE MMM dd HH:mm:ss yyyy Z").withLocale(Locale.ENGLISH)
   val outputFormatter: DateTimeFormatter = DateTimeFormat.forPattern("yyyy-MM-dd").withLocale(Locale.ENGLISH)
@@ -31,7 +43,7 @@ object GitLogService {
   }
 
   /**
-   * Return a map of log entries per name
+   * Return a map of log entries per author name
    */
   def logEntryByName(log: GitLog): Map[String, Seq[LogEntry]] = {
     log.logEntries.groupBy(x => {
@@ -47,7 +59,6 @@ object GitLogService {
    * - arrays support mkString to join ll elements to a string
    *
    */
-  // TODO: do not implement Done
   def authorFromLogEntry(logEntry: LogEntry): Author = {
     val splitted = logEntry.author.split(" ")
     val nameParts = splitted.takeWhile(!_.startsWith("<"))
@@ -55,10 +66,14 @@ object GitLogService {
     new Author(nameParts.mkString(" "), email(0))
   }
 
-  // TODO: do not implement Done
+  /**
+   * Transform a list of [[LogEntry]] into a list of [[Author]]
+   */
   def authorFromLogEntries(logEntries: Seq[LogEntry]): Seq[Author] = logEntries.map(authorFromLogEntry)
 
-  // TODO: do not implement? Done
+  /**
+   * Get a specific author from a list of authors
+   */
   def author(authors: Seq[Author], name: String): Author = authors.find(_.name == name).get
 
 

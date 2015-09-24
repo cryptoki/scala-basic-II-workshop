@@ -24,6 +24,13 @@ class GitLogServiceSpec extends FlatSpec with Matchers {
     val gitLog: GitLog = maybeGitLog.get
   }
 
+  "Number of commits" should "be 307" in new GitLogFixture{
+    GitLogService.countCommits(gitLog) shouldBe 307
+  }
+
+  "Number of committers" should "be 36" in new GitLogFixture{
+    GitLogService.countOfContributer(gitLog) shouldBe 36
+  }
 
   "Adriaan Moors" should "have made 40 commits" in new GitLogFixture {
     GitLogService.countCommitsOfUser(gitLog, "Adriaan Moors <adriaan.moors@typesafe.com>") shouldBe 40
@@ -61,7 +68,6 @@ class GitLogServiceSpec extends FlatSpec with Matchers {
   }
 
   "4 commits" should "have been done on Wed Aug 5 2015" in new GitLogFixture{
-    println("perDay = " + GitLogService.logEntryPerDay(gitLog))
     GitLogService.logEntryPerDay(gitLog)("2015-08-05") shouldBe 4
   }
 }
