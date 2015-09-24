@@ -46,40 +46,40 @@ data as possible. Data conversions in the frontend shouldn't be necessary.
 #### Agenda
 
 ##### Intro
+09:00 - 09:15
+
+##### Bridge
 * 30min
-* 09:00 - 09:30
+* 09:15 - 09:45
 
 ##### Recursion
 * 45min (1h 15min)
-* 09:30 - 10:15
+* 09:45 - 10:30
 
 ##### Break
-* 10:15 - 10:30
+* 10:30 - 10:45
 
 ##### OOP
 * 1h 45min (1h 45min)
-* 10:30 - 12:15
+* 10:45 - 12:30
 
 ##### Lunch Break
-* 12:15 - 13:15
+* 12:30 - 13:30
 
 ##### Options
 * 45min (1h 45min)
-* 13:15 - 14:00
+* 13:30 - 14:15
 
 ##### Exception
 * 45min (2h 45min)
-* 14:00 - 14:45
+* 14:15 - 15:00
 
 ##### Break
-* 14:45 - 15:00
+* 15:00 - 15:15
 
 ##### Functions
 * 60min (2h 45)
-* 15:00 - 16:00
+* 15:15 - 16:15
 
-##### Abschluss + Break
-* 16:00 - 16:15
-
-##### Example App
+##### Finish + Break + Example App
 * 16:15 - 17:00
