@@ -15,16 +15,13 @@ class GitLogReaderTest extends FunSuite with Matchers {
     assert(log.isEmpty)
   }
 
-  test("converting json to GitLog") {
+  test("Converts json to GitLog") {
     val maybeJsValue: Option[JsValue] = GitLogReader.readLog("src/test/scala/gitlog/scala-gitlog.json")
     val gitLog = for {
       jsValue <- maybeJsValue
       gitLog <- GitLogReader.jsonToObj(jsValue)
     } yield gitLog
 
-    println(gitLog)
     assert(gitLog.isDefined)
-
-    println(GitLogService.logEntryPerDay(gitLog.get))
   }
 }

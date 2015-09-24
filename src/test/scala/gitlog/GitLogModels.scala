@@ -18,7 +18,7 @@ object GitLogJsonModel {
    * Otherwise custom deserializer can be implemented.
    */
   // TODO -IMPLEMENT- => write complete LogEntry case class
-  case class LogEntry(commit: String, author: String, date: String, message: String, stat: Option[Seq[Statistic]] = None)
+  case class LogEntry(commit: String = "", author: String, date: String = "", message: String = "", stat: Option[Seq[Statistic]] = None)
 
   // TODO -IMPLEMENT- => write case class for stat entry in JSON
   case class Statistic(insertions: String, deletions: String, path: String)
