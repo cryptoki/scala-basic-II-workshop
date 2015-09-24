@@ -12,12 +12,11 @@ val res = new Reservation(250, "Il Ritrovo", 12)
 
 // Audience: what is the result?
 // TODO: res.budget
+// TODO: res.budget = 150
 
 // Audience: what is the result?
 // TODO: res.restaurant
-
-// Audience: what is the result?
-// TODO: res.restaurant = "Curry 36"
+// TODO: res.restaurant = "Souples"
 
 // Audience: what is the result?
 // TODO: res.howMany
