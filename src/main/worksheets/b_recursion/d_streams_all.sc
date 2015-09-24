@@ -1,3 +1,9 @@
+/* Die letzte Kategorie der `lazy collections` bildet der Stream.
+   Er erzeugt seine Elemente ebenfalls erst auf Anfrage speichert bereits
+   berechnete Elemente aber ab um im Bedarfsfall schnell wieder darauf zugreifen
+   zu können. Der größte Vorteil von Streams ist unendlich lange Collections zu
+   erzeugen, gegebenfalls auch rekursiv. */
+
 // ====================================
 // Beyond
 // ====================================
@@ -30,8 +36,10 @@ val resultStreamOffOddNumbersCons: List[Int] =
 assert(simpleListOfOddNumber == resultStreamOffOddNumbers)
 assert(simpleListOfOddNumber == resultStreamOffOddNumbersCons)
 
+// TODO -1-  go to Scala API Stream.from
+Stream from (1, 2) take 10 print
 
-// see whats happen in the next worksheet
+
 
 /**
  * operators ending by : are right associative

@@ -1,7 +1,6 @@
 // more ways to implement a recursion
 // you can define a building description for streams.
 
-
 // use a simple List of odd Int from 1 to 20
 val simpleListOfOddNumber: List[Int] = 1 to 20 by 2 toList
 val streamOfOddNumber: Stream[Int] = simpleListOfOddNumber.toStream
@@ -25,4 +24,6 @@ val resultStreamOffOddNumbersCons: List[Int] =
   streamOfOddNumbersCons.take(10).toList
 assert(simpleListOfOddNumber == resultStreamOffOddNumbers)
 assert(simpleListOfOddNumber == resultStreamOffOddNumbersCons)
+
+// TODO -1-  go to Scala API Stream.from
 
