@@ -1,4 +1,4 @@
-// TODO -> Warum jetzt hier mal ne Summe
+// Let's use a simple sum example to demonstrate the problem
 
 /**
  * simple recursive way, but there is a problem.
