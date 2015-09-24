@@ -18,10 +18,10 @@ object GitLogJsonModel {
    * Otherwise custom deserializer can be implemented.
    */
   // TODO -IMPLEMENT- => write complete LogEntry case class
-  case class LogEntry(commit: String = "", author: String, date: String = "", message: String = "", stat: Option[Seq[Statistic]] = None)
+  case class LogEntry(author: String)
 
   // TODO -IMPLEMENT- => write case class for stat entry in JSON
-  case class Statistic(insertions: String, deletions: String, path: String)
+  case class Statistic(insertions: String)
 
   object Statistic {
     implicit val jsonReads = Json.reads[Statistic]
@@ -48,9 +48,6 @@ object GitLogJsonModel {
 
 object FrontEndJsonModel {
 
-  abstract class User
-
-  // TODO: leave out property
   case class Author(name: String, email: String)
 
   object Author {
