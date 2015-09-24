@@ -24,5 +24,7 @@ class GitLogReaderTest extends FunSuite with Matchers {
 
     println(gitLog)
     assert(gitLog.isDefined)
+
+    println(GitLogService.logEntryPerDay(gitLog.get))
   }
 }
