@@ -13,6 +13,11 @@ import org.scalatest.FlatSpec
  * It's a test from project euler.
  */
 class b_FibonacciTest extends FlatSpec{
+  
+  /**
+   * 0, 1, 1, 2, 3, 5, 8, 13, 21 --> fibs less 10 => first 9 elements
+   * 0, 2, 8 = 10
+   */
   def sumEvenValuedTerms(maximum: Int) : Long = ???
 
   "sum of even valued fibs less 10" should "be 5" in {

@@ -5,7 +5,7 @@ import org.scalatest.FlatSpec
 
 import scala.annotation.tailrec
 
-class d_OrderingOfSequenceTest extends FlatSpec {
+class z_OrderingOfSequenceTest extends FlatSpec {
 
   case class GitEntry(hash: String, time: DateTime)
   val testData1= Seq(
