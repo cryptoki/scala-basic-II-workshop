@@ -2,7 +2,7 @@
  * Let's start with a simple example
  */
 
-// The imperative way - Old school
+/* The imperative way - Old school */
 val listOfNumbers = Range(1, 15, 3)
 
 // TODO -1-  summarize the values in the list

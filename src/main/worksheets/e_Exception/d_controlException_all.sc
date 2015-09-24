@@ -16,7 +16,7 @@ import scala.util.control.NonFatal
  * This class differs from `scala.util.Try` in that it focuses on
  * composing exception handlers rather than composing behavior.
  */
-// TODO -me-  usage of NonFatal
+/** TODO -me-  usage of NonFatal */
 val nonFatal: Int = try {
   "abc".toInt
 } catch {

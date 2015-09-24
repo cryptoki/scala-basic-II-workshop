@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>c_tailrec_all.sc</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(48,128,96); font-style: italic; }
+.s1 { }
+.s2 { color: rgb(128,128,128); font-style: italic; }
+.s3 { color: rgb(0,0,128); font-weight: bold; }
+.s4 { color: rgb(0,0,255); }
+.s5 { color: rgb(190,105,50); }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+c_tailrec_all.sc</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<a name="l1"><span class="ln">1    </span></a><span class="s0">// ====================================</span><span class="s1"> 
+<a name="l2"><span class="ln">2    </span></a></span><span class="s0">// Definition</span><span class="s1"> 
+<a name="l3"><span class="ln">3    </span></a></span><span class="s0">// ====================================</span><span class="s1"> 
+<a name="l4"><span class="ln">4    </span></a> 
+<a name="l5"><span class="ln">5    </span></a></span><span class="s2">/** 
+<a name="l6"><span class="ln">6    </span></a> * tail recursive (german Endrekursion) 
+<a name="l7"><span class="ln">7    </span></a> * https://de.wikipedia.org/wiki/Endrekursion 
+<a name="l8"><span class="ln">8    </span></a> * 
+<a name="l9"><span class="ln">9    </span></a> * &quot;Eine rekursive Funktion f ist endrekursiv (englisch tail recursive; 
+<a name="l10"><span class="ln">10   </span></a> * auch endständig rekursiv, iterativ rekursiv, repetitiv rekursiv), 
+<a name="l11"><span class="ln">11   </span></a> * wenn der rekursive Funktionsaufruf die letzte Aktion zur Berechnung 
+<a name="l12"><span class="ln">12   </span></a> * von f ist.[1] Vorteil dieser Funktionsdefinition ist, dass kein 
+<a name="l13"><span class="ln">13   </span></a> * zusätzlicher Platz zur Verwaltung der Rekursion benötigt wird.&quot; 
+<a name="l14"><span class="ln">14   </span></a> * [1] https://mitpress.mit.edu/sicp/full-text/book/book-Z-H-11.html 
+<a name="l15"><span class="ln">15   </span></a> * 
+<a name="l16"><span class="ln">16   </span></a> * normal recursion 
+<a name="l17"><span class="ln">17   </span></a> * ---------------- 
+<a name="l18"><span class="ln">18   </span></a> * factorial(4) 
+<a name="l19"><span class="ln">19   </span></a> * (* 4 (factorial(3))) 
+<a name="l20"><span class="ln">20   </span></a> * (* 4 (* 3 (factorial(2)))) 
+<a name="l21"><span class="ln">21   </span></a> * (* 4 (* 3 (* 2 (factorial(1))))) 
+<a name="l22"><span class="ln">22   </span></a> * (* 4 (* 3 (* 2 (* 1 (factorial(0)))))) 
+<a name="l23"><span class="ln">23   </span></a> * (* 4 (* 3 (* 2 (* 1 (1))))) 
+<a name="l24"><span class="ln">24   </span></a> * (* 4 (* 3 (* 2 (1)))) 
+<a name="l25"><span class="ln">25   </span></a> * (* 4 (* 3 (2))) 
+<a name="l26"><span class="ln">26   </span></a> * (* 4 (6)) 
+<a name="l27"><span class="ln">27   </span></a> * 24 
+<a name="l28"><span class="ln">28   </span></a> */</span><span class="s1"> 
+<a name="l29"><span class="ln">29   </span></a> 
+<a name="l30"><span class="ln">30   </span></a> 
+<a name="l31"><span class="ln">31   </span></a></span><span class="s0">// TODO -me-  explain</span><span class="s1"> 
+<a name="l32"><span class="ln">32   </span></a></span><span class="s2">/* tail recursion 
+<a name="l33"><span class="ln">33   </span></a> * -------------- 
+<a name="l34"><span class="ln">34   </span></a> * factorial(1, 4) 
+<a name="l35"><span class="ln">35   </span></a> * factorial(1*4, 3) 
+<a name="l36"><span class="ln">36   </span></a> * factorial(4*3, 2) 
+<a name="l37"><span class="ln">37   </span></a> * factorial(12*2, 1) 
+<a name="l38"><span class="ln">38   </span></a> * 24 
+<a name="l39"><span class="ln">39   </span></a> */</span><span class="s1"> 
+<a name="l40"><span class="ln">40   </span></a> 
+<a name="l41"><span class="ln">41   </span></a></span><span class="s2">/* The last method call is the last step of the 
+<a name="l42"><span class="ln">42   </span></a> * calculation. That is the different between 
+<a name="l43"><span class="ln">43   </span></a> * a normal and tail recursion. 
+<a name="l44"><span class="ln">44   </span></a> * 
+<a name="l45"><span class="ln">45   </span></a> * The Scala compile will be convert a tail recursion 
+<a name="l46"><span class="ln">46   </span></a> * into a normal imperative loop manner 
+<a name="l47"><span class="ln">47   </span></a> */</span><span class="s1"> 
+<a name="l48"><span class="ln">48   </span></a> 
+<a name="l49"><span class="ln">49   </span></a> 
+<a name="l50"><span class="ln">50   </span></a></span><span class="s0">// ====================================</span><span class="s1"> 
+<a name="l51"><span class="ln">51   </span></a></span><span class="s0">// Exercise</span><span class="s1"> 
+<a name="l52"><span class="ln">52   </span></a></span><span class="s0">// ====================================</span><span class="s1"> 
+<a name="l53"><span class="ln">53   </span></a> 
+<a name="l54"><span class="ln">54   </span></a></span><span class="s3">import </span><span class="s1">scala.annotation.tailrec 
+<a name="l55"><span class="ln">55   </span></a> 
+<a name="l56"><span class="ln">56   </span></a></span><span class="s0">// imperative</span><span class="s1"> 
+<a name="l57"><span class="ln">57   </span></a></span><span class="s3">def </span><span class="s1">factorialImperative(n: Long): Long = { 
+<a name="l58"><span class="ln">58   </span></a>  </span><span class="s3">var </span><span class="s1">result: Long = </span><span class="s4">1</span><span class="s1"> 
+<a name="l59"><span class="ln">59   </span></a>  </span><span class="s3">for </span><span class="s1">(i: Long &lt;- </span><span class="s4">1l </span><span class="s1">to n) 
+<a name="l60"><span class="ln">60   </span></a>    result *= i 
+<a name="l61"><span class="ln">61   </span></a>  result 
+<a name="l62"><span class="ln">62   </span></a>} 
+<a name="l63"><span class="ln">63   </span></a>factorialImperative(</span><span class="s4">4</span><span class="s1">) 
+<a name="l64"><span class="ln">64   </span></a> 
+<a name="l65"><span class="ln">65   </span></a></span><span class="s0">// normal recursion</span><span class="s1"> 
+<a name="l66"><span class="ln">66   </span></a></span><span class="s3">def </span><span class="s1">factorialRecursion(n: Long): Long = 
+<a name="l67"><span class="ln">67   </span></a>  </span><span class="s3">if </span><span class="s1">(n == </span><span class="s4">0</span><span class="s1">) 
+<a name="l68"><span class="ln">68   </span></a>    </span><span class="s4">1</span><span class="s1"> 
+<a name="l69"><span class="ln">69   </span></a>  </span><span class="s3">else</span><span class="s1"> 
+<a name="l70"><span class="ln">70   </span></a>    n * factorialRecursion(n - </span><span class="s4">1</span><span class="s1">) 
+<a name="l71"><span class="ln">71   </span></a>factorialRecursion(</span><span class="s4">4</span><span class="s1">) 
+<a name="l72"><span class="ln">72   </span></a> 
+<a name="l73"><span class="ln">73   </span></a></span><span class="s0">// TODO -1-  implement a tail recursion for factorial</span><span class="s1"> 
+<a name="l74"><span class="ln">74   </span></a></span><span class="s0">// tail recursion</span><span class="s1"> 
+<a name="l75"><span class="ln">75   </span></a></span><span class="s3">def </span><span class="s1">factorialTailRecursion(n: Long</span><span class="s5">, </span><span class="s1">acc: Long): Long = 
+<a name="l76"><span class="ln">76   </span></a>  </span><span class="s3">if </span><span class="s1">(n == </span><span class="s4">0</span><span class="s1">) 
+<a name="l77"><span class="ln">77   </span></a>    acc 
+<a name="l78"><span class="ln">78   </span></a>  </span><span class="s3">else</span><span class="s1"> 
+<a name="l79"><span class="ln">79   </span></a>    factorialTailRecursion(n - </span><span class="s4">1</span><span class="s5">, </span><span class="s1">acc * n) 
+<a name="l80"><span class="ln">80   </span></a>factorialTailRecursion(</span><span class="s4">4</span><span class="s5">, </span><span class="s4">1</span><span class="s1">) 
+<a name="l81"><span class="ln">81   </span></a> 
+<a name="l82"><span class="ln">82   </span></a></span><span class="s0">// TODO -2-  implement a tail recursion with only one parameter</span><span class="s1"> 
+<a name="l83"><span class="ln">83   </span></a></span><span class="s0">// tail recursion with inner method and annotation</span><span class="s1"> 
+<a name="l84"><span class="ln">84   </span></a></span><span class="s3">def </span><span class="s1">factorialTailRecursion(n: Long): Long = { 
+<a name="l85"><span class="ln">85   </span></a>  </span><span class="s0">// to use the tailrec annotation you have to import scala.annotation.tailrec</span><span class="s1"> 
+<a name="l86"><span class="ln">86   </span></a>  @tailrec 
+<a name="l87"><span class="ln">87   </span></a>  </span><span class="s3">def </span><span class="s1">factorialTailRecursion(n: Long</span><span class="s5">, </span><span class="s1">acc: Long): Long = 
+<a name="l88"><span class="ln">88   </span></a>    </span><span class="s3">if </span><span class="s1">(n == </span><span class="s4">0</span><span class="s1">) 
+<a name="l89"><span class="ln">89   </span></a>      acc 
+<a name="l90"><span class="ln">90   </span></a>    </span><span class="s3">else</span><span class="s1"> 
+<a name="l91"><span class="ln">91   </span></a>      factorialTailRecursion(n - </span><span class="s4">1</span><span class="s5">, </span><span class="s1">acc * n) 
+<a name="l92"><span class="ln">92   </span></a> 
+<a name="l93"><span class="ln">93   </span></a>  factorialTailRecursion(n</span><span class="s5">, </span><span class="s4">1</span><span class="s1">) 
+<a name="l94"><span class="ln">94   </span></a>} 
+<a name="l95"><span class="ln">95   </span></a>factorialTailRecursion(</span><span class="s4">4</span><span class="s1">) 
+<a name="l96"><span class="ln">96   </span></a></span></pre>
+</body>
+</html>

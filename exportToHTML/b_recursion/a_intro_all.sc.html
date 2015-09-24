@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>a_intro_all.sc</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(128,128,128); font-style: italic; }
+.s1 { }
+.s2 { color: rgb(0,0,128); font-weight: bold; }
+.s3 { color: rgb(0,0,255); }
+.s4 { color: rgb(190,105,50); }
+.s5 { color: rgb(48,128,96); font-style: italic; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+a_intro_all.sc</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<a name="l1"><span class="ln">1    </span></a><span class="s0">/** 
+<a name="l2"><span class="ln">2    </span></a> * Let's start with a simple example 
+<a name="l3"><span class="ln">3    </span></a> */</span><span class="s1"> 
+<a name="l4"><span class="ln">4    </span></a> 
+<a name="l5"><span class="ln">5    </span></a></span><span class="s0">/* The imperative way - Old school */</span><span class="s1"> 
+<a name="l6"><span class="ln">6    </span></a></span><span class="s2">val </span><span class="s1">listOfNumbers = Range(</span><span class="s3">1</span><span class="s4">, </span><span class="s3">15</span><span class="s4">, </span><span class="s3">3</span><span class="s1">) 
+<a name="l7"><span class="ln">7    </span></a> 
+<a name="l8"><span class="ln">8    </span></a></span><span class="s5">// TODO -1-  summarize the values in the list</span><span class="s1"> 
+<a name="l9"><span class="ln">9    </span></a></span><span class="s5">//           use for loop</span><span class="s1"> 
+<a name="l10"><span class="ln">10   </span></a></span><span class="s2">var </span><span class="s1">result = </span><span class="s3">0</span><span class="s1"> 
+<a name="l11"><span class="ln">11   </span></a></span><span class="s2">for </span><span class="s1">(i &lt;- listOfNumbers) 
+<a name="l12"><span class="ln">12   </span></a>  result += i 
+<a name="l13"><span class="ln">13   </span></a> 
+<a name="l14"><span class="ln">14   </span></a>assert(result == </span><span class="s3">35</span><span class="s1">) 
+<a name="l15"><span class="ln">15   </span></a> 
+<a name="l16"><span class="ln">16   </span></a></span><span class="s5">// you can implement it in a recursion manner as well</span></pre>
+</body>
+</html>

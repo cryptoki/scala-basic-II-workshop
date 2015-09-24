@@ -20,7 +20,7 @@ factorial(4)
 // left beside the method definition.
 
 // ====================================
-// problem
+// Problem
 // ====================================
 
 /**

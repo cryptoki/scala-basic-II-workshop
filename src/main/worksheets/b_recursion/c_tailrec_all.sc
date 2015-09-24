@@ -2,15 +2,15 @@
 // Definition
 // ====================================
 
-
 /**
  * tail recursive (german Endrekursion)
  * https://de.wikipedia.org/wiki/Endrekursion
  *
  * "Eine rekursive Funktion f ist endrekursiv (englisch tail recursive;
- * auch endständig rekursiv, iterativ rekursiv, repetitiv rekursiv), wenn der rekursive
- * Funktionsaufruf die letzte Aktion zur Berechnung von f ist.[1] Vorteil dieser
- * Funktionsdefinition ist, dass kein zusätzlicher Platz zur Verwaltung der Rekursion benötigt wird."
+ * auch endständig rekursiv, iterativ rekursiv, repetitiv rekursiv),
+ * wenn der rekursive Funktionsaufruf die letzte Aktion zur Berechnung
+ * von f ist.[1] Vorteil dieser Funktionsdefinition ist, dass kein
+ * zusätzlicher Platz zur Verwaltung der Rekursion benötigt wird."
  * [1] https://mitpress.mit.edu/sicp/full-text/book/book-Z-H-11.html
  *
  * normal recursion
@@ -25,8 +25,11 @@
  * (* 4 (* 3 (2)))
  * (* 4 (6))
  * 24
- *
- * tail recursion
+ */
+
+
+// TODO -me-  explain
+/* tail recursion
  * --------------
  * factorial(1, 4)
  * factorial(1*4, 3)
@@ -35,7 +38,6 @@
  * 24
  */
 
-// TODO -me-  explain
 /* The last method call is the last step of the
  * calculation. That is the different between
  * a normal and tail recursion.

@@ -24,6 +24,7 @@ streamOfLimitedOddNumber take 10 foreach(x => print(s"$x, "))
 //           we want to implement the same of odd numbers
 val streamOfOddNumbers: Stream[Int] =
       1 #:: streamOfOddNumbers.map((x: Int) => x+2)
+
 // TODO -me-  take a look into the scala documentation #:: / cons
 val streamOfOddNumbersCons: Stream[Int] =
       Stream.cons(1, streamOfOddNumbersCons map (_+2))
@@ -138,16 +139,16 @@ streamAsFunction take 4 // foreach(x => println(s"found next: $x"))
 
 
 
-// val test: Stream[Int] = 1 #:: 2 => Compiler Error => #:: is an operator from Stream
-// #:: ConsWrapper => Cons.apply => fügt dem Stream ein Head Element hinzu
-// => Initial Stream ist empty => 2+Empty Stream => 1 + Stream(2) => danach zuweisen des Ergebnis
-//    an test
-// => Stream ist gefüllt mit 1, 2 Elemente
-// => Bauvorschrift führt jetzt den vorhergehenden Schritt wieder aus
-// => 1 + 2 + Stream(1,2)
-
-// Definition eines Streams welcher sich selbst rekursiv erstellt
-// => Bauvorschrift
-// #:: rechts assoziativer Operator cons
-// 0 + 1 + stream
-// tupel und hinzufügen durch tupel Addition
+/* val test: Stream[Int] = 1 #:: 2 => Compiler Error => #:: is an operator from Stream
+ * #:: ConsWrapper => Cons.apply => fügt dem Stream ein Head Element hinzu
+ * => Initial Stream ist empty => 2+Empty Stream => 1 + Stream(2) => danach zuweisen des Ergebnis
+ *    an test
+ * => Stream ist gefüllt mit 1, 2 Elemente
+ * => Bauvorschrift führt jetzt den vorhergehenden Schritt wieder aus
+ * => 1 + 2 + Stream(1,2)
+ *
+ * Definition eines Streams welcher sich selbst rekursiv erstellt
+ * => Bauvorschrift
+ * #:: rechts assoziativer Operator cons
+ * 0 + 1 + stream
+ * tupel und hinzufügen durch tupel Addition */
