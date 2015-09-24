@@ -21,10 +21,10 @@ val steffensNotebook = getNotebook("Steffen")
 println(s"Steffen has a ${steffensNotebook}")
 
 
-// Option is a ..
-// .. datatype to represent optional values
-// .. value that could be exists or not.
-// solve the NULL check hell in Java
+/* Option is a ..
+ * .. datatype to represent optional values
+ * .. value that could be exists or not.
+ * solve the NULL check hell in Java */
 
 // two implementations of abstract class 'Option'
 

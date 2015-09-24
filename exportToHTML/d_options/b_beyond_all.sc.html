@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>b_beyond_all.sc</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(48,128,96); font-style: italic; }
+.s1 { }
+.s2 { color: rgb(0,0,128); font-weight: bold; }
+.s3 { color: rgb(128,128,128); font-style: italic; }
+.s4 { color: rgb(0,128,0); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+b_beyond_all.sc</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<a name="l1"><span class="ln">1    </span></a><span class="s0">// ====================================</span><span class="s1"> 
+<a name="l2"><span class="ln">2    </span></a></span><span class="s0">// Null</span><span class="s1"> 
+<a name="l3"><span class="ln">3    </span></a></span><span class="s0">// ====================================</span><span class="s1"> 
+<a name="l4"><span class="ln">4    </span></a> 
+<a name="l5"><span class="ln">5    </span></a></span><span class="s0">// TODO -1-  which data type has 'a' for</span><span class="s1"> 
+<a name="l6"><span class="ln">6    </span></a></span><span class="s0">//           val a = null ?</span><span class="s1"> 
+<a name="l7"><span class="ln">7    </span></a></span><span class="s0">// TODO -me-  write explizit type val a:...</span><span class="s1"> 
+<a name="l8"><span class="ln">8    </span></a></span><span class="s0">//            a:... = ...</span><span class="s1"> 
+<a name="l9"><span class="ln">9    </span></a></span><span class="s2">val </span><span class="s1">a: Null = </span><span class="s2">null</span><span class="s1"> 
+<a name="l10"><span class="ln">10   </span></a></span><span class="s0">// =&gt; won't work! =&gt; val a2:Int = null</span><span class="s1"> 
+<a name="l11"><span class="ln">11   </span></a> 
+<a name="l12"><span class="ln">12   </span></a></span><span class="s3">/* Scala has Null reference type, 
+<a name="l13"><span class="ln">13   </span></a> * the only instance is the null reference */</span><span class="s1"> 
+<a name="l14"><span class="ln">14   </span></a></span><span class="s2">val </span><span class="s1">b: Null = </span><span class="s2">null</span><span class="s1"> 
+<a name="l15"><span class="ln">15   </span></a> 
+<a name="l16"><span class="ln">16   </span></a></span><span class="s0">// TODO -2-  which value should have == and eq?</span><span class="s1"> 
+<a name="l17"><span class="ln">17   </span></a></span><span class="s2">val </span><span class="s1">test1 = a eq b 
+<a name="l18"><span class="ln">18   </span></a></span><span class="s2">val </span><span class="s1">test2 = a == b 
+<a name="l19"><span class="ln">19   </span></a> 
+<a name="l20"><span class="ln">20   </span></a></span><span class="s0">// ====================================</span><span class="s1"> 
+<a name="l21"><span class="ln">21   </span></a></span><span class="s0">// Nothing</span><span class="s1"> 
+<a name="l22"><span class="ln">22   </span></a></span><span class="s0">// ====================================</span><span class="s1"> 
+<a name="l23"><span class="ln">23   </span></a> 
+<a name="l24"><span class="ln">24   </span></a></span><span class="s3">/* Nothing is subtype of every other type 
+<a name="l25"><span class="ln">25   </span></a> * there exist no instances of this type */</span><span class="s1"> 
+<a name="l26"><span class="ln">26   </span></a></span><span class="s0">// TODO -1-  try to assign a value</span><span class="s1"> 
+<a name="l27"><span class="ln">27   </span></a></span><span class="s2">val </span><span class="s1">c: Nothing 
+<a name="l28"><span class="ln">28   </span></a> 
+<a name="l29"><span class="ln">29   </span></a></span><span class="s0">// TODO -2-  which object signature has None?</span><span class="s1"> 
+<a name="l30"><span class="ln">30   </span></a></span><span class="s2">val </span><span class="s1">none: Option[Nothing] = None 
+<a name="l31"><span class="ln">31   </span></a> 
+<a name="l32"><span class="ln">32   </span></a></span><span class="s0">// ====================================</span><span class="s1"> 
+<a name="l33"><span class="ln">33   </span></a></span><span class="s0">// Nil</span><span class="s1"> 
+<a name="l34"><span class="ln">34   </span></a></span><span class="s0">// ====================================</span><span class="s1"> 
+<a name="l35"><span class="ln">35   </span></a> 
+<a name="l36"><span class="ln">36   </span></a></span><span class="s3">/* and if u see 'Nil' it is an object which extends List 
+<a name="l37"><span class="ln">37   </span></a> * it represents an empty list */</span><span class="s1"> 
+<a name="l38"><span class="ln">38   </span></a> 
+<a name="l39"><span class="ln">39   </span></a></span><span class="s0">// TODO -1-  which class/object signature has Nil?</span><span class="s1"> 
+<a name="l40"><span class="ln">40   </span></a></span><span class="s0">// TODO -me-  switch into the class for empty and Nil</span><span class="s1"> 
+<a name="l41"><span class="ln">41   </span></a></span><span class="s2">val </span><span class="s1">list = List.empty 
+<a name="l42"><span class="ln">42   </span></a></span><span class="s2">val </span><span class="s1">nil = Nil 
+<a name="l43"><span class="ln">43   </span></a> 
+<a name="l44"><span class="ln">44   </span></a></span><span class="s0">// TODO -2-  what is the result of nil == list?</span><span class="s1"> 
+<a name="l45"><span class="ln">45   </span></a></span><span class="s2">val </span><span class="s1">nilTest1 = nil == list 
+<a name="l46"><span class="ln">46   </span></a></span><span class="s0">// TODO -3-  what is the result of nil eq list?</span><span class="s1"> 
+<a name="l47"><span class="ln">47   </span></a></span><span class="s2">val </span><span class="s1">nilTest2 = nil eq list 
+<a name="l48"><span class="ln">48   </span></a></span><span class="s0">// not to confuse with null</span><span class="s1"> 
+<a name="l49"><span class="ln">49   </span></a> 
+<a name="l50"><span class="ln">50   </span></a> 
+<a name="l51"><span class="ln">51   </span></a></span><span class="s0">// ====================================</span><span class="s1"> 
+<a name="l52"><span class="ln">52   </span></a></span><span class="s0">// Unit</span><span class="s1"> 
+<a name="l53"><span class="ln">53   </span></a></span><span class="s0">// ====================================</span><span class="s1"> 
+<a name="l54"><span class="ln">54   </span></a></span><span class="s3">/* Unit is a subtype of AnyVal 
+<a name="l55"><span class="ln">55   </span></a> * -&gt; There is only one value of type Unit, (), and 
+<a name="l56"><span class="ln">56   </span></a> * -&gt; it is not represented by any object in the 
+<a name="l57"><span class="ln">57   </span></a> *    underlying runtime system. 
+<a name="l58"><span class="ln">58   </span></a> * -&gt; analogous to Java void */</span><span class="s1"> 
+<a name="l59"><span class="ln">59   </span></a></span><span class="s0">// TODO -me-  which is a valid value for simpleUnitVal?</span><span class="s1"> 
+<a name="l60"><span class="ln">60   </span></a></span><span class="s2">val </span><span class="s1">simpleUnitVal = () 
+<a name="l61"><span class="ln">61   </span></a> 
+<a name="l62"><span class="ln">62   </span></a></span><span class="s0">// TODO -me-  println something</span><span class="s1"> 
+<a name="l63"><span class="ln">63   </span></a></span><span class="s2">val </span><span class="s1">unitExample = println(</span><span class="s4">&quot;hello world&quot;</span><span class="s1">) 
+<a name="l64"><span class="ln">64   </span></a> 
+<a name="l65"><span class="ln">65   </span></a></span><span class="s0">// TODO -1-  write a method which delivers unit</span><span class="s1"> 
+<a name="l66"><span class="ln">66   </span></a></span><span class="s2">def </span><span class="s1">unitMethod = {}</span></pre>
+</body>
+</html>

@@ -6,7 +6,7 @@ import scala.util.Random
 // Dangerous
 // ====================================
 
-// let's finish the intro with few more details
+/* let's finish the intro with few more details */
 def doSomethingDangerous(): Int = {
   Random.nextInt(3) match {
     case 0 => throw new NumberFormatException

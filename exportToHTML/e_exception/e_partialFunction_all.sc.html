@@ -1,0 +1,119 @@
+<html>
+<head>
+<title>e_partialFunction_all.sc</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(128,128,128); font-style: italic; }
+.s1 { }
+.s2 { color: rgb(48,128,96); font-style: italic; }
+.s3 { color: rgb(0,0,128); font-weight: bold; }
+.s4 { color: rgb(190,105,50); }
+.s5 { color: rgb(0,0,255); }
+.s6 { color: rgb(0,128,0); font-weight: bold; }
+.s7 { color: rgb(64,109,173); }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+e_partialFunction_all.sc</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<a name="l1"><span class="ln">1    </span></a><span class="s0">/* partial function is a function which can be defined for a 
+<a name="l2"><span class="ln">2    </span></a> * subset of possible values of its arguments */</span><span class="s1"> 
+<a name="l3"><span class="ln">3    </span></a> 
+<a name="l4"><span class="ln">4    </span></a></span><span class="s0">/** 
+<a name="l5"><span class="ln">5    </span></a> * PartialFunction in Scala PartialFunction Class 
+<a name="l6"><span class="ln">6    </span></a> *  1 =&gt;  Sub Trait von Function1 
+<a name="l7"><span class="ln">7    </span></a> *    - isDefindedAt 
+<a name="l8"><span class="ln">8    </span></a> *    - lift 
+<a name="l9"><span class="ln">9    </span></a> */</span><span class="s1"> 
+<a name="l10"><span class="ln">10   </span></a> 
+<a name="l11"><span class="ln">11   </span></a></span><span class="s2">// ====================================</span><span class="s1"> 
+<a name="l12"><span class="ln">12   </span></a></span><span class="s2">// Intro</span><span class="s1"> 
+<a name="l13"><span class="ln">13   </span></a></span><span class="s2">// ====================================</span><span class="s1"> 
+<a name="l14"><span class="ln">14   </span></a> 
+<a name="l15"><span class="ln">15   </span></a></span><span class="s2">// TODO -me-  extends from PartialFunction and implement</span><span class="s1"> 
+<a name="l16"><span class="ln">16   </span></a></span><span class="s2">//            NumberFormatException</span><span class="s1"> 
+<a name="l17"><span class="ln">17   </span></a></span><span class="s3">object </span><span class="s1">NumberFormatExceptionHandler </span><span class="s3">extends </span><span class="s1">PartialFunction[Throwable</span><span class="s4">, </span><span class="s1">Int] { 
+<a name="l18"><span class="ln">18   </span></a>  </span><span class="s3">override def </span><span class="s1">isDefinedAt(x: Throwable): Boolean = x.isInstanceOf[NumberFormatException] 
+<a name="l19"><span class="ln">19   </span></a> 
+<a name="l20"><span class="ln">20   </span></a>  </span><span class="s3">override def </span><span class="s1">apply(v1: Throwable): Int = v1 </span><span class="s3">match </span><span class="s1">{ 
+<a name="l21"><span class="ln">21   </span></a>    </span><span class="s3">case </span><span class="s1">v1: NumberFormatException =&gt; -</span><span class="s5">1</span><span class="s1"> 
+<a name="l22"><span class="ln">22   </span></a>  } 
+<a name="l23"><span class="ln">23   </span></a>} 
+<a name="l24"><span class="ln">24   </span></a>assert(NumberFormatExceptionHandler.isDefinedAt(</span><span class="s3">new </span><span class="s1">NumberFormatException) == </span><span class="s3">true</span><span class="s1">) 
+<a name="l25"><span class="ln">25   </span></a>assert(NumberFormatExceptionHandler.isDefinedAt(</span><span class="s3">new </span><span class="s1">IndexOutOfBoundsException) == </span><span class="s3">false</span><span class="s1">) 
+<a name="l26"><span class="ln">26   </span></a> 
+<a name="l27"><span class="ln">27   </span></a> 
+<a name="l28"><span class="ln">28   </span></a></span><span class="s2">// TODO -me-  synatic sugar</span><span class="s1"> 
+<a name="l29"><span class="ln">29   </span></a></span><span class="s0">/*            NumberFormatException and return -1 
+<a name="l30"><span class="ln">30   </span></a> *            IndexOutOfBoundsException */</span><span class="s1"> 
+<a name="l31"><span class="ln">31   </span></a></span><span class="s3">val </span><span class="s1">handler: PartialFunction[Throwable</span><span class="s4">, </span><span class="s1">Int] = { 
+<a name="l32"><span class="ln">32   </span></a>  </span><span class="s3">case </span><span class="s1">n: NumberFormatException =&gt; { 
+<a name="l33"><span class="ln">33   </span></a>    println(</span><span class="s6">&quot;I catch u&quot;</span><span class="s1">) 
+<a name="l34"><span class="ln">34   </span></a>    -</span><span class="s5">1</span><span class="s1"> 
+<a name="l35"><span class="ln">35   </span></a>  } 
+<a name="l36"><span class="ln">36   </span></a>  </span><span class="s3">case </span><span class="s1">i: IndexOutOfBoundsException =&gt; </span><span class="s5">0</span><span class="s1"> 
+<a name="l37"><span class="ln">37   </span></a>} 
+<a name="l38"><span class="ln">38   </span></a> 
+<a name="l39"><span class="ln">39   </span></a>assert(handler.isDefinedAt(</span><span class="s3">new </span><span class="s1">IndexOutOfBoundsException) == </span><span class="s3">true</span><span class="s1">) 
+<a name="l40"><span class="ln">40   </span></a>assert(handler.isDefinedAt(</span><span class="s3">new </span><span class="s1">NumberFormatException) == </span><span class="s3">true</span><span class="s1">) 
+<a name="l41"><span class="ln">41   </span></a> 
+<a name="l42"><span class="ln">42   </span></a> 
+<a name="l43"><span class="ln">43   </span></a></span><span class="s2">// TODO -me-  apply NumberFormatException</span><span class="s1"> 
+<a name="l44"><span class="ln">44   </span></a></span><span class="s3">val </span><span class="s1">result1 = handler.apply(</span><span class="s3">new </span><span class="s1">NumberFormatException(</span><span class="s6">&quot;do not use!!!&quot;</span><span class="s1">)) 
+<a name="l45"><span class="ln">45   </span></a></span><span class="s2">// TODO -me-  lift IllegalArgumentException</span><span class="s1"> 
+<a name="l46"><span class="ln">46   </span></a></span><span class="s3">val </span><span class="s1">result2 = handler.lift(</span><span class="s3">new </span><span class="s1">IllegalArgumentException(</span><span class="s6">&quot;do not use!!!&quot;</span><span class="s1">)) 
+<a name="l47"><span class="ln">47   </span></a> 
+<a name="l48"><span class="ln">48   </span></a> 
+<a name="l49"><span class="ln">49   </span></a></span><span class="s2">// ====================================</span><span class="s1"> 
+<a name="l50"><span class="ln">50   </span></a></span><span class="s2">// try / Catch</span><span class="s1"> 
+<a name="l51"><span class="ln">51   </span></a></span><span class="s2">// ====================================</span><span class="s1"> 
+<a name="l52"><span class="ln">52   </span></a> 
+<a name="l53"><span class="ln">53   </span></a></span><span class="s3">val </span><span class="s1">globalHandler: PartialFunction[Throwable</span><span class="s4">, </span><span class="s1">Int] = { 
+<a name="l54"><span class="ln">54   </span></a>  </span><span class="s3">case </span><span class="s1">e:Throwable =&gt; { 
+<a name="l55"><span class="ln">55   </span></a>    println(</span><span class="s6">s&quot;danger! '</span><span class="s7">$</span><span class="s1">{e.getMessage}</span><span class="s6">'&quot;</span><span class="s1">) 
+<a name="l56"><span class="ln">56   </span></a>    Int.MinValue 
+<a name="l57"><span class="ln">57   </span></a>  } 
+<a name="l58"><span class="ln">58   </span></a>} 
+<a name="l59"><span class="ln">59   </span></a> 
+<a name="l60"><span class="ln">60   </span></a></span><span class="s2">// TODO -1-  use try and catch and both handler to</span><span class="s1"> 
+<a name="l61"><span class="ln">61   </span></a></span><span class="s0">/*           a ) convert &quot;abc&quot;.toInt 
+<a name="l62"><span class="ln">62   </span></a> *           b ) throw new NoSuchElementException(&quot;do not use! :)&quot;) 
+<a name="l63"><span class="ln">63   </span></a> *               use the globalHandler after the 'handler' */</span><span class="s1"> 
+<a name="l64"><span class="ln">64   </span></a></span><span class="s3">try </span><span class="s1">{ 
+<a name="l65"><span class="ln">65   </span></a></span><span class="s2">//  throw new NoSuchElementException(&quot;do not use! :)&quot;)</span><span class="s1"> 
+<a name="l66"><span class="ln">66   </span></a>  </span><span class="s6">&quot;abc&quot;</span><span class="s1">.toInt 
+<a name="l67"><span class="ln">67   </span></a>} 
+<a name="l68"><span class="ln">68   </span></a></span><span class="s3">catch </span><span class="s1">handler.orElse(globalHandler) 
+<a name="l69"><span class="ln">69   </span></a> 
+<a name="l70"><span class="ln">70   </span></a> 
+<a name="l71"><span class="ln">71   </span></a></span><span class="s2">// ====================================</span><span class="s1"> 
+<a name="l72"><span class="ln">72   </span></a></span><span class="s2">// Project</span><span class="s1"> 
+<a name="l73"><span class="ln">73   </span></a></span><span class="s2">// ====================================</span><span class="s1"> 
+<a name="l74"><span class="ln">74   </span></a> 
+<a name="l75"><span class="ln">75   </span></a></span><span class="s2">// PUI open WSResponseProcessor</span><span class="s1"> 
+<a name="l76"><span class="ln">76   </span></a></span><span class="s2">// and PaymentApiClient</span><span class="s1"> 
+<a name="l77"><span class="ln">77   </span></a> 
+<a name="l78"><span class="ln">78   </span></a> 
+<a name="l79"><span class="ln">79   </span></a></span><span class="s2">// syntactic sugar</span><span class="s1"> 
+<a name="l80"><span class="ln">80   </span></a></span><span class="s3">val </span><span class="s1">dump: PartialFunction[Int</span><span class="s4">, </span><span class="s1">Int] = { 
+<a name="l81"><span class="ln">81   </span></a>  </span><span class="s3">case </span><span class="s1">i </span><span class="s3">if </span><span class="s1">i % </span><span class="s5">2 </span><span class="s1">== </span><span class="s5">0 </span><span class="s1">=&gt; i + </span><span class="s5">1</span><span class="s1"> 
+<a name="l82"><span class="ln">82   </span></a>} 
+<a name="l83"><span class="ln">83   </span></a> 
+<a name="l84"><span class="ln">84   </span></a> 
+<a name="l85"><span class="ln">85   </span></a></span><span class="s0">/* Partial functions can be used everywhere a function 
+<a name="l86"><span class="ln">86   </span></a> * is expected */</span><span class="s1"> 
+<a name="l87"><span class="ln">87   </span></a></span><span class="s2">// TODO -1-  What would you expect?</span><span class="s1"> 
+<a name="l88"><span class="ln">88   </span></a></span><span class="s2">// 0 to 10 map dump</span><span class="s1"> 
+<a name="l89"><span class="ln">89   </span></a> 
+<a name="l90"><span class="ln">90   </span></a></span><span class="s2">// TODO -2-  What would you expect?</span><span class="s1"> 
+<a name="l91"><span class="ln">91   </span></a></span><span class="s2">// 0 to 10 collect dump</span><span class="s1"> 
+<a name="l92"><span class="ln">92   </span></a> 
+<a name="l93"><span class="ln">93   </span></a></span></pre>
+</body>
+</html>

@@ -9,8 +9,8 @@
 val a: Null = null
 // => won't work! => val a2:Int = null
 
-// Scala has Null reference type,
-// the only instance is the null reference
+/* Scala has Null reference type,
+ * the only instance is the null reference */
 val b: Null = null
 
 // TODO -2-  which value should have == and eq?
@@ -21,8 +21,8 @@ val test2 = a == b
 // Nothing
 // ====================================
 
-// Nothing is subtype of every other type
-// there exist no instances of this type
+/* Nothing is subtype of every other type
+ * there exist no instances of this type */
 // TODO -1-  try to assign a value
 val c: Nothing
 
@@ -33,8 +33,8 @@ val none: Option[Nothing] = None
 // Nil
 // ====================================
 
-// and if u see 'Nil' it is an object which extends List
-// it represents an empty list
+/* and if u see 'Nil' it is an object which extends List
+ * it represents an empty list */
 
 // TODO -1-  which class/object signature has Nil?
 // TODO -me-  switch into the class for empty and Nil
@@ -51,11 +51,11 @@ val nilTest2 = nil eq list
 // ====================================
 // Unit
 // ====================================
-// Unit is a subtype of AnyVal
-// -> There is only one value of type Unit, (), and
-// -> it is not represented by any object in the
-//    underlying runtime system.
-// -> analogous to Java void
+/* Unit is a subtype of AnyVal
+ * -> There is only one value of type Unit, (), and
+ * -> it is not represented by any object in the
+ *    underlying runtime system.
+ * -> analogous to Java void */
 // TODO -me-  which is a valid value for simpleUnitVal?
 val simpleUnitVal = ()
 

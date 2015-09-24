@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>d_project_reference.sc</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { }
+.s2 { color: rgb(48,128,96); font-style: italic; }
+.s3 { color: rgb(190,105,50); }
+.s4 { color: rgb(0,128,0); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+d_project_reference.sc</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<a name="l1"><span class="ln">1    </span></a><span class="s0">import </span><span class="s1">play.api.libs.json._ 
+<a name="l2"><span class="ln">2    </span></a> 
+<a name="l3"><span class="ln">3    </span></a></span><span class="s2">// Example Code from PUI</span><span class="s1"> 
+<a name="l4"><span class="ln">4    </span></a></span><span class="s0">case class </span><span class="s1">Link 
+<a name="l5"><span class="ln">5    </span></a>( 
+<a name="l6"><span class="ln">6    </span></a>  rawLink: String</span><span class="s3">,</span><span class="s1"> 
+<a name="l7"><span class="ln">7    </span></a>  templated: Option[Boolean] = None) { 
+<a name="l8"><span class="ln">8    </span></a>} 
+<a name="l9"><span class="ln">9    </span></a> 
+<a name="l10"><span class="ln">10   </span></a></span><span class="s0">object </span><span class="s1">Link { 
+<a name="l11"><span class="ln">11   </span></a>  </span><span class="s0">implicit val </span><span class="s1">linkReads = </span><span class="s0">new </span><span class="s1">Reads[Link] { 
+<a name="l12"><span class="ln">12   </span></a>    </span><span class="s0">def </span><span class="s1">reads(json: JsValue): JsResult[Link] = JsSuccess { 
+<a name="l13"><span class="ln">13   </span></a>      </span><span class="s0">val </span><span class="s1">href = (json \ </span><span class="s4">&quot;href&quot;</span><span class="s1">).as[String] 
+<a name="l14"><span class="ln">14   </span></a>      </span><span class="s0">val </span><span class="s1">templated = (json \ </span><span class="s4">&quot;templated&quot;</span><span class="s1">).asOpt[Boolean] 
+<a name="l15"><span class="ln">15   </span></a>      Link(href</span><span class="s3">, </span><span class="s1">templated) 
+<a name="l16"><span class="ln">16   </span></a>    } 
+<a name="l17"><span class="ln">17   </span></a>  } 
+<a name="l18"><span class="ln">18   </span></a>} 
+<a name="l19"><span class="ln">19   </span></a> 
+<a name="l20"><span class="ln">20   </span></a></span><span class="s0">case class </span><span class="s1">InvoiceExtractedData 
+<a name="l21"><span class="ln">21   </span></a>( 
+<a name="l22"><span class="ln">22   </span></a>  sender: Option[String] = None</span><span class="s3">,</span><span class="s1"> 
+<a name="l23"><span class="ln">23   </span></a>  paymentAmount: Option[String] = None</span><span class="s3">,</span><span class="s1"> 
+<a name="l24"><span class="ln">24   </span></a>  bankAccountNumber: Option[String] = None</span><span class="s3">,</span><span class="s1"> 
+<a name="l25"><span class="ln">25   </span></a>  bankNumber: Option[String] = None</span><span class="s3">,</span><span class="s1"> 
+<a name="l26"><span class="ln">26   </span></a>  customerId: Option[String] = None</span><span class="s3">,</span><span class="s1"> 
+<a name="l27"><span class="ln">27   </span></a>  invoiceId: Option[String] = None</span><span class="s3">,</span><span class="s1"> 
+<a name="l28"><span class="ln">28   </span></a>  bic: Option[String] = None</span><span class="s3">,</span><span class="s1"> 
+<a name="l29"><span class="ln">29   </span></a>  iban: Option[String] = None</span><span class="s3">,</span><span class="s1"> 
+<a name="l30"><span class="ln">30   </span></a>  documentDate: Option[String] = None</span><span class="s3">,</span><span class="s1"> 
+<a name="l31"><span class="ln">31   </span></a>  paymentReference: Option[String] = None</span><span class="s3">,</span><span class="s1"> 
+<a name="l32"><span class="ln">32   </span></a>  _links: Option[Map[String</span><span class="s3">, </span><span class="s1">Link]] = None) 
+<a name="l33"><span class="ln">33   </span></a> 
+<a name="l34"><span class="ln">34   </span></a></span><span class="s0">object </span><span class="s1">InvoiceExtractedData { 
+<a name="l35"><span class="ln">35   </span></a>  </span><span class="s0">implicit val </span><span class="s1">jsonReads = Json.reads[InvoiceExtractedData] 
+<a name="l36"><span class="ln">36   </span></a>} 
+<a name="l37"><span class="ln">37   </span></a> 
+<a name="l38"><span class="ln">38   </span></a></span><span class="s0">def </span><span class="s1">invoice(): JsValue = Json.parse( 
+<a name="l39"><span class="ln">39   </span></a>  </span><span class="s4">s&quot;&quot;&quot;{ 
+<a name="l40"><span class="ln">40   </span></a>     |&quot;sender&quot;: &quot;Hans Dampf KG&quot;, 
+<a name="l41"><span class="ln">41   </span></a>     |&quot;paymentAmount&quot;: &quot;45.76&quot;, 
+<a name="l42"><span class="ln">42   </span></a>     |&quot;iban&quot;: &quot;DE83650501100048001559&quot;, 
+<a name="l43"><span class="ln">43   </span></a>     |&quot;bic&quot;: &quot;SOLADES1RVB&quot;, 
+<a name="l44"><span class="ln">44   </span></a>     |&quot;customerId&quot;: &quot;01815&quot;, 
+<a name="l45"><span class="ln">45   </span></a>     |&quot;invoiceId&quot;: &quot;123456789&quot;, 
+<a name="l46"><span class="ln">46   </span></a>     |&quot;documentDate&quot;: &quot;2013-01-03&quot;, 
+<a name="l47"><span class="ln">47   </span></a>     |&quot;_links&quot;: { 
+<a name="l48"><span class="ln">48   </span></a>     |  &quot;self&quot;: { 
+<a name="l49"><span class="ln">49   </span></a>     |      &quot;href&quot;: &quot;http://sem/analyses/b092541d5-7171-496a-99d5-f98c72488290/invoice&quot;, 
+<a name="l50"><span class="ln">50   </span></a>     |      &quot;templated&quot;: false 
+<a name="l51"><span class="ln">51   </span></a>     |  }, 
+<a name="l52"><span class="ln">52   </span></a>     |  &quot;analysis&quot;: { 
+<a name="l53"><span class="ln">53   </span></a>     |      &quot;href&quot;: &quot;http://sem/analyses/analysisId&quot;, 
+<a name="l54"><span class="ln">54   </span></a>     |      &quot;templated&quot;: false 
+<a name="l55"><span class="ln">55   </span></a>     |  }, 
+<a name="l56"><span class="ln">56   </span></a>     |  &quot;preview&quot;: { 
+<a name="l57"><span class="ln">57   </span></a>     |      &quot;href&quot;:&quot;http://bro/blobs/previewId&quot;, 
+<a name="l58"><span class="ln">58   </span></a>     |      &quot;templated&quot;: false 
+<a name="l59"><span class="ln">59   </span></a>     |  } 
+<a name="l60"><span class="ln">60   </span></a>     |} 
+<a name="l61"><span class="ln">61   </span></a>     |} 
+<a name="l62"><span class="ln">62   </span></a>    &quot;&quot;&quot;</span><span class="s1">.stripMargin) 
+<a name="l63"><span class="ln">63   </span></a> 
+<a name="l64"><span class="ln">64   </span></a> 
+<a name="l65"><span class="ln">65   </span></a></span><span class="s0">val </span><span class="s1">invoiceExtractData: JsValue = ??? 
+<a name="l66"><span class="ln">66   </span></a></span><span class="s0">val </span><span class="s1">bankAccountNumber = ??? 
+<a name="l67"><span class="ln">67   </span></a></span><span class="s0">val </span><span class="s1">paymentAmount = ???</span></pre>
+</body>
+</html>

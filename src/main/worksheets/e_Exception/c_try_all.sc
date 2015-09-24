@@ -10,18 +10,18 @@ val convert: Try[Int] = Try { "abc".toInt }
 Try.apply("abc".toInt)
 
 // TODO -2-  implement match clause for 'convert'
-// try is am abstract class, a sealed abstract class
-// with two sub final case classes
-//  1 - Success - contains the result
-//  2 - Failure - contains the exception
+/* try is am abstract class, a sealed abstract class
+ * with two sub final case classes
+ *  1 - Success - contains the result
+ *  2 - Failure - contains the exception */
 val convertResult = convert match {
   case Success(result) => println(s"Yipee $result")
   case Failure(exc) => println(s"Buhh $exc")
 }
 
 // TODO -me-  show few methods
-// use of map/flatMap/transform/getOrElse
-// => value *2 OR failure = -1
+/* use of map/flatMap/transform/getOrElse
+ * => value *2 OR failure = -1 */
 val a1 = convert.flatMap(x => Success(x*2))
 val a2 = convert.transform(x => Success(x*1), e => Success(-1))
 val a3 = convert.map(x => x*2)

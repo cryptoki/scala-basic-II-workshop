@@ -29,7 +29,7 @@ def convertToInt(input: String): Int = {
 // intConverterFallback
 // ====================================
 
-// => Anmerkung => convertToInt von oben wird hier genutzt
+/* => Anmerkung => convertToInt von oben wird hier genutzt */
 
 def convertFailsafeToInt(input: String): Int = {
   try {

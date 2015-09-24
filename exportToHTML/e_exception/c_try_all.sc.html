@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>c_try_all.sc</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { }
+.s2 { color: rgb(190,105,50); }
+.s3 { color: rgb(48,128,96); font-style: italic; }
+.s4 { color: rgb(0,128,0); font-weight: bold; }
+.s5 { color: rgb(128,128,128); font-style: italic; }
+.s6 { color: rgb(64,109,173); }
+.s7 { color: rgb(0,0,255); }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+c_try_all.sc</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<a name="l1"><span class="ln">1    </span></a><span class="s0">import </span><span class="s1">scala.util.{Try</span><span class="s2">, </span><span class="s1">Success</span><span class="s2">, </span><span class="s1">Failure} 
+<a name="l2"><span class="ln">2    </span></a> 
+<a name="l3"><span class="ln">3    </span></a></span><span class="s3">// Intro</span><span class="s1"> 
+<a name="l4"><span class="ln">4    </span></a></span><span class="s3">// =====</span><span class="s1"> 
+<a name="l5"><span class="ln">5    </span></a></span><span class="s3">// TODO -1-  implement an exception handling without</span><span class="s1"> 
+<a name="l6"><span class="ln">6    </span></a></span><span class="s3">//           try/catch clause use the Try class</span><span class="s1"> 
+<a name="l7"><span class="ln">7    </span></a></span><span class="s3">// TODO -me-  show method signature call by name</span><span class="s1"> 
+<a name="l8"><span class="ln">8    </span></a></span><span class="s3">// the old known Int converter</span><span class="s1"> 
+<a name="l9"><span class="ln">9    </span></a></span><span class="s0">val </span><span class="s1">convert: Try[Int] = Try { </span><span class="s4">&quot;abc&quot;</span><span class="s1">.toInt } 
+<a name="l10"><span class="ln">10   </span></a>Try.apply(</span><span class="s4">&quot;abc&quot;</span><span class="s1">.toInt) 
+<a name="l11"><span class="ln">11   </span></a> 
+<a name="l12"><span class="ln">12   </span></a></span><span class="s3">// TODO -2-  implement match clause for 'convert'</span><span class="s1"> 
+<a name="l13"><span class="ln">13   </span></a></span><span class="s5">/* try is am abstract class, a sealed abstract class 
+<a name="l14"><span class="ln">14   </span></a> * with two sub final case classes 
+<a name="l15"><span class="ln">15   </span></a> *  1 - Success - contains the result 
+<a name="l16"><span class="ln">16   </span></a> *  2 - Failure - contains the exception */</span><span class="s1"> 
+<a name="l17"><span class="ln">17   </span></a></span><span class="s0">val </span><span class="s1">convertResult = convert </span><span class="s0">match </span><span class="s1">{ 
+<a name="l18"><span class="ln">18   </span></a>  </span><span class="s0">case </span><span class="s1">Success(result) =&gt; println(</span><span class="s4">s&quot;Yipee </span><span class="s6">$</span><span class="s1">result</span><span class="s4">&quot;</span><span class="s1">) 
+<a name="l19"><span class="ln">19   </span></a>  </span><span class="s0">case </span><span class="s1">Failure(exc) =&gt; println(</span><span class="s4">s&quot;Buhh </span><span class="s6">$</span><span class="s1">exc</span><span class="s4">&quot;</span><span class="s1">) 
+<a name="l20"><span class="ln">20   </span></a>} 
+<a name="l21"><span class="ln">21   </span></a> 
+<a name="l22"><span class="ln">22   </span></a></span><span class="s3">// TODO -me-  show few methods</span><span class="s1"> 
+<a name="l23"><span class="ln">23   </span></a></span><span class="s5">/* use of map/flatMap/transform/getOrElse 
+<a name="l24"><span class="ln">24   </span></a> * =&gt; value *2 OR failure = -1 */</span><span class="s1"> 
+<a name="l25"><span class="ln">25   </span></a></span><span class="s0">val </span><span class="s1">a1 = convert.flatMap(x =&gt; Success(x*</span><span class="s7">2</span><span class="s1">)) 
+<a name="l26"><span class="ln">26   </span></a></span><span class="s0">val </span><span class="s1">a2 = convert.transform(x =&gt; Success(x*</span><span class="s7">1</span><span class="s1">)</span><span class="s2">, </span><span class="s1">e =&gt; Success(-</span><span class="s7">1</span><span class="s1">)) 
+<a name="l27"><span class="ln">27   </span></a></span><span class="s0">val </span><span class="s1">a3 = convert.map(x =&gt; x*</span><span class="s7">2</span><span class="s1">) 
+<a name="l28"><span class="ln">28   </span></a></span><span class="s0">val </span><span class="s1">a4 = convert.getOrElse(-</span><span class="s7">1</span><span class="s1">) 
+<a name="l29"><span class="ln">29   </span></a> 
+<a name="l30"><span class="ln">30   </span></a> 
+<a name="l31"><span class="ln">31   </span></a></span><span class="s3">// ==&gt; PUI (gateways PaymentApiClient, SemanticApiClient...)</span><span class="s1"> 
+<a name="l32"><span class="ln">32   </span></a> 
+<a name="l33"><span class="ln">33   </span></a> 
+<a name="l34"><span class="ln">34   </span></a></span><span class="s3">// ====================================</span><span class="s1"> 
+<a name="l35"><span class="ln">35   </span></a></span><span class="s3">// optional</span><span class="s1"> 
+<a name="l36"><span class="ln">36   </span></a></span><span class="s3">// ====================================</span><span class="s1"> 
+<a name="l37"><span class="ln">37   </span></a> 
+<a name="l38"><span class="ln">38   </span></a></span><span class="s3">// work with monad functions</span><span class="s1"> 
+<a name="l39"><span class="ln">39   </span></a></span><span class="s3">// =========================</span><span class="s1"> 
+<a name="l40"><span class="ln">40   </span></a> 
+<a name="l41"><span class="ln">41   </span></a></span><span class="s0">val </span><span class="s1">list = Seq(</span><span class="s4">&quot;3&quot;</span><span class="s2">, </span><span class="s4">&quot;mal&quot;</span><span class="s2">, </span><span class="s4">&quot;4&quot;</span><span class="s2">, </span><span class="s4">&quot;is&quot;</span><span class="s2">, </span><span class="s4">&quot;gleich&quot;</span><span class="s2">, </span><span class="s4">&quot;12&quot;</span><span class="s1">) 
+<a name="l42"><span class="ln">42   </span></a> 
+<a name="l43"><span class="ln">43   </span></a></span><span class="s3">// TODO -1-  convert Strings into Int with Try</span><span class="s1"> 
+<a name="l44"><span class="ln">44   </span></a></span><span class="s0">def </span><span class="s1">convert(list: Seq[String]): Seq[Try[Int]] = list.map(x =&gt; Try(x.toInt)) 
+<a name="l45"><span class="ln">45   </span></a></span><span class="s3">// what should be the result of the convert method?</span><span class="s1"> 
+<a name="l46"><span class="ln">46   </span></a></span><span class="s0">val </span><span class="s1">resultConvert = convert(list) 
+<a name="l47"><span class="ln">47   </span></a> 
+<a name="l48"><span class="ln">48   </span></a> 
+<a name="l49"><span class="ln">49   </span></a></span><span class="s3">// TODO -2-  return a Int Sequence only with the natural numbers</span><span class="s1"> 
+<a name="l50"><span class="ln">50   </span></a></span><span class="s0">def </span><span class="s1">onlyNumbers(list: Seq[Try[Int]]): Seq[Int] = 
+<a name="l51"><span class="ln">51   </span></a>  list.filter(x =&gt; x.isSuccess).map(x =&gt; x.get) 
+<a name="l52"><span class="ln">52   </span></a> 
+<a name="l53"><span class="ln">53   </span></a></span><span class="s0">val </span><span class="s1">resultOnlyNumbers = onlyNumbers(resultConvert) 
+<a name="l54"><span class="ln">54   </span></a>assert(resultOnlyNumbers == Seq(</span><span class="s7">3</span><span class="s2">,</span><span class="s7">4</span><span class="s2">,</span><span class="s7">12</span><span class="s1">)) 
+<a name="l55"><span class="ln">55   </span></a> 
+<a name="l56"><span class="ln">56   </span></a> 
+<a name="l57"><span class="ln">57   </span></a></span><span class="s3">// TODO -3-  sum up every number in 'resultConvert'</span><span class="s1"> 
+<a name="l58"><span class="ln">58   </span></a></span><span class="s0">def </span><span class="s1">sum(list: Seq[Try[Int]]): Int = 
+<a name="l59"><span class="ln">59   </span></a>  list.map(x =&gt; x.getOrElse(</span><span class="s7">0</span><span class="s1">)).sum 
+<a name="l60"><span class="ln">60   </span></a> 
+<a name="l61"><span class="ln">61   </span></a></span><span class="s0">val </span><span class="s1">resultSum = sum(resultConvert) 
+<a name="l62"><span class="ln">62   </span></a>assert(resultSum==</span><span class="s7">19</span><span class="s1">) 
+<a name="l63"><span class="ln">63   </span></a> 
+<a name="l64"><span class="ln">64   </span></a> 
+<a name="l65"><span class="ln">65   </span></a></span><span class="s3">// TODO -4-  result of number * 2 + 1 for every failure?</span><span class="s1"> 
+<a name="l66"><span class="ln">66   </span></a></span><span class="s3">//           3*2 + 1 + 4*2 + 1 + 1 + 12*2</span><span class="s1"> 
+<a name="l67"><span class="ln">67   </span></a></span><span class="s0">def </span><span class="s1">sumNumber2AndAddFailure(list: Seq[Try[Int]]): Int = 
+<a name="l68"><span class="ln">68   </span></a>  sum(list.map(x =&gt; x.transform(x =&gt; Success(x*</span><span class="s7">2</span><span class="s1">)</span><span class="s2">, </span><span class="s1">e =&gt; Success(</span><span class="s7">1</span><span class="s1">)))) 
+<a name="l69"><span class="ln">69   </span></a> 
+<a name="l70"><span class="ln">70   </span></a></span><span class="s0">val </span><span class="s1">resultSumNumber2AndAddFailure = sumNumber2AndAddFailure(resultConvert) 
+<a name="l71"><span class="ln">71   </span></a>assert(resultSumNumber2AndAddFailure == </span><span class="s7">41</span><span class="s1">) 
+<a name="l72"><span class="ln">72   </span></a> 
+<a name="l73"><span class="ln">73   </span></a> 
+<a name="l74"><span class="ln">74   </span></a> 
+<a name="l75"><span class="ln">75   </span></a></span><span class="s3">// ====================================</span><span class="s1"> 
+<a name="l76"><span class="ln">76   </span></a></span><span class="s3">// Recover</span><span class="s1"> 
+<a name="l77"><span class="ln">77   </span></a></span><span class="s3">// ====================================</span><span class="s1"> 
+<a name="l78"><span class="ln">78   </span></a> 
+<a name="l79"><span class="ln">79   </span></a></span><span class="s0">import </span><span class="s1">scala.util.Try 
+<a name="l80"><span class="ln">80   </span></a> 
+<a name="l81"><span class="ln">81   </span></a></span><span class="s0">def </span><span class="s1">divideBy(input: Int</span><span class="s2">, </span><span class="s1">divisor: Int) : Try[Int] = { 
+<a name="l82"><span class="ln">82   </span></a>  Try(input / divisor) 
+<a name="l83"><span class="ln">83   </span></a>} 
+<a name="l84"><span class="ln">84   </span></a> 
+<a name="l85"><span class="ln">85   </span></a></span><span class="s3">// TODO -1-  What is the result of  'divideBy(10, 0)'?</span><span class="s1"> 
+<a name="l86"><span class="ln">86   </span></a></span><span class="s0">val </span><span class="s1">result1: Try[Int] = divideBy(</span><span class="s7">10</span><span class="s2">, </span><span class="s7">0</span><span class="s1">) 
+<a name="l87"><span class="ln">87   </span></a> 
+<a name="l88"><span class="ln">88   </span></a> 
+<a name="l89"><span class="ln">89   </span></a></span><span class="s3">// TODO -2-  use recover to return -1 if Failure</span><span class="s1"> 
+<a name="l90"><span class="ln">90   </span></a>divideBy(</span><span class="s7">3</span><span class="s2">,</span><span class="s7">0</span><span class="s1">).recover({ 
+<a name="l91"><span class="ln">91   </span></a>  </span><span class="s0">case </span><span class="s1">e: ArithmeticException =&gt; -</span><span class="s7">1</span><span class="s1"> 
+<a name="l92"><span class="ln">92   </span></a>}) 
+<a name="l93"><span class="ln">93   </span></a> 
+<a name="l94"><span class="ln">94   </span></a> 
+<a name="l95"><span class="ln">95   </span></a></span><span class="s3">// TODO -3-  use recoverWith to &quot;try&quot; another divideBy</span><span class="s1"> 
+<a name="l96"><span class="ln">96   </span></a>divideBy(</span><span class="s7">3</span><span class="s2">,</span><span class="s7">0</span><span class="s1">).recoverWith({ 
+<a name="l97"><span class="ln">97   </span></a>  </span><span class="s0">case </span><span class="s1">e: ArithmeticException =&gt; divideBy(</span><span class="s7">3</span><span class="s2">,</span><span class="s7">1</span><span class="s1">) 
+<a name="l98"><span class="ln">98   </span></a>}) 
+<a name="l99"><span class="ln">99   </span></a> 
+<a name="l100"><span class="ln">100  </span></a></span><span class="s3">// ==&gt; PUI (DownloadFromBlobRocket...)</span></pre>
+</body>
+</html>
