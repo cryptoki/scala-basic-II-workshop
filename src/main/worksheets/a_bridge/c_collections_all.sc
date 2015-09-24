@@ -27,20 +27,20 @@ assert(list2(0) == "b")
 assert(list2(1) == "c")
 
 
-// append
-// ------
-// the operator '::' is defined in List
-//   - Scala use internal case class '::' which extends List
-//   - add the left operand as first element to the new list and return it
+/* append
+ * ------
+ * the operator '::' is defined in List
+ *   - Scala use internal case class '::' which extends List
+ *   - add the left operand as first element to the new list and return it */
 // TODO -me-  append value "a" to the head of list2
 val list3:List[String] = "a" :: list2
 
 assert(list3(0) == "a")
 
-// the same to ::
+/* the same to :: */
 list2.::("a")
-// => http://www.scala-lang.org/api/2.11.5/index.html#scala.collection.immutable.List
-// => Scala Basic Part I
+/* => http://www.scala-lang.org/api/2.11.5/index.html#scala.collection.immutable.List
+ * => Scala Basic Part I */
 
 
 // TODO -me- concat list2 and list3

@@ -6,13 +6,13 @@
 // var/val
 
 // a )
-/** TODO -1- define a constant variable 'a' with value 5 */
-/** TODO -2- reassign the value with 3 */
+// TODO -1-  define a constant variable 'a' with value 5
+// TODO -2-  reassign the value with 3
 val a: Int = 1
 
 // b )
-/** TODO -1- define a variable 'b' with value 10 */
-/** TODO -2- reassign the value with 12 */
+// TODO -1-  define a variable 'b' with value 10
+// TODO -2-  reassign the value with 12
 var b: Int = 2
 b = 3
 
@@ -22,8 +22,8 @@ b = 3
 // ====================================
 
 // a )
-/** TODO -1-  define a method with an Int parameter named 'x' */
-/**           and calculates 'x*x' */
+// TODO -1-  define a method with an Int parameter named 'x'
+//           and calculates 'x*x'
 def quadrat(x: Int) : Int = {
   x*x
 }
@@ -37,7 +37,7 @@ def example() = {
   lazy val b = x*x
 
   x=25
-  /** TODO -1-  which value has a and b? */
+  // TODO -1-  which value has a and b?
   println(s"a=$a - b=$b")
 }
 example()
@@ -51,10 +51,10 @@ def fibonacci(x: Int): Int = {
   433494437
 }
 
-/** TODO -me-  define a method 'doSomething' which takes */
+// TODO -me-  define a method 'doSomething' which takes
 //            a as CallByValue and b as CallByName
 def doSomething(a: Int, b: => Int) = {}
 
-/** TODO -1-  what happend if u call the method with */
+// TODO -1-  what happend if u call the method with
 //           fibonacci(43) and fibonacci(3243244)
 doSomething(fibonacci(43), fibonacci(3243244))

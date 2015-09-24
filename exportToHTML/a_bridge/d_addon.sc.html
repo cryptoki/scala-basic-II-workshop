@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>d_addon.sc</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { }
+.s2 { color: rgb(0,128,0); font-weight: bold; }
+.s3 { color: rgb(64,109,173); }
+.s4 { color: rgb(0,0,255); }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+d_addon.sc</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<a name="l1"><span class="ln">1    </span></a><span class="s0">val </span><span class="s1">listForTesting: List[Int] = List() 
+<a name="l2"><span class="ln">2    </span></a>listForTesting </span><span class="s0">match </span><span class="s1">{ 
+<a name="l3"><span class="ln">3    </span></a>  </span><span class="s0">case </span><span class="s1">head +: Nil =&gt; 
+<a name="l4"><span class="ln">4    </span></a>    println(</span><span class="s2">s&quot;-1- found head </span><span class="s3">$</span><span class="s1">{head}</span><span class="s2">&quot;</span><span class="s1">) 
+<a name="l5"><span class="ln">5    </span></a> 
+<a name="l6"><span class="ln">6    </span></a>  </span><span class="s0">case </span><span class="s1">head +: head2 +: tail </span><span class="s0">if </span><span class="s1">(head2 == </span><span class="s4">3</span><span class="s1">) =&gt; 
+<a name="l7"><span class="ln">7    </span></a>    println(</span><span class="s2">s&quot;-2- found head=</span><span class="s3">$</span><span class="s1">head</span><span class="s2"> head2=</span><span class="s3">$</span><span class="s1">head2</span><span class="s2"> with </span><span class="s3">$</span><span class="s1">{tail.length}</span><span class="s2">&quot;</span><span class="s1">) 
+<a name="l8"><span class="ln">8    </span></a> 
+<a name="l9"><span class="ln">9    </span></a>  </span><span class="s0">case </span><span class="s1">head +:tail =&gt; 
+<a name="l10"><span class="ln">10   </span></a>    println(</span><span class="s2">s&quot;-3- found tail with length tail length </span><span class="s3">$</span><span class="s1">{tail.length}</span><span class="s2">&quot;</span><span class="s1">) 
+<a name="l11"><span class="ln">11   </span></a> 
+<a name="l12"><span class="ln">12   </span></a>  </span><span class="s0">case </span><span class="s1">Nil =&gt; println(</span><span class="s2">&quot;Empty&quot;</span><span class="s1">) 
+<a name="l13"><span class="ln">13   </span></a> 
+<a name="l14"><span class="ln">14   </span></a>  </span><span class="s0">case </span><span class="s1">_ =&gt; println(</span><span class="s2">&quot;bla&quot;</span><span class="s1">) 
+<a name="l15"><span class="ln">15   </span></a>}</span></pre>
+</body>
+</html>

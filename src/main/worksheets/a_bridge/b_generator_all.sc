@@ -2,9 +2,9 @@
 // Range
 // ====================================
 
-// '<-' expression is called GENERATOR in Scala
-// it generates individual values from a collection
-// each loop generates a NEW val i
+/* '<-' expression is called GENERATOR in Scala
+ * it generates individual values from a collection
+ * each loop generates a NEW val i */
 
 // TODO -me-  define a range from 0 to 10
 val range1 = Range(0, 10, 1)
