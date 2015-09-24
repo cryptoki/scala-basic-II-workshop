@@ -22,6 +22,7 @@ class GitLogReaderTest extends FunSuite with Matchers {
       gitLog <- GitLogReader.jsonToObj(jsValue)
     } yield gitLog
 
+    println(gitLog)
     assert(gitLog.isDefined)
   }
 }
