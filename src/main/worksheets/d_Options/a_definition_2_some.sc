@@ -3,7 +3,7 @@
 
 
 // 1  case class Some
-// represents existing values of type
+// represents existing values
 val some1 = ???
 
 val some2 = ???
