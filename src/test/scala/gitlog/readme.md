@@ -10,6 +10,8 @@ data as possible. Data conversions in the frontend shouldn't be necessary.
  * [/src/test/scala/gitlog/GitLogReader](/src/test/scala/gitlog/GitLogReader.scala) Reads example content and converts it to a JsValue. Must be extended in terms of error handling to fix some of the tests
  * [/src/test/scala/gitlog/GitLogModels](/src/test/scala/gitlog/GitLogModels.scala) DTOs and transformation logic.
  * [/src/test/scala/gitlog/GitLogService](/src/test/scala/gitlog/GitLogService.scala) Contains functions to implement.
+ * [/src/test/scala/gitlog/GitLogServiceSpec](/src/test/scala/gitlog/GitLogServiceSpec.scala) Contains tests for [GitLogService](/src/test/scala/gitlog/GitLogService.scala). *Must not be changed to fix tests.*
+ * [/src/test/scala/gitlog/GitLogReaderTest](/src/test/scala/gitlog/GitLogReaderTest.scala) Contains tests for  [GitLogReader](/src/test/scala/gitlog/GitLogReader.scala). *Must not be changed to fix tests.*
  
 ## Run tests
  * Run ./sbt
