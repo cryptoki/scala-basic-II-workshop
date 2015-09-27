@@ -22,7 +22,7 @@ This example simulates backend parts of a web application which is used to visua
 The simulated backend gets Git logs from a source in Json format. For optimal performance the backend should send as few
 data as possible. Data conversions in the frontend shouldn't be necessary.
 
-For details see [/src/test/scala/gitlog](/src/test/scala/gitlog)
+For details see [gitlog example package](/src/test/scala/gitlog)
   
 #### Resources
 * Daniel Westheide: The Neophyte's Guide to Scala (https://leanpub.com/theneophytesguidetoscala)
