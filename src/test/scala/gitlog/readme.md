@@ -11,6 +11,7 @@
 * Commits per Day
 
 # Schwer
+* Tests für stats part
 * Anzahl contributers ohne Doppelungen, gleicher Name, aber E-Mail Adresse anders
   * wir nehmen an, dass der Name (Vor- und Nachname für die Eindeutigkeit ausreicht)
 * Contributers für ein bestimmtes File
