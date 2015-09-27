@@ -24,7 +24,7 @@ data as possible. Data conversions in the frontend shouldn't be necessary.
 
 For details see [gitlog example package](/src/test/scala/gitlog)
   
-#### Resources
+## Resources
 * Daniel Westheide: The Neophyte's Guide to Scala (https://leanpub.com/theneophytesguidetoscala)
 * Scala levels: beginner to expert, application programmer to library designer
  - http://www.scala-lang.org/old/node/8610
@@ -36,7 +36,7 @@ For details see [gitlog example package](/src/test/scala/gitlog)
  - http://stackoverflow.com/questions/11359784/good-examples-of-idiomatic-scala-code
 
 
-#### Agenda
+## Example Agenda
 
 ##### Intro
 09:00 - 09:15
