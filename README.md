@@ -16,21 +16,14 @@ Scala worksheets as supported by [IntelliJ IDEA](https://www.jetbrains.com/idea/
 ## Test Package
 Contains small exercises in form of [Scala Test](http://www.scalatest.org/) tests.  
 
-### Content
- * The package [/src/test/scala/gitlog](/src/test/scala/gitlog) contains all files of the example app. Parts of these files must be changed during the
- workshop to fix failing tests
- * [/src/test/scala/gitlog/scala-gitlog.json](/src/test/scala/gitlog/scala-gitlog.json) Example Json data. *Must not be changed to fix tests.*
- * [/src/test/scala/gitlog/GitLogReader](/src/test/scala/gitlog/GitLogReader.scala) Reads example content and converts it to a JsValue. *Must not be changed to fix tests.*
- * [/src/test/scala/gitlog/GitLogModels](/src/test/scala/gitlog/GitLogModels.scala) DTOs and transformation logic.
- * Other packages contain test code 
-
 ### Gitlog Example App
 This example simulates backend parts of a web application which is used to visualize information from Git logs.
 
 The simulated backend gets Git logs from a source in Json format. For optimal performance the backend should send as few
 data as possible. Data conversions in the frontend shouldn't be necessary.
-  
 
+For details see [/src/test/scala/gitlog](/src/test/scala/gitlog)
+  
 #### Resources
 * Daniel Westheide: The Neophyte's Guide to Scala (https://leanpub.com/theneophytesguidetoscala)
 * Scala levels: beginner to expert, application programmer to library designer
