@@ -34,6 +34,8 @@ For details see [gitlog example package](/src/test/scala/gitlog)
  - http://twitter.github.io/effectivescala/
 * Idiomatic Scala Question on Stackoverflow
  - http://stackoverflow.com/questions/11359784/good-examples-of-idiomatic-scala-code
+* Java developer's Scala cheatsheet
+ - http://mbonaci.github.io/scala/   
 
 
 ## Example Agenda
