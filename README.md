@@ -25,6 +25,7 @@ data as possible. Data conversions in the frontend shouldn't be necessary.
 For details see [gitlog example package](/src/test/scala/gitlog)
   
 ## Resources
+* Scala class hierarchy: http://www.scala-lang.org/old/sites/default/files/images/classhierarchy.png
 * Daniel Westheide: The Neophyte's Guide to Scala (https://leanpub.com/theneophytesguidetoscala)
 * Scala levels: beginner to expert, application programmer to library designer
  - http://www.scala-lang.org/old/node/8610
