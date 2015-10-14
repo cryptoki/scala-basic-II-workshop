@@ -2,7 +2,7 @@ name := "scala-basics-part-2"
 
 version := "0.1.0-SNAPSHOT"
 
-organization := "de.epost"
+organization := "org.scalafun"
 
 scalaVersion := "2.11.6"
 
